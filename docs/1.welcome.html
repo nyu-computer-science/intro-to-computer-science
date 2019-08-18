@@ -125,6 +125,7 @@ for i in range(10):
 i = 0
 while i < 10:
     print("Welcome!")
+    i = i + 1
 ```
 
 ---
@@ -155,12 +156,41 @@ phone_numbers: {
 
 ---
 
+# What you knew you knew
+## Text files
+
+```python
+# open file in read mode
+f = open('data.csv', 'r')
+```
+
+```python
+# print out each line of the file
+for line in f:
+    print(line)
+```
+
+# What you knew you knew
+## Strings
+
+```python
+text = "This,That,The other"
+text = text.lower()
+data = text.split(",")
+```
+
+---
+
 # What you didn't know you know
 - Variables and literals
 - Dot notation
 
 ```python
 "I am literally a literal"
+```
+
+```python
+I_am_not
 ```
 
 ---
