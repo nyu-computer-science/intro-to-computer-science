@@ -135,9 +135,9 @@ while i < 10:
 
 ```python
 favorite_foods = [
-    "Pizza with glyphosate-coated wheat flour", 
-    "Coffee with corn syrup solids added",
-    "Emulsified non-fat ice cream"
+    "Pizza with glyphosate-coated bleached wheat flour", 
+    "Coffee with GMO corn syrup solids added",
+    "Emulsified non-fat sugar-free ice cream with artificial sweetener"
     ]
 ```
 
@@ -149,8 +149,8 @@ favorite_foods = [
 ```python
 phone_numbers: {
     "Foo Barstein": "646-888-5623",
-    "Baz Foo": "212-717-3297",
-    "Bar Baz": "747-211-8451"
+    "Baz Foo":      "212-717-3297",
+    "Bar Baz":      "747-211-8451"
 }    
 ```
 
@@ -170,13 +170,17 @@ for line in f:
     print(line)
 ```
 
+---
+
 # What you knew you knew
 ## Strings
 
 ```python
 text = "This,That,The other"
 text = text.lower()
-data = text.split(",")
+pos = text.find(",")
+if pos > 0:
+    data = text.split(",")
 ```
 
 ---
@@ -200,6 +204,14 @@ I_am_not
 
 ```python
 you = new Student("Jane Doe")
+```
+
+```python
+me = new Professor("Foo Barstein")
+```
+
+```python
+me.say_hello(you)
 ```
 
 ---
