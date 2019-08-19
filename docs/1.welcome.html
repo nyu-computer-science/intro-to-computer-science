@@ -23,18 +23,38 @@ Intro to Computer Science
 ---
 
 # Introductions
+- This course
+- Me
+- You
 
+---
+
+# Introductions
 ## This course
 Introduction to Computer Science
+- Syllabus: https://knowledge.kitchen/Computer_Science_Syllabus
+- Schedule: https://knowledge.kitchen/Computer_Science_Schedule
 
+How to design algorithms to solve problems and how to translate these algorithms into working computer programs. Experience is acquired through projects in a high-level programming language. Intended primarily for computer science majors but also suitable for students of other scientific disciplines. Programming assignments.
+
+---
+
+# Introductions
 ## Me
 Foo Barstein
 
+---
+
+# Introductions
 ## You
-Probably an aspiring programmer.  Perhaps an aspiring computer scientist.
+Probably an aspiring programmer.  Perhaps an aspiring computer scientist.  Hopefully interested in making things and solving problems.
 
 ```python
 not programming == computer_sciencing
+```
+
+```python
+computer_sciencing not in sciences
 ```
 
 ---
@@ -188,6 +208,12 @@ if pos > 0:
 # What you didn't know you know
 - Variables and literals
 - Dot notation
+- Other languages
+
+---
+
+# What you didn't know you know
+## Variables and literals
 
 ```python
 "I am literally a literal"
@@ -197,6 +223,47 @@ if pos > 0:
 I_am_not
 ```
 
+```python
+washington = math.pow(park, 2)
+```
+
+---
+
+# What you didn't know you know
+## Dot notation
+
+```python
+random.randint(5, 10)
+```
+
+```python
+math.pow(2, 2)
+```
+
+```python
+'help me'.islower()
+```
+
+---
+
+# What you didn't know you know
+## Other languages
+How different are these?
+```python
+x = 5
+y = True
+if x < 10 and y == True:
+    print("Easy peasy!")
+```
+
+```java
+int x = 5;
+boolean y = true;
+if x < 10 and y == true {
+    System.out.println("Easy peasy!");
+}
+```
+    
 ---
 
 # What you knew you didn't know
@@ -218,9 +285,61 @@ me.say_hello(you)
 
 # What you didn't know you didn't know
 - Basic computer concepts and terminology
-- Alias vs copy
+- Alias vs. copy
 - Raw strings
 - Recursion
+
+---
+
+# What you didn't know you didn't know
+## Basic computer concepts and terminology
+- What is a file?  What is a folder?
+- What are good names for files and folders?
+- What is a compiler?  What is an interpreter?
+- What is an operating system?  What is an application?
+- What is the Internet? What is The World Wide Web?
+- What is The Cloud?
+
+---
+
+# What you didn't know you didn't know
+## Alias vs. copy
+What is printed?
+```python
+x = 5
+y = x
+x = 10
+print(y)
+```
+
+---
+
+# What you didn't know you didn't know
+## Raw strings
+How many lines are printed?
+```python
+x = "First line\nSecond line"
+print(x)
+```
+
+```python
+x = r"First line\nSecond line"
+print(x)
+```
+
+---
+
+# What you didn't know you didn't know
+## Recursion
+How many times is the function called?
+```python
+def foo(x):
+  if x < 3:
+      foo(x+1)
+      foo(x+1)
+      
+foo(1)
+```
 
 ---
 
