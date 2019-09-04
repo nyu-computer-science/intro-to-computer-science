@@ -6,8 +6,8 @@ permalink: /hello_world/
 
 class: center, middle
 
-# Welcome
-Hello World
+# Hello World
+Welcome
 
 ---
 
@@ -15,8 +15,9 @@ Hello World
 
 1. Assumptions
 2. Navigating with *NIX
-4. Starter code
-7. Conclusions
+3. Starter code
+4. Better starter code
+5. Conclusions
 
 ---
 
@@ -50,19 +51,21 @@ Warnings:
 - Never use SimpleText on OS X to edit code
 - Never use Notepad on Windows to edit code
 - Do not use Microsoft Word or Google Docs to edit code
+- Do not use emacs, or you will find yourself forever dreaming of keyboard shortcuts
 
 ---
 
 # Assumptions
 ## Ability to edit text
-If you want to have extra fun with the *NIX command line, use Emacs instead of Sublime Text.
-- Emacs is a plain text editor that can be run from the command line.
+Emacs is a plain text editor that can be run from the command line.
+
+If you want to have the most fun with the *NIX command line, use Emacs instead of Sublime Text.
 
 Emacs functionality depends upon a lot of keyboard shortcut combinations.  The following will get you started:
 - `Ctrl-x Ctrl-s` to save a file
-- `Ctrl-x Ctrl-c` to quit
+- `Ctrl-x Ctrl-c` to quit emacs
 
-Learn shortcuts with the [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
+Learn moree shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
 
 ---
 
@@ -91,6 +94,23 @@ foo@bar$ pwd
 ```
 
 Read more about the [current working directory](https://knowledge.kitchen/Basic_computer_concepts#The_working_directory).
+
+---
+
+# Navigating with *NIX
+## How do I go up one level
+To navigate up one level in the directory structure of your hard drive, use the `..` shortcut no matter where you currently are.
+
+```bash
+foo@bar$ pwd
+/Users/foo
+foo@bar$ cd ..
+foo@bar$ pwd
+/Users
+foo@bar$ cd ..
+foo@bar$ pwd
+/
+```
 
 ---
 
@@ -192,9 +212,258 @@ foo@bar$ pwd
 The `touch` command is useful for creating a blank file with a given name.
 
 ```bash
-foo@bar$ touch environmental_cosmetology_degrees.txt
-foo@bar$ emacs environmental_cosmetology_degrees.txt
+foo@bar$ touch environmental_cosmetology_degree_programs.txt
 ```
 
-The last line opens up the text file in the command-line text editor, emacs.
+To open up this new file in the command-line text editor:
+```bash
+foo@bar$ emacs environmental_cosmetology_degree_programs.txt
+```
 
+---
+
+# Navigating with *NIX
+## Create a blank new file
+The `touch` command is useful for creating a blank file with a given name.
+
+```bash
+foo@bar$ touch environmental_cosmetology_degree_programs.txt
+```
+
+To open up this new file in the command-line text editor:
+```bash
+foo@bar$ emacs environmental_cosmetology_degree_programs.txt
+```
+
+---
+
+# Navigating with *NIX
+## Rename or move a file
+Renaming is a variety of moving, using the `mv` command to move a file from one name to another.
+```bash
+foo@bar$ mv environmental_cosmetology_degree_programs.txt ecdp.txt
+```
+
+Or keep its current name, but move it to an entirely different directory:
+```bash
+foo@bar$ mv environmental_cosmetology_degree_programs.txt /Users/foo/Documents/
+```
+
+Or rename it and move it to an entirely different directory:
+```bash
+foo@bar$ mv /Users/foo/Documents/environmental_cosmetology_degree_programs.txt /Users/foo/Documents/ecdp.txt
+```
+
+---
+
+# Navigating with *NIX
+## Delete a file
+The `rm` command deletes files.
+
+Delete a file in the current working directory:
+```bash
+foo@bar$ rm heme_rich_foods.csv
+```
+
+Delete a file in a sub-directory of the current working directory:
+```bash
+foo@bar$ rm meat/fillers/heme_rich_foods.csv
+```
+
+Delete a file in a subdirectory of the root directory:
+```bash
+foo@bar$ rm /meat/fillers/heme_rich_foods.csv
+```
+
+---
+
+# Navigating with *NIX
+## Delete a directory
+The `rmdir` command deletes empty directories, while the `rm` command can be used to delete non-empty directories.
+
+Delete an empty sub-directory named `meat`:
+```bash
+foo@bar$ rmdir meat
+```
+
+Delete a non-empty directory with the `r` and `f` flags of the `rm` command:
+```bash
+foo@bar$ rm -rf meat
+```
+
+---
+
+# Navigating with *NIX
+## Create a directory
+The `mkdir` command creates an empty directory.
+
+Make a new sub-directory named `vegetables`:
+```bash
+foo@bar$ mkdir vegetables
+```
+
+Make a sub-directory of the parent directory:
+```bash
+foo@bar$ mkdir ../arugula
+```
+
+Make a new directory somewhere totally different on the hard drive:
+```bash
+foo@bar$ mkdir /Users/foo/Photos/compromising/nudes
+```
+
+---
+
+class: center, middle
+
+# Starter code
+
+---
+
+# Starter code
+## Create a file
+Create a new plain text file somewhere you know you can find it later.
+
+Make a file in a new sub-directory of your user account 'home' directory (using the `~` shortcut to navigate there):
+```bash
+foo@bar$ cd ~
+foo@bar$ mkdir first_try
+foo@bar$ cd first_try
+foo@bar$ touch MyFirstJavaProgram.java
+```
+
+---
+
+# Starter code
+## Add starter Java code to the file
+
+Edit the text file you just created using a text editor of your choice.
+```bash
+foo@bar$ emacs MyFirstJavaProgram.java
+```
+
+Add the following code:
+```java
+public class MyFirstJavaProgram {
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to Java from the command line!");
+
+	}
+}
+```
+
+---
+
+# Starter code
+## Save your file
+
+If you are using the emacs editor, press `Ctrl-x Ctrl-S` to save, then `Ctrl-x Ctrl-c` to quit.
+
+If using any other graphical user interface editor, just save the ordinary way.
+
+---
+
+# Starter code
+## Compile the Java source code
+
+Java code must be compiled to byte code before it can be run.  Use the `javac` command to do this.
+```bash
+foo@bar$ javac MyFirstJavaProgram.java
+```
+
+Note the full name of the .java file to compile.
+
+The compiler will now have automatically created a file named MyFirstJavaProgram.class in the same directory.
+
+---
+
+# Starter code
+## Execute the Java byte code
+
+The Java byte code can now be executed by the JVM, Java's interpreter, using the `java` command.
+```bash
+foo@bar$ java MyFirstJavaProgram
+Welcome to Java from the command line!
+```
+
+Note the command does not require the .java or .class file extension.
+
+---
+
+class: center, middle
+
+# Better starter code
+
+---
+
+# Better starter code
+## Add a package
+Java code can be organized into "packages" of related files.  
+
+Add a similar package declaration to your source code file in an editor of your choice, but replace `fb1258` with your own NYU Net ID.
+```java
+package edu.nyu.cs.fb1258;
+
+public class MyFirstJavaProgram {
+	public static void main(String[] args) {
+
+		System.out.println("Better welcome to Java from the command line!");
+
+	}
+}
+```
+
+---
+
+# Better starter code
+## Move the file to the proper location
+Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
+
+Create an appropriate set of sub-directories, and move both files at once:
+```bash
+foo@bar$ mkdir edu
+foo@bar$ mkdir edu/nyu
+foo@bar$ mkdir edu/nyu/cs
+foo@bar$ mkdir edu/nyu/cs/fb1258
+foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
+```
+
+---
+
+# Better starter code
+## Recompile the Java source code.
+Sadder still, the Java source code must now be re-compiled, since the byte code is no longer up to date.
+
+```bash
+foo@bar$ javac edu/nyu/cs/fb1258/MyFirstJavaProgram.java
+```
+
+This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate directory.
+
+---
+
+# Better starter code
+## Re-execute the Java byte code
+Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate code with the indicated package.
+
+```bash
+foo@bar$ javac classpath . edu.nyu.cs.fb1258.MyFirstJavaProgram
+Better welcome to Java from the command line!
+```
+
+Use package identifiers from now on.
+
+---
+
+class: center, middle
+
+# Conclusions
+
+---
+
+# Conclusions
+## We can now write and run Java programs
+In addition to learning a bit about the *NIX command line, you are now able to compile Java source code into Java byte code and execute the byte code using the JVM interpreter.
+
+Bye.
