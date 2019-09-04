@@ -59,10 +59,10 @@ If you want to have extra fun with the *NIX command line, use Emacs instead of S
 - Emacs is a plain text editor that can be run from the command line.
 
 Emacs functionality depends upon a lot of keyboard shortcut combinations.  The following will get you started:
-- `Ctrl-x`, `Ctrl-s` to save a file
-- `Ctrl-x`, `Ctrl-c` to quit
+- `Ctrl-x Ctrl-s` to save a file
+- `Ctrl-x Ctrl-c` to quit
 
-Emacs [cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
+Learn shortcuts with the [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
 
 ---
 
@@ -78,16 +78,6 @@ Unix commands are necessary in order to be able to navigate directories/folders 
 - all Unix commands are run in the command-line interface, such as that offered by Terminal on OS X or Git Bash on Windows.
 
 Review [basic Unix commands](https://knowledge.kitchen/Basic_UNIX/Linux_file_management).
----
-
-# Navigating with *NIX
-## Where am I?
-At any point in time, you are actively within one specific directory.  To determine which directory that is at any point, run the `pwd` command:
-
-```console
-foo@bar$ pwd
-/Users/foo
-```
 
 ---
 
@@ -95,7 +85,7 @@ foo@bar$ pwd
 ## Where am I?
 At any point in time, you are actively within one specific directory, known as the current working directory.  To determine which directory that is at any point, run the `pwd` command:
 
-```console
+```bash
 foo@bar$ pwd
 /Users/foo
 ```
@@ -108,7 +98,7 @@ Read more about the [current working directory](https://knowledge.kitchen/Basic_
 ## How do I get to the top?
 To navigate to the top-most directory of your hard drive, known as the "root directory", use the `cd` command with the `/` symbol indicating root directory as the desired destination.
 
-```console
+```bash
 foo@bar$ cd /
 foo@bar$ pwd
 /
@@ -122,7 +112,7 @@ The current working directory is now the root directory.
 ## How do I see what directories and files are within the current working directory?
 Use the `ls` command to show non-hidden files and directories that are within the current working directory.
 
-```console
+```bash
 foo@bar$ ls
 dir1    dir4    file2
 dir2    dir5    file3
@@ -135,7 +125,7 @@ dir3    file1   file4
 ## How do I see what hidden directories and files are within the current working directory?
 Hidden files and directoriess simply begin with the '.' character.  To view a listing of files and directories including them, use the `a` flag on the `ls` command.
 
-```console
+```bash
 foo@bar$ ls -a
 .hidden_dir1    dir1    dir4    file2
 .hidden_dir2    dir2    dir5    file3
@@ -148,7 +138,7 @@ foo@bar$ ls -a
 ## How do I see more information about each of the files and directories in the listing?
 To view a listing of files and directories including metadata about each item, use the `l` flag on the `ls` command.
 
-```console
+```bash
 foo@bar$ ls -a
 drwx------+ 10 foo  bar   320 Sep  4 10:41 dir1 
 drwx------+ 19 foo  bar   608 Aug 30 21:38 dir2
@@ -173,11 +163,13 @@ foo@bar$ ls -la
 ## How do I drill down?
 To navigate to sub-directory that is within the current directory, use the `cd` command with the name of the sub-directory that is the desired destination.
 
-```console
+```bash
 foo@bar$ cd bar
 foo@bar$ pwd
 /bar
 ```
+
+Note that writing `cd /bar`, with the forward slash, would navigate to a directory named `bar` that is a sub-directory of the root directory, if any such directory exists, which is not what you wanted.
 
 ---
 
@@ -185,7 +177,7 @@ foo@bar$ pwd
 ## How do I jump to a directory from anywhere
 If you kmow the full path of a directory you want to navigate to, type it after the `cd` command.
 
-```console
+```bash
 foo@bar$ pwd
 /bar/baz
 foo@bar$ cd /Users/foo/Documents/my_favorite_ice_cream
@@ -193,6 +185,16 @@ foo@bar$ pwd
 /Users/foo/Documents/my_favorite_ice_cream
 ```
 
+---
 
+# Navigating with *NIX
+## Create a blank new file
+The `touch` command is useful for creating a blank file with a given name.
 
+```bash
+foo@bar$ touch environmental_cosmetology_degrees.txt
+foo@bar$ emacs environmental_cosmetology_degrees.txt
+```
+
+The last line opens up the text file in the command-line text editor, emacs.
 
