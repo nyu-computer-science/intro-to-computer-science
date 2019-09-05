@@ -215,10 +215,10 @@ drwx------+ 19 foo  bar   611 Aug 21 21:38 dir5
 ```
 
 The metadata included in a long listing of files and directories in the working directory indicates a few different things, including:
-- whether the item is a file or a directory - directories are indicated by a `d` at the beginning of the line, files show `-`.
-- which types of users can read, write, and execute the file or directory - in this case, the user who owns each of the items can read, write and execute each of them, indicated by the `rwx` letters in each line.  No other users can do any of these things with these items.
-- which user owns the file or directory - the user `foo` in this case owns all the items
-- which group of users owns the file or directory - the user `bar` in this case owns all the items
+- directories are indicated by a `d` at the beginning of the line, files show `-` instead.
+- the user who owns each of the items can read, write and execute each of them, indicated by the `rwx` letters in each line.  No other users can do any of these things with these items.
+- the single user `foo` owns all these items
+- the group of users named `bar` owns all these items
 
 ---
 
