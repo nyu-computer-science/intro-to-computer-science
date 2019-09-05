@@ -47,19 +47,21 @@ If you have any terminal emulators open (such as Terminal or Git Bash), close th
 ## Understanding of plain text
 Plain text is a term frequently used to mean one data on a computer that is represented as codes in the ASCII encoding system or the Unicode encoding system, a successor to ASCII.
 
-These coding systems map specific numeric codes to every text character.  For example, the letter `C` might be 42 and `D` might be 43.  When you as a human see plain text on your screen or type text characters on your keyboard, chances are the computer behind the scenes willl store that text's numeric codes (in binary) according to one of these two encoding systems.  
+These coding systems map specific numeric codes to every text character.  For example, the letter `a` is 97, `b` is 98, and so on and so forth.  
 
-A plain text file is a file that has nothing but numeric codes that map out to characters in one of these systems.  Unicode is today's standard and includes everything ASCII did, plus more.
+When you as a human see plain text on your screen or type text characters on your keyboard, chances are the computer behind the scenes will store that text's numeric codes (in binary) according to one of these two encoding systems.  
+
+A plain text file is a file that has nothing but numeric codes that map out to characters in one of these systems.  Unicode is today's standard and includes all the Anglocentric characters ASCII did, plus characters of all other languages.
 
 ---
 
 # Assumptions
 ## Ability to edit text
 Computer programming code is plain text.  In order to edit code, you will need a decent plain text editor program.
-- Install [Sublime Text](https://www.sublimetext.com/), a freee good quality plain text editor.
+- Install [Sublime Text](https://www.sublimetext.com/), a free good quality plain text editor.
 - Sublime Text is freeware, but periodically will ask for donations. You are not required to donate.
 
-Warnings:
+### Warnings
 - Never use TextEdit on OS X to edit code.
 - Never use Notepad on Windows to edit code.
 - Do not use Microsoft Word or Google Docs to edit code
@@ -77,7 +79,7 @@ Emacs functionality depends upon a lot of keyboard shortcut combinations.  The f
 - `Ctrl-x Ctrl-s` to save a file
 - `Ctrl-x Ctrl-c` to quit emacs
 
-Learn moree shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
+Learn more shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
 
 ---
 
@@ -100,10 +102,12 @@ Review [basic Unix commands](https://knowledge.kitchen/Basic_UNIX/Linux_file_man
 ## Where am I?
 At any point in time, you are actively within one specific directory, known as the current working directory.  To determine which directory that is at any point, run the `pwd` command:
 
-```bash
+```console
 foo@bar$ pwd
 /Users/foo
 ```
+
+It's fine to read about this, but you'll learn better if you try it out yourself.
 
 Read more about the [current working directory](https://knowledge.kitchen/Basic_computer_concepts#The_working_directory).
 
@@ -113,7 +117,7 @@ Read more about the [current working directory](https://knowledge.kitchen/Basic_
 ## How do I go up one level
 To navigate up one level in the directory structure of your hard drive, use the `..` shortcut no matter where you currently are.
 
-```bash
+```console
 foo@bar$ pwd
 /Users/foo
 foo@bar$ cd ..
@@ -124,13 +128,16 @@ foo@bar$ pwd
 /
 ```
 
+We have now navigated to the root directory, represented by the symbol `/`.
+
+
 ---
 
 # Navigating with *NIX
 ## How do I get to the top?
 To navigate to the top-most directory of your hard drive, known as the "root directory", use the `cd` command with the `/` symbol indicating root directory as the desired destination.
 
-```bash
+```console
 foo@bar$ cd /
 foo@bar$ pwd
 /
@@ -144,12 +151,14 @@ The current working directory is now the root directory.
 ## How do I see what directories and files are within the current working directory?
 Use the `ls` command to show non-hidden files and directories that are within the current working directory.
 
-```bash
+```console
 foo@bar$ ls
 dir1    dir4    file2
-dir2    dir5    file3
-dir3    file1   file4
+dir2    dir5    
+dir3    file1   
 ```
+
+This listing contains a mix of files and directories - there is no way to tell which is which simply based on their names.  In order to distinguish between them, we need some metadata on each item in this listing.
 
 ---
 
@@ -157,20 +166,22 @@ dir3    file1   file4
 ## How do I see what hidden directories and files are within the current working directory?
 Hidden files and directoriess simply begin with the '.' character.  To view a listing of files and directories including them, use the `a` flag on the `ls` command.
 
-```bash
+```console
 foo@bar$ ls -a
 .hidden_dir1    dir1    dir4    file2
-.hidden_dir2    dir2    dir5    file3
-.hidden_file1   dir3    file1   file4
+.hidden_dir2    dir2    dir5    
+.hidden_file1   dir3    file1   
 ```
+
+Both files and directories may be hidden by naming them prefixed with a period,`.`.
 
 ---
 
 # Navigating with *NIX
-## How do I see more information about each of the files and directories in the listing?
+## File listing with metadata
 To view a listing of files and directories including metadata about each item, use the `l` flag on the `ls` command.
 
-```bash
+```console
 foo@bar$ ls -a
 drwx------+ 10 foo  bar   320 Sep  4 10:41 dir1 
 drwx------+ 19 foo  bar   608 Aug 30 21:38 dir2
@@ -179,8 +190,6 @@ drwx------+  4 foo  bar   128 Dec 31  2016 dir4
 drwx------+ 19 foo  bar   611 Aug 21 21:38 dir5
 -rwx------+ 10 foo  bar   320 Sep  4 10:41 file1
 -rwx------+ 19 foo  bar   608 Aug 30 21:38 file2
--rwx------+  8 foo  bar   256 Nov 27  2017 file3
--rwx------+  4 foo  bar   128 Dec 31  2016 file4
 ```
 
 To include hidden files in the listing, combine the `-l` and `-a` flags.
@@ -192,10 +201,62 @@ foo@bar$ ls -la
 ---
 
 # Navigating with *NIX
+## What does all that metadata mean?
+
+```console
+foo@bar$ ls -a
+drwx------+ 10 foo  bar   320 Sep  4 10:41 dir1 
+drwx------+ 19 foo  bar   608 Aug 30 21:38 dir2
+drwx------+  8 foo  bar   256 Nov 27  2017 dir3
+drwx------+  4 foo  bar   128 Dec 31  2016 dir4
+drwx------+ 19 foo  bar   611 Aug 21 21:38 dir5
+-rwx------+ 10 foo  bar   320 Sep  4 10:41 file1
+-rwx------+ 19 foo  bar   608 Aug 30 21:38 file2
+```
+
+The metadata included in a long listing of files and directories in the working directory indicates a few different things, including:
+- whether the item is a file or a directory - directories are indicated by a `d` at the beginning of the line, files show `-`.
+- which types of users can read, write, and execute the file or directory - in this case, the user who owns each of the items can read, write and execute each of them, indicated by the `rwx` letters in each line.  No other users can do any of these things with these items.
+- which user owns the file or directory - the user `foo` in this case owns all the items
+- which group of users owns the file or directory - the user `bar` in this case owns all the items
+
+---
+
+# Navigating with *NIX
+## File permissions
+
+```console
+-rwxr-xr--+ 10 foo  bar   320 Sep  4 10:41 file1.sh
+```
+
+Given the file metadata above, we can see the following permission settings:
+- the user who owns the file, named `foo` can read, write and execute the file.
+- the group who owns the file, named `bar` can read and execute the file, but cannot write to it.
+- everyone else can only read the file, but not write or execute it.
+
+Revoke permissions with the `-` sign.  In this case we revoke the user `foo`'s execute permission:
+```console
+foo@bar$ chmod u-x file1.sh
+```
+
+Revoke permissions with the `+` sign.  In this case we grant the group `bar` write permission:
+```console
+foo@bar$ chmod g+w file1.sh
+```
+
+All other users besides the user and group who own the file are known as 'others' and can have permissions granted or revoked as well:
+```console
+foo@bar$ chmod o+wx file1.sh
+```
+
+
+---
+
+# Navigating with *NIX
 ## How do I drill down?
 To navigate to sub-directory that is within the current directory, use the `cd` command with the name of the sub-directory that is the desired destination.
 
-```bash
+```console
 foo@bar$ cd bar
 foo@bar$ pwd
 /bar
@@ -203,15 +264,21 @@ foo@bar$ pwd
 
 Note that writing `cd /bar`, with the forward slash, would navigate to a directory named `bar` that is a sub-directory of the root directory, if any such directory exists, which is not what you wanted.
 
+You can, of course drill down several levels of directories at once.
+```console
+foo@bar$ cd bar/baz/blue
+foo@bar$ pwd
+/bar/baz/blue
+
 ---
 
 # Navigating with *NIX
 ## How do I jump to a directory from anywhere
-If you kmow the full path of a directory you want to navigate to, type it after the `cd` command.
+If you kmow the full path of a directory to which you want to navigate, type it after the `cd` command.
 
-```bash
+```console
 foo@bar$ pwd
-/bar/baz
+/bar/baz/blue
 foo@bar$ cd /Users/foo/Documents/my_favorite_ice_cream
 foo@bar$ pwd
 /Users/foo/Documents/my_favorite_ice_cream
@@ -223,28 +290,13 @@ foo@bar$ pwd
 ## Create a blank new file
 The `touch` command is useful for creating a blank file with a given name.
 
-```bash
-foo@bar$ touch environmental_cosmetology_degree_programs.txt
+```console
+foo@bar$ touch environmental_cosmetology.txt
 ```
 
-To open up this new file in the command-line text editor:
-```bash
-foo@bar$ emacs environmental_cosmetology_degree_programs.txt
-```
-
----
-
-# Navigating with *NIX
-## Create a blank new file
-The `touch` command is useful for creating a blank file with a given name.
-
-```bash
-foo@bar$ touch environmental_cosmetology_degree_programs.txt
-```
-
-To open up this new file in the command-line text editor:
-```bash
-foo@bar$ emacs environmental_cosmetology_degree_programs.txt
+To open up this new file in the notorious `emacs` command-line text editor:
+```console
+foo@bar$ emacs environmental_cosmetology.txt
 ```
 
 ---
@@ -252,18 +304,18 @@ foo@bar$ emacs environmental_cosmetology_degree_programs.txt
 # Navigating with *NIX
 ## Rename or move a file
 Renaming is a variety of moving, using the `mv` command to move a file from one name to another.
-```bash
-foo@bar$ mv environmental_cosmetology_degree_programs.txt ecdp.txt
+```console
+foo@bar$ mv environmental_cosmetology.txt ecdp.txt
 ```
 
 Or keep its current name, but move it to an entirely different directory:
-```bash
-foo@bar$ mv environmental_cosmetology_degree_programs.txt /Users/foo/Documents/
+```console
+foo@bar$ mv environmental_cosmetology.txt /Users/foo/Documents/
 ```
 
-Or rename it and move it to an entirely different directory:
-```bash
-foo@bar$ mv /Users/foo/Documents/environmental_cosmetology_degree_programs.txt /Users/foo/Documents/ecdp.txt
+Or rename it and move it to an entirely different directory up two levels and down from there into a subdirectory named `baz`:
+```console
+foo@bar$ mv /Users/foo/Documents/environmental_cosmetology.txt ../../baz/ecdp.txt
 ```
 
 ---
@@ -273,17 +325,17 @@ foo@bar$ mv /Users/foo/Documents/environmental_cosmetology_degree_programs.txt /
 The `rm` command deletes files.
 
 Delete a file in the current working directory:
-```bash
+```console
 foo@bar$ rm heme_rich_foods.csv
 ```
 
 Delete a file in a sub-directory of the current working directory:
-```bash
+```console
 foo@bar$ rm meat/fillers/heme_rich_foods.csv
 ```
 
 Delete a file in a subdirectory of the root directory:
-```bash
+```console
 foo@bar$ rm /meat/fillers/heme_rich_foods.csv
 ```
 
@@ -294,12 +346,12 @@ foo@bar$ rm /meat/fillers/heme_rich_foods.csv
 The `rmdir` command deletes empty directories, while the `rm` command can be used to delete non-empty directories.
 
 Delete an empty sub-directory named `meat`:
-```bash
+```console
 foo@bar$ rmdir meat
 ```
 
 Delete a non-empty directory with the `r` and `f` flags of the `rm` command:
-```bash
+```console
 foo@bar$ rm -rf meat
 ```
 
@@ -310,17 +362,17 @@ foo@bar$ rm -rf meat
 The `mkdir` command creates an empty directory.
 
 Make a new sub-directory named `vegetables`:
-```bash
+```console
 foo@bar$ mkdir vegetables
 ```
 
 Make a sub-directory of the parent directory:
-```bash
+```console
 foo@bar$ mkdir ../arugula
 ```
 
 Make a new directory somewhere totally different on the hard drive:
-```bash
+```console
 foo@bar$ mkdir /Users/foo/Photos/compromising/nudes
 ```
 
@@ -337,7 +389,7 @@ class: center, middle
 Create a new plain text file somewhere you know you can find it later.
 
 Make a file in a new sub-directory of your user account 'home' directory (using the `~` shortcut to navigate there):
-```bash
+```console
 foo@bar$ cd ~
 foo@bar$ mkdir first_try
 foo@bar$ cd first_try
@@ -350,7 +402,7 @@ foo@bar$ touch MyFirstJavaProgram.java
 ## Add starter Java code to the file
 
 Edit the text file you just created using a text editor of your choice.
-```bash
+```console
 foo@bar$ emacs MyFirstJavaProgram.java
 ```
 
@@ -380,7 +432,7 @@ If using any other graphical user interface editor, just save the ordinary way.
 ## Compile the Java source code
 
 Java code must be compiled to byte code before it can be run.  Use the `javac` command to do this.
-```bash
+```console
 foo@bar$ javac MyFirstJavaProgram.java
 ```
 
@@ -394,7 +446,7 @@ The compiler will now have automatically created a file named MyFirstJavaProgram
 ## Execute the Java byte code
 
 The Java byte code can now be executed by the JVM, Java's interpreter, using the `java` command.
-```bash
+```console
 foo@bar$ java MyFirstJavaProgram
 Welcome to Java from the command line!
 ```
@@ -433,7 +485,7 @@ public class MyFirstJavaProgram {
 Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
 
 Create an appropriate set of sub-directories, and move both files at once:
-```bash
+```console
 foo@bar$ mkdir edu
 foo@bar$ mkdir edu/nyu
 foo@bar$ mkdir edu/nyu/cs
@@ -441,13 +493,20 @@ foo@bar$ mkdir edu/nyu/cs/fb1258
 foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
 ```
 
+Of course there is a way to create all these sub-directories at once using the `p` flag to the `mkdir` command:
+```console
+foo@bar$ mkdir -p edu/nyu/cs/fb1258
+foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
+```
+
+
 ---
 
 # Better starter code
 ## Recompile the Java source code.
 Sadder still, the Java source code must now be re-compiled, since the byte code is no longer up to date.
 
-```bash
+```console
 foo@bar$ javac edu/nyu/cs/fb1258/MyFirstJavaProgram.java
 ```
 
@@ -457,14 +516,14 @@ This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate
 
 # Better starter code
 ## Re-execute the Java byte code
-Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate code with the indicated package.
+Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate .class files within the indicated package.
 
-```bash
-foo@bar$ javac classpath . edu.nyu.cs.fb1258.MyFirstJavaProgram
+```console
+foo@bar$ javac -classpath . edu.nyu.cs.fb1258.MyFirstJavaProgram
 Better welcome to Java from the command line!
 ```
 
-Use package identifiers from now on.
+Use package identifiers from now on in all work.
 
 ---
 
@@ -475,7 +534,7 @@ class: center, middle
 ---
 
 # Conclusions
-## We can now write and run Java programs
+## We can now use the command line to write and run Java programs
 In addition to learning a bit about the *NIX command line, you are now able to compile Java source code into Java byte code and execute the byte code using the JVM interpreter.
 
 Bye.
