@@ -485,7 +485,7 @@ public class MyFirstJavaProgram {
 ## Move the file to the proper location
 Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
 
-Create an appropriate set of sub-directories, and move both files at once:
+Create an appropriate set of sub-directories, and move both files at once (replace `fb1258` with yoru own NYU Net ID):
 ```console
 foo@bar$ mkdir edu
 foo@bar$ mkdir edu/nyu
@@ -517,6 +517,8 @@ This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate
 
 # Better starter code
 ## Re-execute the Java byte code
+At this point, you have two files named `MyFirstJavaProgram.java` (source code) and `MyFirstJavaProgram.class` (byte code) in the directory `edu/nyu/cs/fb1258`, where `fb1258` is replaced with your own NYU Net ID.
+
 Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate .class files within the indicated package.
 
 ```console
