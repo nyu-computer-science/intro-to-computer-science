@@ -1,27 +1,28 @@
 ---
 layout: presentation
-title: Course overview
-permalink: /starter-kit/
+title: Intro to Unix commands
+permalink: /unix-intro/
 ---
 
 class: center, middle
 
-# Starter kit
-Welcome
+# Basic UNIX Commands
+for those who don't know
 
 ---
 
 # Agenda
 
-1. Assumptions
-2. Navigating with *NIX
-3. Starter code
-4. Better starter code
-5. Conclusions
+1. [Assumptions](#assumptions)
+2. [Navigating with *NIX](#navigation)
+3. [Managing files](#files)
+4. [Permissions](#permissions)
+5. [Conclusions](#conclusions)
 
 ---
 
 class: center, middle
+name: assumptions
 
 # Assumptions
 
@@ -84,6 +85,7 @@ Learn more shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs
 ---
 
 class: center, middle
+name: navigation
 
 # Navigating with *NIX
 
@@ -120,9 +122,15 @@ To navigate up one level in the directory structure of your hard drive, use the 
 ```console
 foo@bar$ pwd
 /Users/foo
+```
+
+```console
 foo@bar$ cd ..
 foo@bar$ pwd
 /Users
+```
+
+```console
 foo@bar$ cd ..
 foo@bar$ pwd
 /
@@ -223,36 +231,6 @@ The metadata included in a long listing of files and directories in the working 
 ---
 
 # Navigating with *NIX
-## File permissions
-
-```console
--rwxr-xr--+ 10 foo  bar   320 Sep  4 10:41 file1.sh
-```
-
-Given the file metadata above, we can see the following permission settings:
-- the user who owns the file, named `foo` can read, write and execute the file.
-- the group who owns the file, named `bar` can read and execute the file, but cannot write to it.
-- everyone else can only read the file, but not write or execute it.
-
-Revoke permissions with the `-` sign.  In this case we revoke the user `foo`'s execute permission:
-```console
-foo@bar$ chmod u-x file1.sh
-```
-
-Revoke permissions with the `+` sign.  In this case we grant the group `bar` write permission:
-```console
-foo@bar$ chmod g+w file1.sh
-```
-
-All other users besides the user and group who own the file are known as 'others' and can have permissions granted or revoked as well:
-```console
-foo@bar$ chmod o+wx file1.sh
-```
-
-
----
-
-# Navigating with *NIX
 ## How do I drill down?
 To navigate to sub-directory that is within the current directory, use the `cd` command with the name of the sub-directory that is the desired destination.
 
@@ -287,7 +265,14 @@ foo@bar$ pwd
 
 ---
 
-# Navigating with *NIX
+class: center, middle
+name: files-and-folders
+
+# Managing files and folders
+
+---
+
+# Managing files and folders
 ## Create a blank new file
 The `touch` command is useful for creating a blank file with a given name.
 
@@ -302,7 +287,7 @@ foo@bar$ emacs environmental_cosmetology.txt
 
 ---
 
-# Navigating with *NIX
+# Managing files and folders
 ## Rename or move a file
 Renaming is a variety of moving, using the `mv` command to move a file from one name to another.
 ```console
@@ -321,7 +306,7 @@ foo@bar$ mv /Users/foo/Documents/environmental_cosmetology.txt ../../baz/ecdp.tx
 
 ---
 
-# Navigating with *NIX
+# Managing files and folders
 ## Delete a file
 The `rm` command deletes files.
 
@@ -342,7 +327,7 @@ foo@bar$ rm /meat/fillers/heme_rich_foods.csv
 
 ---
 
-# Navigating with *NIX
+# Managing files and folders
 ## Delete a directory
 The `rmdir` command deletes empty directories, while the `rm` command can be used to delete non-empty directories.
 
@@ -358,7 +343,7 @@ foo@bar$ rm -rf meat
 
 ---
 
-# Navigating with *NIX
+# Managing files and folders
 ## Create a directory
 The `mkdir` command creates an empty directory.
 
@@ -380,157 +365,81 @@ foo@bar$ mkdir /Users/foo/Photos/compromising/nudes
 ---
 
 class: center, middle
+name: permissions
 
-# Starter code
+# Permissions
 
 ---
 
-# Starter code
-## Create a file
-Create a new plain text file somewhere you know you can find it later.
+# Permissions
+## Users
 
-Make a file in a new sub-directory of your user account 'home' directory (using the `~` shortcut to navigate there):
+It is possible to control who can access any file or folders.
+
+Users who have access to a file or folder fall into one of three categories:
+- an individual user who "owns" the file or directory
+- a group of users who collectively have access to the file or directory
+- everyone else
+
+---
+
+# Permissions
+## Access types
+
+There are three types of access to a file or foldeer:
+- read
+- write
+- execute
+
+---
+
+# Permissions
+## Example
+
 ```console
-foo@bar$ cd ~
-foo@bar$ mkdir first_try
-foo@bar$ cd first_try
-foo@bar$ touch MyFirstJavaProgram.java
+-rwxr-xr--+ 10 foo  bar   320 Sep  4 10:41 file1.sh
 ```
+
+Given the file metadata above, we can see the following permission settings:
+- the user who owns the file, named `foo` can read, write and execute the file.
+- the group who owns the file, named `bar` can read and execute the file, but cannot write to it.
+- everyone else can only read the file, but not write or execute it.
 
 ---
 
-# Starter code
-## Add starter Java code to the file
+# Permissions
+## Revoke permissions
 
-Edit the text file you just created using a text editor of your choice.
+Revoke permissions with the `-` sign.  In this case we revoke the user `foo`'s execute permission:
 ```console
-foo@bar$ emacs MyFirstJavaProgram.java
-```
-
-Add the following code:
-```java
-public class MyFirstJavaProgram {
-	public static void main(String[] args) {
-		// put the main contents of your program below here
-		System.out.println("Welcome to Java from the command line!");
-		// put the main contents of your program above here
-	}
-}
+foo@bar$ chmod u-x file1.sh
 ```
 
 ---
 
-# Starter code
-## Save your file
+# Permissions
+## Grant permissions
 
-If you are using the emacs editor, press `Ctrl-x Ctrl-S` to save, then `Ctrl-x Ctrl-c` to quit.
-
-If using any other graphical user interface editor, just save the ordinary way.
-
----
-
-# Starter code
-## Compile the Java source code
-
-Java code must be compiled to byte code before it can be run.  Use the `javac` command to do this.
+Grant permissions with the `+` sign.  In this case we grant the group `bar` write permission:
 ```console
-foo@bar$ javac MyFirstJavaProgram.java
+foo@bar$ chmod g+w file1.sh
 ```
-
-Note the full name of the .java file to compile.
-
-The compiler will now have automatically created a file named MyFirstJavaProgram.class in the same directory.
 
 ---
 
-# Starter code
-## Execute the Java byte code
+# Permissions
+## Others
 
-The Java byte code can now be executed by the JVM, Java's interpreter, using the `java` command.
+All other users besides the user and group who own the file are known as 'others' and can have permissions granted or revoked as well:
 ```console
-foo@bar$ java MyFirstJavaProgram
-Welcome to Java from the command line!
+foo@bar$ chmod o+wx file1.sh
 ```
 
-Note the command does not require the .java or .class file extension.
 
 ---
 
 class: center, middle
-
-# Better starter code
-
----
-
-# Better starter code
-## Add a package
-Java code can be organized into "packages" of related files.  
-
-Add a similar package declaration to your source code file in an editor of your choice, but replace `fb1258` with your own NYU Net ID.
-```java
-package edu.nyu.cs.fb1258;
-
-public class MyFirstJavaProgram {
-	public static void main(String[] args) {
-		// put the main contents of your program below here
-		System.out.println("Welcome to Java from the command line!");
-		// put the main contents of your program above here
-	}
-}
-```
-
----
-
-# Better starter code
-## Move the file to the proper location
-Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
-
-Create an appropriate set of sub-directories, and move both files at once (replace `fb1258` with yoru own NYU Net ID):
-```console
-foo@bar$ mkdir edu
-foo@bar$ mkdir edu/nyu
-foo@bar$ mkdir edu/nyu/cs
-foo@bar$ mkdir edu/nyu/cs/fb1258
-foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
-```
-
-Of course there is a way to create all these sub-directories at once using the `p` flag to the `mkdir` command:
-```console
-foo@bar$ mkdir -p edu/nyu/cs/fb1258
-foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
-```
-
-
----
-
-# Better starter code
-## Recompile the Java source code.
-Sadder still, the Java source code must now be re-compiled, since the byte code is no longer up to date.
-
-```console
-foo@bar$ javac edu/nyu/cs/fb1258/MyFirstJavaProgram.java
-```
-
-This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate directory.
-
----
-
-# Better starter code
-## Re-execute the Java byte code
-At this point, you have two files named `MyFirstJavaProgram.java` (source code) and `MyFirstJavaProgram.class` (byte code) in the directory `edu/nyu/cs/fb1258`, where `fb1258` is replaced with your own NYU Net ID.
-
-Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate .class files within the indicated package.
-
-```console
-foo@bar$ java -classpath . edu.nyu.cs.fb1258.MyFirstJavaProgram
-Better welcome to Java from the command line!
-```
-
-Use package identifiers from now on in all work.
-
----
-
-class: center, middle
+name: conclusions
 
 # Conclusions
 

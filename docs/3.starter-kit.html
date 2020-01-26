@@ -1,0 +1,249 @@
+---
+layout: presentation
+title: Course overview
+permalink: /starter-code/
+---
+
+class: center, middle
+
+# Starter kit
+Welcome
+
+---
+
+# Agenda
+
+1. [Assumptions](#assumptions)
+3. [Starter code](#starter-code)
+4. [Better starter code](#better-code)
+5. [Conclusions](#conclusions)
+
+---
+
+class: center, middle
+name: assumptions
+
+# Assumptions
+
+---
+
+# Assumptions
+## Ability to run *NIX commands
+In order to run Unix or Linux commands, you will need a terminal emulator:
+- OS X users already have the Terminal app we will use for this purpose.
+- Windows users must have [Git for Windows](https://gitforwindows.org/) installed.
+
+---
+
+# Assumptions
+## Ability to execute Java programs
+You will need to have the [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/) installed.
+
+If you have any terminal emulators open (such as Terminal or Git Bash), close them and reopen them.
+
+---
+
+# Assumptions
+## Understanding of plain text
+Plain text is a term frequently used to mean one data on a computer that is represented as codes in the ASCII encoding system or the Unicode encoding system, a successor to ASCII.
+
+These coding systems map specific numeric codes to every text character.  For example, the letter `a` is 97, `b` is 98, and so on and so forth.  
+
+When you as a human see plain text on your screen or type text characters on your keyboard, chances are the computer behind the scenes will store that text's numeric codes (in binary) according to one of these two encoding systems.  
+
+A plain text file is a file that has nothing but numeric codes that map out to characters in one of these systems.  Unicode is today's standard and includes all the Anglocentric characters ASCII did, plus characters of all other languages.
+
+---
+
+# Assumptions
+## Ability to edit text
+Computer programming code is plain text.  In order to edit code, you will need a decent plain text editor program.
+- Install [Sublime Text](https://www.sublimetext.com/), a free good quality plain text editor.
+- Sublime Text is freeware, but periodically will ask for donations. You are not required to donate.
+
+### Warnings
+- Never use TextEdit on OS X to edit code.
+- Never use Notepad on Windows to edit code.
+- Do not use Microsoft Word or Google Docs to edit code
+- Beware of emacs, lest you find yourself forever dreaming of keyboard shortcuts.
+
+---
+
+# Assumptions
+## Ability to edit text
+Emacs is a plain text editor that can be run from the command line.
+
+If you want to have the most fun with the *NIX command line, use Emacs instead of Sublime Text.
+
+Emacs functionality depends upon a lot of keyboard shortcut combinations.  The following will get you started:
+- `Ctrl-x Ctrl-s` to save a file
+- `Ctrl-x Ctrl-c` to quit emacs
+
+Learn more shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs+cheat+sheet&t=brave&ia=cheatsheet&iax=1).
+
+---
+
+class: center, middle
+name: starter-code
+
+# Starter code
+
+---
+
+# Starter code
+## Create a file
+Create a new plain text file somewhere you know you can find it later.
+
+Make a file in a new sub-directory of your user account 'home' directory (using the `~` shortcut to navigate there):
+```console
+foo@bar$ cd ~
+foo@bar$ mkdir first_try
+foo@bar$ cd first_try
+foo@bar$ touch MyFirstJavaProgram.java
+```
+
+---
+
+# Starter code
+## Add starter Java code to the file
+
+Edit the text file you just created using a text editor of your choice.
+```console
+foo@bar$ emacs MyFirstJavaProgram.java
+```
+
+Add the following code:
+```java
+public class MyFirstJavaProgram {
+	public static void main(String[] args) {
+		// put the main contents of your program below here
+		System.out.println("Welcome to Java from the command line!");
+		// put the main contents of your program above here
+	}
+}
+```
+
+---
+
+# Starter code
+## Save your file
+
+If you are using the emacs editor, press `Ctrl-x Ctrl-S` to save, then `Ctrl-x Ctrl-c` to quit.
+
+If using any other graphical user interface editor, just save the ordinary way.
+
+---
+
+# Starter code
+## Compile the Java source code
+
+Java code must be compiled to byte code before it can be run.  Use the `javac` command to do this.
+```console
+foo@bar$ javac MyFirstJavaProgram.java
+```
+
+Note the full name of the .java file to compile.
+
+The compiler will now have automatically created a file named MyFirstJavaProgram.class in the same directory.
+
+---
+
+# Starter code
+## Execute the Java byte code
+
+The Java byte code can now be executed by the JVM, Java's interpreter, using the `java` command.
+```console
+foo@bar$ java MyFirstJavaProgram
+Welcome to Java from the command line!
+```
+
+Note the command does not require the .java or .class file extension.
+
+---
+
+class: center, middle
+name: better-code
+
+# Better starter code
+
+---
+
+# Better starter code
+## Add a package
+Java code can be organized into "packages" of related files.  
+
+Add a similar package declaration to your source code file in an editor of your choice, but replace `fb1258` with your own NYU Net ID.
+```java
+package edu.nyu.cs.fb1258;
+
+public class MyFirstJavaProgram {
+	public static void main(String[] args) {
+		// put the main contents of your program below here
+		System.out.println("Welcome to Java from the command line!");
+		// put the main contents of your program above here
+	}
+}
+```
+
+---
+
+# Better starter code
+## Move the file to the proper location
+Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
+
+Create an appropriate set of sub-directories, and move both files at once (replace `fb1258` with yoru own NYU Net ID):
+```console
+foo@bar$ mkdir edu
+foo@bar$ mkdir edu/nyu
+foo@bar$ mkdir edu/nyu/cs
+foo@bar$ mkdir edu/nyu/cs/fb1258
+foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
+```
+
+Of course there is a way to create all these sub-directories at once using the `p` flag to the `mkdir` command:
+```console
+foo@bar$ mkdir -p edu/nyu/cs/fb1258
+foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
+```
+
+
+---
+
+# Better starter code
+## Recompile the Java source code.
+Sadder still, the Java source code must now be re-compiled, since the byte code is no longer up to date.
+
+```console
+foo@bar$ javac edu/nyu/cs/fb1258/MyFirstJavaProgram.java
+```
+
+This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate directory.
+
+---
+
+# Better starter code
+## Re-execute the Java byte code
+At this point, you have two files named `MyFirstJavaProgram.java` (source code) and `MyFirstJavaProgram.class` (byte code) in the directory `edu/nyu/cs/fb1258`, where `fb1258` is replaced with your own NYU Net ID.
+
+Now try running it.  Here we will tell the JVM that it should look in the current working directory (nicknamed `.`) and any sub-directories for the appropriate .class files within the indicated package.
+
+```console
+foo@bar$ java -classpath . edu.nyu.cs.fb1258.MyFirstJavaProgram
+Better welcome to Java from the command line!
+```
+
+Use package identifiers from now on in all work.
+
+---
+
+class: center, middle
+name: conclusions
+
+# Conclusions
+
+---
+
+# Conclusions
+## We can now use the command line to write and compile Java source code into Java byte code and then execute that byte code using the JVM interpreter.
+
+Bye.
