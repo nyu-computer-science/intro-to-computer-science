@@ -83,7 +83,7 @@ template: assumptions
 
 template: assumptions
 
-## Ability to edit text
+## Command line text editors
 Emacs is a plain text editor that can be run from the command line.
 
 If you want to have the most fun with the *NIX command line, use Emacs instead of Sublime Text.
@@ -92,7 +92,7 @@ If you want to have the most fun with the *NIX command line, use Emacs instead o
 
 template: assumptions
 
-## Using Emacs
+## Emacs shortcuts
 Emacs functionality depends upon a lot of keyboard shortcut combinations.  The following will get you started:
 - `Ctrl-x Ctrl-s` to save a file
 - `Ctrl-x Ctrl-c` to quit emacs
@@ -101,14 +101,14 @@ Learn more shortcuts with an [emacs cheat sheet](https://duckduckgo.com/?q=emacs
 
 ---
 
-class: center, middle
 name: starter-code
 
 # Starter code
 
 ---
 
-# Starter code
+template: starter-code
+
 ## Create a file
 Create a new plain text file somewhere you know you can find it later.
 
@@ -122,7 +122,8 @@ foo@bar$ touch MyFirstJavaProgram.java
 
 ---
 
-# Starter code
+template: starter-code
+
 ## Add starter Java code to the file
 
 Edit the text file you just created using a text editor of your choice.
@@ -143,7 +144,8 @@ public class MyFirstJavaProgram {
 
 ---
 
-# Starter code
+template: starter-code
+
 ## Save your file
 
 If you are using the emacs editor, press `Ctrl-x Ctrl-S` to save, then `Ctrl-x Ctrl-c` to quit.
@@ -152,7 +154,8 @@ If using any other graphical user interface editor, just save the ordinary way.
 
 ---
 
-# Starter code
+template: starter-code
+
 ## Compile the Java source code
 
 Java code must be compiled to byte code before it can be run.  Use the `javac` command to do this.
@@ -166,7 +169,8 @@ The compiler will now have automatically created a file named MyFirstJavaProgram
 
 ---
 
-# Starter code
+template: starter-code
+
 ## Execute the Java byte code
 
 The Java byte code can now be executed by the JVM, Java's interpreter, using the `java` command.
@@ -179,14 +183,14 @@ Note the command does not require the .java or .class file extension.
 
 ---
 
-class: center, middle
 name: better-code
 
 # Better starter code
 
 ---
 
-# Better starter code
+template: better-code
+
 ## Add a package
 Java code can be organized into "packages" of related files.  
 
@@ -205,7 +209,8 @@ public class MyFirstJavaProgram {
 
 ---
 
-# Better starter code
+template: better-code
+
 ## Move the file to the proper location
 Sadly, with a package identifier, the .java and .class files must now be located in a directory that matches the package or the JVM will not execute them.
 
@@ -227,7 +232,8 @@ foo@bar$ mv MyFirstJavaProgram.* edu/nyu/cs/fb1258
 
 ---
 
-# Better starter code
+template: better-code
+
 ## Recompile the Java source code.
 Sadder still, the Java source code must now be re-compiled, since the byte code is no longer up to date.
 
@@ -239,7 +245,8 @@ This will overwrite the file named `MyFirstJavaProgram.class` in the appropriate
 
 ---
 
-# Better starter code
+template: better-code
+
 ## Re-execute the Java byte code
 At this point, you have two files named `MyFirstJavaProgram.java` (source code) and `MyFirstJavaProgram.class` (byte code) in the directory `edu/nyu/cs/fb1258`, where `fb1258` is replaced with your own NYU Net ID.
 
@@ -254,19 +261,18 @@ Use package identifiers from now on in all work.
 
 ---
 
-class: center, middle
 name: conclusions
 
 # Conclusions
 
 ---
 
-# Conclusions
+template: conclusions
 
 We can now use the command line to write and compile Java source code into Java byte code and then execute that byte code using the JVM interpreter.
 
 ---
 
-# Conclusions
+template: conclusions
 
 Thank you.  Bye.
