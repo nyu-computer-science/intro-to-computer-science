@@ -18,7 +18,8 @@ Write once, run anywhere
 3. [Machine code](#machine-code)
 4. [Assembly languages](#assembly)
 5. [High-level languages](#high-level-languages)
-6. [Conclusions](#conclusions)
+6. [Java](#java)
+7. [Conclusions](#conclusions)
 
 ---
 
@@ -213,33 +214,177 @@ Converting code written in a high-level language to the equivalent machine code 
 
 ---
 
-template: high-level-languages
-name: high-level-languages-5
+name: compiling
 
-## Compiling
+# Compiling
+
+---
+
+template: compiling
+name: compiling-1
+
 Code written in a high-level programming language is translated to its machine code equivalent all at once as a single bulk operation.
 
 ---
 
-template: high-level-languages-5
-name: high-level-languages-6
+template: compiling-1
+name: compiling-2
 
 - a tool called a **compiler** reads the code, analyzes it, makes optimizations, and outputs a file with the required machine code instructions.
 
 ---
 
-template: high-level-languages
-name: high-level-languages-7
+template: compiling-2
+name: compiling-3
 
-## Interpreting
-Code written in a high-level programming language is translated to its machine code equivalent and executed as a series of small steps.
+- time-consuming
 
 ---
 
-template: high-level-languages
-name: high-level-languages-8
+template: compiling-3
+name: compiling-4
 
-- a tool called an **interpreter** reads one statement of code at a time, converts it to its machine code equivalents, and immediately executes it.
+- efficient
+
+---
+
+template: compiling-4
+name: compiling-5
+
+- many errors easily detected during compilation
+
+---
+
+template: compiling-5
+name: compiling-6
+
+- processor-specific
+
+---
+
+template: compiling
+name: compiling-5
+
+## C language
+The C programming language is a classic example of a compiled language.
+
+---
+
+template: compiling-5
+name: compiling-6
+
+- There are different compilers to translate C to machine code for each popular processor family.
+
+---
+
+template: compiling-6
+name: compiling-7
+
+- The high-level source code must often be tweaked to match the features of the target processor before compiled.
+
+---
+
+template: compiling-7
+name: compiling-8
+
+- Not very portable!
+
+---
+
+name: interpreting
+
+# Interpreting
+
+---
+
+template: interpreting
+name: interpreting-1
+
+Code written in a high-level programming language is translated to its machine code equivalent *and executed* as a series of small steps.
+
+---
+
+template: interpreting-1
+name: interpreting-2
+
+- a tool called an **interpreter** traditionally reads one statement of high-level code at a time, converts it to its machine code equivalent, and immediately executes that machine code.
+
+---
+
+template: interpreting-2
+name: interpreting-3
+
+- starts running quickly
+
+---
+
+template: interpreting-3
+name: interpreting-4
+
+- not necessarily efficient
+
+---
+
+template: interpreting-4
+name: interpreting-5
+
+- does not traditionally identify errors in statements that have not yet been interpreted
+
+---
+
+name: java
+
+# Java
+
+---
+
+template: java
+name: java-1
+
+## Write once, run anywhere
+Unlike C code, Java source code is executable on machines with almost any processor.  How is this possible?
+
+---
+
+template: java-1
+name: java-2
+
+- Java is both compiled and interpreted
+
+---
+
+template: java-2
+name: java-3
+
+- Java high-level source code is compiled to **byte code**
+
+---
+
+template: java-3
+name: java-4
+
+- Java byte code is then interpreted to machine code by one of the **Java Virtual Machines** (JVM)
+
+---
+
+template: java-4
+name: java-5
+
+- JVMs are created for most popular processor families
+
+---
+
+template: java-5
+name: java-6
+
+- Thus Java byte code is highly portable
+
+---
+
+template: java-6
+name: java-7
+
+- This is the Java paradigm!
 
 ---
 
