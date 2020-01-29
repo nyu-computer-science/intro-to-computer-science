@@ -7,7 +7,7 @@ permalink: /java-paradigm/
 class: center, middle
 
 # The Java Paradigm
-Write once, run anywhere
+"Write once, run anywhere"
 
 ---
 
@@ -37,7 +37,7 @@ name: computers-1
 ## Definition
 > "[People don't have buttons and a computer does](http://www.youtube.com/watch?v=kccWna71sqk)" 
 > 
-> - Some little kid from PS-272 in Brooklyn in the 1980s
+> -Some little kid from PS-272 in Brooklyn in the 1980s
 
 ---
 
@@ -52,7 +52,7 @@ A computer is any device, entity, or object that can perform computations.
 template: computers-2
 name: computers-3
 
-- [human computers](https://en.wikipedia.org/wiki/Computer_(job_description))
+- [human computers](https://en.wikipedia.org/wiki/Computer_%28job_description%29)
 
 ---
 
@@ -128,17 +128,27 @@ name: machine-code-1
 ## Binary instructions
 At the lowest level, a programming can directly inform a computer what it should do by sending binary instructions directly to the processor.
 
-Each family of processors is designed to "understand" particular codes to mean particular operations.
+---
 
-Example of a set of machine instructions for an x86 processor to move the number 97 to the AL memory register.  The number 1011 is the machine instruction to do a move operation, 0000 is the address of the AL register, and 01100001 is the number 97 written in binary:
+template: machine-code-1
+name: machine-code-2
+
+Example of a set of machine instructions for an x86 processor to move the number 97 to the AL memory register:
 ```
 10110000 01100001
 ```
 
 ---
 
-template: machine-code-1
-name: machine-code-2
+template: machine-code-2
+name: machine-code-3
+
+The number 1011 is the machine instruction to do a move operation, 0000 is the address of the AL register, and 01100001 is the number 97 written in binary.
+
+---
+
+template: machine-code-3
+name: machine-code-4
 
 Each family of processors is designed to "understand" particular binary numbers to mean particular operations.
 
@@ -156,15 +166,27 @@ name: assembly-1
 ## Mnemonics
 It's easier for most humans to memorize words than binary numbers.  Assembly languages provide mnemonics that a programmer can write, which are converted automatically to machine language equivalents.
 
-Example of a set of assembly instructions for an x86 processor to place the number 97 (which is written 61 in hexadecimal) in the memory register called AL:
+---
+
+template: assembly-1
+name: assembly-2
+
+Example of a set of assembly instructions for an x86 processor to place the number 97 in the memory register called AL:
 ```
 MOV AL, 61h
 ```
 
 ---
 
+template: assembly-2
+name: assembly-3
+
+`MOV` is a mnemonic for 1011, `AL` is a mnemnoic for 0000, and `61` is the number 97 written in hexadecimal notation.
+
+---
+
 template: assembly
-name: assembly-2
+name: assembly-4
 
 ## Assembling
 Converting code written in assembly language to the equivalent machine language is known as **assembling** - it's essentially a search/replace operation where mnemonics are replaced with their machine code equialents.
@@ -189,10 +211,11 @@ The written code is highly abstracted away from the machine instructions the pro
 
 ---
 
-template: high-level-languages-1
+template: high-level-languages
 name: high-level-languages-2
 
-## Example of storing the number 97 in a memory register using the C programming language:
+## Example
+Storing the number 97 in a memory register using the C programming language:
 ```c
 register int i = 97;
 ```
@@ -202,7 +225,7 @@ register int i = 97;
 template: high-level-languages-2
 name: high-level-languages-3
 
-Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP.
+Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP.  All offer higher-level capabilities, such as looping, functions, branching, etc.
 
 ---
 
@@ -293,6 +316,13 @@ name: compiling-8
 
 ---
 
+template: compiling-8
+name: compiling-9
+
+- But fast!
+
+---
+
 name: interpreting
 
 # Interpreting
@@ -316,14 +346,14 @@ name: interpreting-2
 template: interpreting-2
 name: interpreting-3
 
-- starts running quickly
+- starts running immediately
 
 ---
 
 template: interpreting-3
 name: interpreting-4
 
-- not necessarily efficient
+- not necessarily efficient, since only looking at one-statement at a time
 
 ---
 
@@ -344,7 +374,7 @@ template: java
 name: java-1
 
 ## Write once, run anywhere
-Unlike C code, Java source code is executable on machines with almost any processor.  How is this possible?
+Unlike C code, Java source code is highly portable, being executable on machines with almost any processor.  How is this possible?
 
 ---
 
@@ -358,7 +388,7 @@ name: java-2
 template: java-2
 name: java-3
 
-- Java high-level source code is compiled to **byte code**
+- Java high-level source code is compiled to **byte code**.
 
 ---
 
@@ -390,6 +420,35 @@ name: java-7
 
 ---
 
+template: java
+name: java-8
+
+## Byte code and the JVM
+Byte code is somewhere between machine code and high-level source in abstraction - an *intermediate-level* language.
+
+---
+
+template: java-8
+name: java-9
+
+- The Java Virtual Machines are virtual computers (a software simulation a physical computer), which are designed to view byte code as their native machine code.
+
+---
+
+template: java-9
+name: java-10
+
+- These JVMs contain within them interpreters which can translate this byte code to the appropriate machine code for whichever physical processessor they are actually running on.
+
+---
+
+template: java-10
+name: java-11
+
+- Any programaming language that can be compiled Java byte code can run in a JVM... Groovy, Kotlin, and Scala are popular high-level languages with different syntax from Java that take advantage of this.
+
+---
+
 name: conclusions
 
 # Conclusions
@@ -397,5 +456,7 @@ name: conclusions
 ---
 
 template: conclusions
+
+You now have a basic understanding of compiling, interpreting, and the Java paradigm.
 
 Thank you.  Bye.
