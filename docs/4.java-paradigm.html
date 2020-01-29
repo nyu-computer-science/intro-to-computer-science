@@ -1,0 +1,254 @@
+---
+layout: presentation
+title: The Java Paradigm
+permalink: /java-paradigm/
+---
+
+class: center, middle
+
+# The Java Paradigm
+Write once, run anywhere
+
+---
+
+# Agenda
+
+1. [Computers](#computers)
+2. [Programming](#programming)
+3. [Machine code](#machine-code)
+4. [Assembly languages](#assembly)
+5. [High-level languages](#high-level-languages)
+6. [Conclusions](#conclusions)
+
+---
+
+name: Computers
+
+# Computers
+
+---
+
+template: computers
+name: computers-1
+
+## Definition
+> "[People don't have buttons and a computer does](http://www.youtube.com/watch?v=kccWna71sqk)" 
+> 
+> - Some little kid from PS-272 in Brooklyn in the 1980s
+
+---
+
+template: computers
+name: computers-2
+
+## Definition
+A computer is any device, entity, or object that can perform computations.
+
+---
+
+template: computers-2
+name: computers-3
+
+- [human computers](https://en.wikipedia.org/wiki/Computer_(job_description))
+
+---
+
+template: computers-3
+name: computers-4
+
+- [mechanical computers](https://en.wikipedia.org/wiki/Mechanical_computer)
+
+---
+
+template: computers-4
+name: computers-5
+
+- [electronic computers](https://en.wikipedia.org/wiki/Computer#Digital_computers)
+
+---
+
+template: computers-5
+name: computers-6
+
+- [biological computers](https://en.wikipedia.org/wiki/Biological_computing)
+
+---
+
+template: computers-6
+name: computers-7
+
+- [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing)
+
+---
+
+name: programming
+
+# Programming
+
+---
+
+template: programming
+name: programming-1
+
+## Purpose
+> Computer programming is the process of designing and building an executable computer program for accomplishing a specific computing result.
+> 
+> -[Wikipedia](https://en.wikipedia.org/wiki/Computer_programming)
+
+---
+
+template: programming
+name: programming-2
+
+## Levels of abstraction
+Programmers have established increasingly higher levels of abstraction in order to make programming faster and more intuitive to humans.
+
+Low level:
+- Machine languages
+- Assembly languages
+
+High level:
+- High-level programming languages
+- [Visual programming](https://en.wikipedia.org/wiki/Visual_programming_language)
+
+---
+
+name: machine-code
+
+# Machine code
+
+---
+
+template: machine-code
+name: machine-code-1
+
+## Binary instructions
+At the lowest level, a programming can directly inform a computer what it should do by sending binary instructions directly to the processor.
+
+Each family of processors is designed to "understand" particular codes to mean particular operations.
+
+Example of a set of machine instructions for an x86 processor to move the number 97 to the AL memory register.  The number 1011 is the machine instruction to do a move operation, 0000 is the address of the AL register, and 01100001 is the number 97 written in binary:
+```
+10110000 01100001
+```
+
+---
+
+template: machine-code-1
+name: machine-code-2
+
+Each family of processors is designed to "understand" particular binary numbers to mean particular operations.
+
+---
+
+name: assembly
+
+# Assembly languages
+
+---
+
+template: assembly
+name: assembly-1
+
+## Mnemonics
+It's easier for most humans to memorize words than binary numbers.  Assembly languages provide mnemonics that a programmer can write, which are converted automatically to machine language equivalents.
+
+Example of a set of assembly instructions for an x86 processor to place the number 97 (which is written 61 in hexadecimal) in the memory register called AL:
+```
+MOV AL, 61h
+```
+
+---
+
+template: assembly
+name: assembly-2
+
+## Assembling
+Converting code written in assembly language to the equivalent machine language is known as **assembling** - it's essentially a search/replace operation where mnemonics are replaced with their machine code equialents.
+
+The program to do so is called an **assembler**.
+
+---
+
+name: high-level-languages
+
+# High level languages
+
+---
+
+template: high-level-languages
+name: high-level-languages-1
+
+## Abstraction
+High-level languages are still more intuitive for most humans to read and write.
+
+The written code is highly abstracted away from the machine instructions the processor will ultimately execute.
+
+---
+
+template: high-level-languages-1
+name: high-level-languages-2
+
+## Example of storing the number 97 in a memory register using the C programming language:
+```c
+register int i = 97;
+```
+
+---
+
+template: high-level-languages-2
+name: high-level-languages-3
+
+Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP.
+
+---
+
+template: high-level-languages
+name: high-level-languages-4
+
+## Translation to machine code
+Converting code written in a high-level language to the equivalent machine code is done via one of two processes:
+- compiling
+- interpreting
+
+---
+
+template: high-level-languages
+name: high-level-languages-5
+
+## Compiling
+Code written in a high-level programming language is translated to its machine code equivalent all at once as a single bulk operation.
+
+---
+
+template: high-level-languages-5
+name: high-level-languages-6
+
+- a tool called a **compiler** reads the code, analyzes it, makes optimizations, and outputs a file with the required machine code instructions.
+
+---
+
+template: high-level-languages
+name: high-level-languages-7
+
+## Interpreting
+Code written in a high-level programming language is translated to its machine code equivalent and executed as a series of small steps.
+
+---
+
+template: high-level-languages
+name: high-level-languages-8
+
+- a tool called an **interpreter** reads one statement of code at a time, converts it to its machine code equivalents, and immediately executes it.
+
+---
+
+name: conclusions
+
+# Conclusions
+
+---
+
+template: conclusions
+
+Thank you.  Bye.
