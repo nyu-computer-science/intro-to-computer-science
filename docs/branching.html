@@ -206,10 +206,10 @@ name: ifs-1
 int card1 = (int) (Math.random() * 11) + 1; // number from 1 to 11
 int card2 = (int) (Math.random() * 11) + 1; // number  from 1 to 11
 
-*if (card1 + card2 == 21) {
-*    // if the cards add up to 21...
-*    System.out.println("Blackjack!");
-*}
+if (card1 + card2 == 21) {
+    // if the cards add up to 21...
+    System.out.println("Blackjack!");
+}
 ```
 
 ---
@@ -227,10 +227,10 @@ if (card1 + card2 == 21) {
     // if the cards add up to 21...
     System.out.println("Blackjack!");
 }
-*else {
-*    // otherwise...
-*    System.out.println("Maybe next time!");
-*}
+else {
+    // otherwise...
+    System.out.println("Maybe next time!");
+}
 ```
 
 ---
@@ -248,10 +248,10 @@ if (card1 + card2 == 21) {
     // if the cards add up to 21...
     System.out.println("Blackjack!");
 }
-*else if (card1 == 1 && card2 == 1) {
-*    // otherwise if the cards are both ones...
-*    System.out.println("Snake eyes!");
-*}
+else if (card1 == 1 && card2 == 1) {
+    // otherwise if the cards are both ones...
+    System.out.println("Snake eyes!");
+}
 else {
     // otherwise...
     System.out.println("Maybe next time!");
@@ -277,6 +277,29 @@ name: switch-case
 template: switch-case
 name: switch-case-1
 
+In Java, an alternative to if/else if/else statements are switch/case statements.
+
+---
+
+template: switch-case-1
+name: switch-case-2
+
+- these can be easier to read and write in particular situations.
+
+---
+
+template: switch-case-2
+name: switch-case-3
+
+- such as when the branch followed depends upon the value of a single variable
+- and when multiple conditions lead to the same branch
+
+---
+
+template: switch-case
+name: switch-case-4
+
+## Example
 
 ---
 
