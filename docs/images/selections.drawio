@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-02-05T18:54:46.982Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" etag="Rf5RyH52g3D42AbYwa_9" version="12.6.5" type="github" pages="3">
+<mxfile host="www.draw.io" modified="2020-02-05T18:57:58.444Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" etag="1cLede2Aw1DdogJCI02L" version="12.6.5" type="github" pages="3">
   <diagram id="_1fVs4M20D1coKY2X1Pj" name="two branches">
     <mxGraphModel dx="730" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#000000" math="0" shadow="0">
       <root>
@@ -229,7 +229,7 @@
         <mxCell id="wZCCe9UmqCtgZZKfChvw-9" value="output the message,&lt;br&gt;&quot;Take an umbrella!&quot;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=#FFFFFF;" vertex="1" parent="wZCCe9UmqCtgZZKfChvw-1">
           <mxGeometry x="460" y="420" width="120" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="wZCCe9UmqCtgZZKfChvw-10" value="output the message,&lt;br&gt;&quot;Maybe next time!&quot;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=#FFFFFF;" vertex="1" parent="wZCCe9UmqCtgZZKfChvw-1">
+        <mxCell id="wZCCe9UmqCtgZZKfChvw-10" value="output the message,&lt;br&gt;&quot;Good luck!&quot;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFFFFF;fillColor=#FFFFFF;" vertex="1" parent="wZCCe9UmqCtgZZKfChvw-1">
           <mxGeometry x="315" y="420" width="120" height="40" as="geometry"/>
         </mxCell>
         <mxCell id="wZCCe9UmqCtgZZKfChvw-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#FFFFFF;" edge="1" parent="wZCCe9UmqCtgZZKfChvw-1" target="wZCCe9UmqCtgZZKfChvw-10" source="wZCCe9UmqCtgZZKfChvw-26">
