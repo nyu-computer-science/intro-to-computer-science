@@ -200,6 +200,63 @@ name: ifs
 template: ifs
 name: ifs-1
 
+*if* statements on their own either execute a particular branch or not.
+
+```java
+int card1 = (int) (Math.random() * 11) + 1; // number from 1 to 11
+int card2 = (int) (Math.random() * 11) + 1; // number  from 1 to 11
+
+* if (card1 + card2 == 21) {
+*     // if the cards add up to 21...
+*     System.out.println("Blackjack!");
+* }
+```
+
+---
+
+template: ifs
+name: ifs-2
+
+*if* statements followed by *else* blocks can have control flow into one of two branches, depending on a single condition being met or not.
+
+```java
+int card1 = (int) (Math.random() * 11) + 1; // number from 1 to 11
+int card2 = (int) (Math.random() * 11) + 1; // number  from 1 to 11
+
+if (card1 + card2 == 21) {
+    // if the cards add up to 21...
+    System.out.println("Blackjack!");
+}
+* else {
+*     // otherwise...
+*     System.out.println("Maybe next time!");
+* }
+```
+
+---
+
+template: ifs
+name: ifs-3
+
+*if* statements followed by one or more *else if* blocks can have control flow into one of several different branches, depending on multiple conditions.
+
+```java
+int card1 = (int) (Math.random() * 11) + 1; // number from 1 to 11
+int card2 = (int) (Math.random() * 11) + 1; // number  from 1 to 11
+
+if (card1 + card2 == 21) {
+    // if the cards add up to 21...
+    System.out.println("Blackjack!");
+}
+* else if (card1 == 1 && card2 == 1) {
+*     // otherwise if the cards are both ones...
+*     System.out.println("Snake eyes!");
+* }
+else {
+    // otherwise...
+    System.out.println("Maybe next time!");
+}
+```
 
 ---
 
