@@ -8,12 +8,16 @@ class: center, middle
 
 # Branching
 > Two roads diverged in a yellow wood,
+> 
 > And sorry I could not travel both
+> 
 > And be one traveler, long I stood
+> 
 > And looked down one as far as I could
+> 
 > To where it bent in the undergrowth;
 > 
-> -Robert Frost, [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
+-Robert Frost, [The Road Not Taken](https://www.poetryfoundation.org/poems/44272/the-road-not-taken)
 
 ---
 
@@ -48,29 +52,29 @@ name: concept-2
 
 ---
 
-template: concept-1
-name: concept-2
-
-- By default, a program will execute statements in the order written, from top to bottom.
-
----
-
 template: concept-2
 name: concept-3
 
-- Some branches are *unconditional* - the control will always break out of this sequential flow every time the program is executed.
+- By default, a program will execute statements in the order written, from top to bottom.
 
 ---
 
 template: concept-3
 name: concept-4
 
-- Other branches are *conditional* - certain contextual conditions must be met if the control of the program is to break out of its usual flow.
+- Some branches are *unconditional* - the control will always break out of this sequential flow every time the program is executed.
 
 ---
 
 template: concept-4
 name: concept-5
+
+- Other branches are *conditional* - certain contextual conditions must be met if the control of the program is to break out of its usual flow.
+
+---
+
+template: concept-5
+name: concept-6
 
 - Conditional branches are our focus here.
 
@@ -97,29 +101,29 @@ name: flow-charts-2
 
 ---
 
-template: flow-charts-1
-name: flow-charts-2
-
-- Creating such flow diagrams can help understand and communicate the problem being solved without such burden.
-
----
-
 template: flow-charts-2
 name: flow-charts-3
 
-- The [Unified Modeling Language](https://en.wikipedia.org/wiki/Activity_diagram) (UML) has attempted to define the "Activity Diagram" - a standard for how such diagrams should be drawn.
+- Creating such flow diagrams can help understand and communicate the problem being solved without such burden.
 
 ---
 
 template: flow-charts-3
 name: flow-charts-4
 
+- The [Unified Modeling Language](https://en.wikipedia.org/wiki/Activity_diagram) (UML) has attempted to define the "Activity Diagram" - a standard for how such diagrams should be drawn.
+
+---
+
+template: flow-charts-4
+name: flow-charts-5
+
 - In practice, people often use parts of the UML Activity Diagram style mixed with their own personal styles.
 
 ---
 
 template: flow-charts
-name: flow-charts-5
+name: flow-charts-6
 
 ## Example
 A virtual card game program randomly picks two cards, from 1 to 11.  
@@ -129,10 +133,61 @@ A virtual card game program randomly picks two cards, from 1 to 11.
 ---
 
 template: flow-charts
-name: flow-charts-6
+name: flow-charts-7
 
 ## Example
 ![Blackjack example diagram](../images/selections_blackjack_card_draw.png)
+
+---
+
+template: flow-charts
+name: activity-diagrams
+
+## UML Activity Diagram Rules
+UML Activity Diagrams follow a few basic rules:
+
+
+---
+
+template: factivity-diagrams
+name: activity-diagrams-1
+
+- program control starts at the top of the diagram and ends at the bottom.
+
+---
+
+template: factivity-diagrams-1
+name: activity-diagrams-2
+
+- the start point is indicated with just filled circle, the end with a filled circle with a line around it
+
+---
+
+template: factivity-diagrams-2
+name: activity-diagrams-3
+
+- any process is indicated with an ellipse (or a rounded rectangle)
+
+---
+
+template: factivity-diagrams-5
+name: activity-diagrams-6
+
+- if any process being diagrammed is so complex it makes the diagram complex and difficult to understand, make a separate activity diagram for that sub-process, and represent it as a single process in this diagram.
+
+---
+
+template: factivity-diagrams-3
+name: activity-diagrams-4
+
+- any decision point leading to more than one branch is indicated with a diamond shape (also called a rhombus)
+
+---
+
+template: factivity-diagrams-4
+name: activity-diagrams-5
+
+- branches should have simple annotations indicating in what decision context they are followed
 
 ---
 
@@ -168,6 +223,5 @@ name: conclusions
 
 template: conclusions
 
-You now have a basic understanding of compiling, interpreting, and the Java paradigm.
-
-Thank you.  Bye.
+ You now have a basic understanding of UML activity diagrams, if/else if/else statements, and switch/case statements.
+- Thank you.  Bye.
