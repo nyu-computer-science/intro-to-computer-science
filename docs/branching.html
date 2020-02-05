@@ -313,10 +313,32 @@ Imagine a program which asks the user what the weather is and recommends how to 
 
 ---
 
-template: ifs
-name: ifs-3
+template: switch-case
+name: switch-case-6
 
-*if* statements followed by one or more *else if* blocks can have control flow into one of several different branches, depending on multiple conditions.
+This could be handled by if/else if/else statements with some boolean operators thrown in.
+
+```java
+Scanner scn = new Scanner(System.in);
+String weather = scn.nextLine();
+
+if ( weather.equals("sunny") || weather.equals("raining") ) {
+	System.out.println("Take an umbrella");
+}
+else if (weather.equals("snowing") ) {
+	System.out.println("Wear a hat!");
+}
+else {
+	System.out.println("Good luck!");
+}
+```
+
+---
+
+template: switch-case
+name: switch-case-7
+
+Using switch/case would remove the need for boolean operations and provide more readable code.
 
 ```java
 Scanner scn = new Scanner(System.in);
@@ -345,5 +367,5 @@ name: conclusions
 
 template: conclusions
 
- You now have a basic understanding of UML activity diagrams, if/else if/else statements, and switch/case statements.
+You now have a basic understanding of UML activity diagrams, if/else if/else statements, and switch/case statements.
 - Thank you.  Bye.
