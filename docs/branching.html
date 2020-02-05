@@ -292,14 +292,48 @@ template: switch-case-2
 name: switch-case-3
 
 - such as when the branch followed depends upon the value of a single variable
+
+---
+
+template: switch-case-3
+name: switch-case-4
+
 - and when multiple conditions lead to the same branch
 
 ---
 
 template: switch-case
-name: switch-case-4
+name: switch-case-5
 
 ## Example
+
+Imagine a program which asks the user what the weather is and recommends how to dress.
+
+![UML activity diagram for weather program](../images/selections_switch_weather.png)
+
+---
+
+template: ifs
+name: ifs-3
+
+*if* statements followed by one or more *else if* blocks can have control flow into one of several different branches, depending on multiple conditions.
+
+```java
+Scanner scn = new Scanner(System.in);
+String weather = scn.nextLine();
+
+switch (weather) {
+    case "snowing":
+        System.out.println("Wear a hat!");
+        break;
+    case "raining":
+    case "very sunny":
+        System.out.println("Take an umbrella!");
+        break;
+    default:
+        System.out.println("Good luck!");
+}
+```
 
 ---
 
