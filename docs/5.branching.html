@@ -319,11 +319,11 @@ Scanner scn = new Scanner(System.in);
 String weather = scn.nextLine();
 
 if ( weather.equals("very sunny") || weather.equals("raining") ) {
-    // if the weather is sunny or raining...
+    // if it's raining or very sunny...
 	System.out.println("Take an umbrella");
 }
 else if (weather.equals("snowing") ) {
-    // otherwise if the weather is snowing...
+    // otherwise, if it's snowing...
 	System.out.println("Wear a hat!");
 }
 else {
@@ -346,11 +346,11 @@ String weather = scn.nextLine();
 switch (weather) {
     case "raining":
     case "very sunny":
-        // otherwise, if it's raining or very sunny...
+        // if it's raining or very sunny...
         System.out.println("Take an umbrella!");
         break;
     case "snowing":
-        // if it's snowing...
+        // otherwise, if it's snowing...
         System.out.println("Wear a hat!");
         break;
     default:
