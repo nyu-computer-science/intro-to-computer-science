@@ -23,6 +23,7 @@ class: center, middle
 1. [Flow Charts](#flow-charts)
 1. [If/Else if/Else](#ifs)
 1. [Switch/Case](#switch-case)
+1. [The Ternary Operator](#ternary)
 1. [Conclusions](#conclusions)
 
 ---
@@ -357,6 +358,32 @@ switch (weather) {
         // otherwise...
         System.out.println("Good luck!");
 }
+```
+
+---
+
+name: ternary
+
+# The Ternary Operator
+
+---
+
+template: ternary
+name: ternary-1
+
+It is often the case that we use if/else statements to control setting the value of a variable.
+```javascript
+if (breakfastWasServed && breakfastWasEaten) {
+    satiationLevel = "full";
+}
+else {
+    satiationLevel = "hungry";
+}
+```
+
+The ternary operator, `?`, thankfully allows us to simplify such syntax:
+```javascript
+satiationLevel = (breakfastWasServed && breakfastWasEaten) ? "full" : "hungry";
 ```
 
 ---
