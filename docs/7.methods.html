@@ -19,6 +19,7 @@ class: center, middle
 1. [Simple Methods](#simple)
 1. [Parameters & Arguments](#parameters)
 1. [Return Values](#return)
+1. [Overloading](#overloading)
 1. [Conclusions](#conclusions)
 
 ---
@@ -114,6 +115,14 @@ Methods can accept 'arguments' - values sent into the method.
 - These arguments are stored in 'parameters' - local variables within the namespace of the method invocation's stack frame.
 - Once the method invocation completes, any local variables, including parameters, are wiped out of memory.
 
+```java
+public static void doSomething1(int x) {
+    x++; // increment x
+    System.out.println("Begin doSomething1, x=" + x);
+    System.out.println("End doSomething1, x=" + x);
+}
+```
+
 [Try it!](https://repl.it/repls/ZigzagSelfishGlueware)
 
 ---
@@ -128,10 +137,50 @@ template: return
 name: return-1
 
 # Methods can return a single value.
-- This value is returned to the part of the code where the method was originally invoked.
+- The method signature line must state the data type of the returned value
+- This value is returned to the part of the code from which the method was originally invoked.
 - Think of it as if the method invocation is replaced by that method's return value.
 
+```java
+public static int doSomething1(int x) {
+    x++; // increment x
+    System.out.println("Begin doSomething1, x=" + x);
+    System.out.println("End doSomething1, x=" + x);
+    return x;
+}
+```
+
 [Try it!](https://repl.it/repls/AdeptSlipperySearch)
+
+---
+
+name: overloading
+
+# Overloading
+
+---
+
+template: overloading
+name: overloading-1
+
+Java allows multiple methods with the same name but different parameter sets.  These are called overloaded methods.
+- Which version of the method is invoked depends upon the arguments in the method call.
+
+```java
+public static void foo() {
+    ...
+}
+
+public static void foo(String bar) {
+    ...
+}
+
+public static void foo(String bar, boolean baz) {
+    ...
+}
+```
+
+[Try it!](https://repl.it/repls/LawfulIcyProducts)
 
 ---
 
