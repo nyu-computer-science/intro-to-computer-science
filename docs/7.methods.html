@@ -94,7 +94,8 @@ name: simple-3
 The order is determined by the control flow of the program.
 - Each method invocation creates a new 'stack frame' - an area of memory dedicated to the newly invoked method.
 - The Java interpreter is only ever looking at the method invocation at the top of the stack - the most recently invoked method.
-- Each stack frame has its own variable namespace, so you can have two variables named `x` in two different method invocations, and they will be different variables with potentially different values.
+- Each stack frame has its own variable namespace, so you can have two variables named `x` in two different method invocations, and they will be different variables in two different areas of memory with potentially different values.
+- Once a method that has been invoked completes, its stack frame is popped (deleted) from the call stack and its memory is wiped clean.
 
 [Try it!](https://repl.it/repls/PalatableConsiderateBlogs)
 
@@ -136,7 +137,7 @@ name: return
 template: return
 name: return-1
 
-# Methods can return a single value.
+Methods can return a single value.
 - The method signature line must state the data type of the returned value
 - This value is returned to the part of the code from which the method was originally invoked.
 - Think of it as if the method invocation is replaced by that method's return value.
