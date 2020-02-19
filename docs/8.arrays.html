@@ -19,6 +19,7 @@ class: center, middle
 1. [Creation](#creation)
 1. [Array Length](#length)
 1. [Arrays Utility Class](#arrays-class)
+1. [Java Is Pass By Value Language]
 1. [Basic Usage Examples](#examples)
 1. [Conclusions](#conclusions)
 
@@ -62,11 +63,11 @@ template: creation
 name: creation-2
 
 ## Using syntactic sugar
-Arrays can be created using `syntactic sugar`, or shorthand syntax that is converted to the longer-form automatically by jave upon compilation.
+Arrays can be created using `syntactic sugar`, or shorthand syntax that is converted to the longer-form automatically by Java upon compilation.
 - This can be useful if you know the values you want to put into the array up-front.
 
 ```java
-char[] myFavoriteCharacters = { 'f', 'o, 'o' };
+char[] myFavoriteCharacters = { 'f', 'o', 'o' };
 ```
 
 ---
@@ -134,7 +135,7 @@ String[] arrVar = { "hello", "and", "good", "morning" };
 template: arrays-class
 name: arrays-class-2
 
-## Print out array contents
+## Convert array contents to String
 Prints out the contents of the array *inelegantly*.
 - Good for debugging.
 
@@ -224,6 +225,69 @@ Place default values into an array.
 String defaultValue = "foo";
 Arrays.fill(arrVar, defaultValue);
 ```
+
+---
+
+name: pass-by-value
+
+# Java Is A Pass By Value Language
+
+---
+
+template: pass-by-value
+name: pass-by-value-1
+
+## The word on the street
+Some textbooks and online discussions say, "Java is a 'pass by value' language!"  
+
+This refers to what exactly is passed to a function when it is invoked with arguments.
+
+
+---
+
+template: pass-by-value
+name: pass-by-value-2
+
+## Primitives are value types
+When a primitive value is passed as an argument to a function, the situation is straightforward.
+- The value is passed to the function!
+- Primitive values are called '**value types**' for this reason.
+
+```java
+public static void doSomething(int x) {
+    x = 10;
+}
+public static void main(String[] args) {
+    int x = 5;
+    doSomething(x); // the value 5 is passed to the function
+    System.out.println(x);
+}
+```
+
+The output of the above program is `5`, since the local variable within the main function is never reassigned to refer to anything but 5.
+
+---
+
+template: pass-by-value
+name: pass-by-value-3
+
+## Arrays and other reference types
+When an array is passed as an argument to a function, the situation is a bit less straightforward.
+- The memory address at which the array is stored is passed to the function!
+- Arraas and objects are called '**reference types**' for this reason.
+
+```java
+public static void doSomething(int[] x) {
+    x[25] = 10;
+}
+public static void main(String[] args) {
+    int x[] = {5, 10, 15, 20};
+    doSomething(x); // the memory address of the array is passed to the function
+    System.out.println( Arrays.toString(x) );
+}
+```
+
+The output of the above program is `[ 5, 10, 25, 20 ]`, since the local variable within the doSomething function is an alias of the variable within the main function - they both refer to the same array in the same memory location.
 
 ---
 
