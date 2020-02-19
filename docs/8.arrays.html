@@ -238,10 +238,9 @@ template: pass-by-value
 name: pass-by-value-1
 
 ## The word on the street
-Some textbooks and online discussions say, "Java is a 'pass by value' language!"  
+Some textbooks and online discussions say, "Java is a 'pass by value' language!"  What does this mean? 
 
 This refers to what exactly is passed to a function when it is invoked with arguments.
-
 
 ---
 
@@ -249,10 +248,18 @@ template: pass-by-value
 name: pass-by-value-2
 
 ## Primitives are value types
-When a primitive value is passed as an argument to a function, the situation is straightforward.
-- The value is passed to the function!
+When a *primitive value* is passed as an argument to a function, the situation is straightforward.
+- The argument's *value* is passed to the function!
 - Primitive values are called '**value types**' for this reason.
 
+---
+
+template: pass-by-value
+name: pass-by-value-3
+
+## Primitives are value types (continued)
+
+Take the following example:
 ```java
 public static void doSomething(int x) {
     x = 10;
@@ -264,21 +271,29 @@ public static void main(String[] args) {
 }
 ```
 
-The output of the above program is `5`, since the local variable within the main function is never reassigned to refer to anything but 5.
+The output of the above program is `5`, since the local variable within the main function is never reassigned to refer to anything other than 5.
 
 ---
 
 template: pass-by-value
-name: pass-by-value-3
+name: pass-by-value-4
 
-## Arrays and other reference types
-When an array is passed as an argument to a function, the situation is a bit less straightforward.
-- The memory address at which the array is stored is passed to the function!
-- Arraas and objects are called '**reference types**' for this reason.
+## Arrays and objects are reference types
+When an *array* or an *object* is passed as an argument to a function, the situation is a bit less straightforward.
+- The argument's *reference* - the memory address at which the array is stored - is passed to the function!
+- Arrays and objects are called '**reference types**' for this reason.
 
+---
+
+template: pass-by-value
+name: pass-by-value-5
+
+## Arrays and objects are reference types (continued)
+
+Let's consider the following example:
 ```java
 public static void doSomething(int[] x) {
-    x[25] = 10;
+    x = {25, 30, 35}; // the local variable is re-assigned to point to a different memory address
 }
 public static void main(String[] args) {
     int x[] = {5, 10, 15, 20};
@@ -287,7 +302,41 @@ public static void main(String[] args) {
 }
 ```
 
-The output of the above program is `[ 5, 10, 25, 20 ]`, since the local variable within the doSomething function is an alias of the variable within the main function - they both refer to the same array in the same memory location.
+The output of the above program is `[ 5, 10, 15, 20 ]`, since the local variable within the main function is never reassigned to refer to anything other than that array, and that array has never had its contents modified.
+
+---
+
+template: pass-by-value
+name: pass-by-value-6
+
+## Arrays and objects are reference types (continued again)
+
+But consider the following example:
+```java
+public static void doSomething(int[] x) {
+    x[2] = 555; // the third spot within the array is re-assigned to refer to a different integer
+}
+public static void main(String[] args) {
+    int x[] = {5, 10, 15, 20};
+    doSomething(x); // the memory address of the array is passed to the function
+    System.out.println( Arrays.toString(x) );
+}
+```
+
+The output of the above program is `[ 5, 10, 555, 20 ]`, since the local variable within the doSomething function is an alias of the variable within the main function - they both refer to the same array in the same memory location and that array's inner values have been modified.
+
+---
+
+template: pass-by-value
+name: pass-by-value-6
+
+## Doesn't this mean Java is both a 'pass by value' and 'pass by reference' language?
+
+The phrase, "Java is a 'pass by value' language is thus a bit confusing.
+- Arguments that are value types (i.e. primitives) are passed as values
+- Arguments that are reference types (i.e. arrays and objects) are passed as references.
+
+The trick to this is that the **references are themselves passed as values** - the value being the integer memory address at which the array or object resides.
 
 ---
 
