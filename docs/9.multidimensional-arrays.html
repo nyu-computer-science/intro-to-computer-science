@@ -198,14 +198,17 @@ String[][] naughtsAndCrosses = {
 template: rows-columns
 name: rows-columns-2
 
-## Looping through rows
+## Looping through rows with syntactic sugar
 To loop through each row, remember that each row of a two-dimensional array is itself a one-dimensional array.
 
 Using `for` loop syntactic sugar.
 ```java
 // iterate through each row in the outer array
-for (int[] row : naughtsAndCrosses ) {
-    System.out.println( Arrays.toString(row) ); // print out the row
+for (String[] row : naughtsAndCrosses ) {
+
+    // print out the row
+    System.out.println( Arrays.toString(row) ); 
+
 }
 ```
 
@@ -214,15 +217,72 @@ for (int[] row : naughtsAndCrosses ) {
 template: rows-columns
 name: rows-columns-3
 
-## Using a counter
+## Looping through rows with a counter
 If you insist on using an accumulator-style `for` loop, that also works, of course.
 
 Using `for` loop accumulator syntax.
 ```java
 // iterate through each index value in the outer array
 for ( int i=0; i<naughtsAndCrosses.length; i++ ) {
-    String[] row = naughtsAndCrosses[i]; // get the row at this index
-    System.out.println( Arrays.toString(row) ); // print out the row
+
+    // get the row at this index
+    String[] row = naughtsAndCrosses[i]; 
+
+    // print out the row
+    System.out.println( Arrays.toString(row) ); 
+
+}
+```
+
+---
+
+template: rows-columns
+name: rows-columns-4
+
+## Looping through each column within each row
+It's easy enough to iterate through each column within each row.  
+- Recall that each value in the inner array - each column - is a String.
+
+Using `for` loop syntactic sugar syntax.
+```java
+// iterate through each row in the outer array
+for (String[] row : naughtsAndCrosses ) {
+
+    // iterate through each column within the current wor
+    for (String col : row) {
+
+        // print out the column value
+        System.out.print( col ); 
+    
+    }
+
+}
+```
+
+---
+
+template: rows-columns
+name: rows-columns-5
+
+## Looping through each column within each row (the hard way)
+The same can be done without syntactic sugar
+
+Using `for` loop accumulator syntax.
+```java
+// iterate through each index value in the outer array
+for ( int i=0; i<naughtsAndCrosses.length; i++ ) {
+
+    // get the row at this index
+    String[] row = naughtsAndCrosses[i]; 
+
+    // iterate through each index value of the inner array
+    for (int j=0; j<row.length; j++) {
+
+        // print out the column value
+        System.out.println( row[j] ); 
+
+    }
+
 }
 ```
 
