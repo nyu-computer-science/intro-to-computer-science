@@ -6,8 +6,9 @@ permalink: /object-orientation/
 
 class: center, middle
 
-# Object-Oriented Progrmaming
+# Object-Oriented Programming
 > Object-oriented programming is an exceptionally bad idea which could only have originated in California.
+> 
 > –[Edsger Dijkstra](http://harmful.cat-v.org/software/OO_programming/)
 
 ---
@@ -15,6 +16,8 @@ class: center, middle
 # Agenda
 
 1. [Overview](#concept)
+1. [Example 1](#example-1)
+1. [Example 2](#example-2)
 1. [Conclusions](#conclusions)
 
 ---
@@ -28,8 +31,8 @@ name: overview
 template: overview
 name: overview-1
 
-# Concept
-Object-Oriented Programming (OOP) is the standard programming paradigm of today.  All major contemporary programming languages offer the ability to program with objects.
+## Concept
+Object-Oriented Programming (OOP) is the standard programming paradigm of today.  Nearly all major contemporary programming languages offer the ability to program with objects.
 
 ---
 
@@ -57,16 +60,37 @@ name: overview-1c
 template: overview
 name: overview-2
 
-## Example - file
-
-Imagine a **file** on a computer's hard drive.
+## It's imperative
+Object-oriented programming is a variety of **imperative programming**.
 
 ---
 
 template: overview-2
 name: overview-2a
 
-### Properties
+- The goal of imperative programming is to design code such that one is able to instruct the code to perform a particular action, have it complete that action, and not worry about the implementation details of how that goal was achieved.
+
+---
+
+template: overview-2a
+name: overview-2b
+
+- This is putting to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box ) in engineering, where provided particular inputs a machine produces a predictable output and the user of it doesn't have to know the implementation details.
+
+---
+
+name: example-1
+
+# Example 1 - Files
+
+---
+
+template: example-1
+name: example-1a
+
+Imagine a **file** on a computer's hard drive.
+
+## Properties
 Every file on the hard drive might have some properties, e.g.
 - the data stored within the file
 - metadata: filename, size, date modified, etc.
@@ -75,10 +99,10 @@ These properties represent the *internal state* of any given file.
 
 ---
 
-template: overview-2
-name: overview-2b
+template: example-1
+name: example-1c
 
-### Actions
+## Actions
 If we say a file is in control of its own destiny (a big if), we could say a file has a few actions it could take, e.g.:
 - update the data it holds
 - change its filename
@@ -88,20 +112,20 @@ These actions represent a *public interface* through which other code can intera
 
 ---
 
-template: overview-2
-name: overview-2c
+template: example-1
+name: example-1d
 
-### UML class diagram
+## UML class diagram
 There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a so-called 'class' diagram:
 
 ![UML file example](../images/oop-uml-file-example.png)
 
 ---
 
-template: overview-2
-name: overview-2d
+template: example-1
+name: example-1e
 
-### Class definition
+## Class definition
 This diagram can be translated into code as such:
 
 ```java
@@ -121,22 +145,30 @@ public class File {
 }
 ```
 
+---
+
+template: example-1
+name: example-1f
+
+## Intention
+This **class** definition is a template from which as many file **objects** can be made as we like.
+- Each specific File object has its own specific values for each of the properties the class defines.
+- Each specific file object will respond to calls to any of the methods that the File class defines.
 
 ---
 
-template: overview
-name: overview-3
+name: example-2
 
-## Example - dog
+# Example 2 - Dogs
+
+---
+
+template: example-2
+name: example-2a
 
 Imagine a **dog**.
 
----
-
-template: overview-3
-name: overview-3a
-
-### Properties
+## Properties
 Every dog might have some properties, e.g.
 - name
 - age
@@ -147,10 +179,10 @@ Different dogs will probably have different values for each of these properties.
 
 ---
 
-template: overview-3
-name: overview-3b
+template: example-2
+name: example-2c
 
-### Actions
+## Actions
 If we say a dog is in control of its own destiny (a big if), we could say a dog has a few actions it could take, e.g.:
 - bark
 - fetch
@@ -162,20 +194,20 @@ Two dogs with different property values might implement these same actions sligh
 
 ---
 
-template: overview-3
-name: overview-3c
+template: example-2
+name: example-2d
 
-### UML class diagram
+## UML class diagram
 A UML class diagram for this dog thing:
 
 ![UML dog example](../images/oop-uml-dog-example.png)
 
 ---
 
-template: overview-3
-name: overview-3d
+template: example-2
+name: example-2e
 
-### Class definition
+## Class definition
 This diagram can be translated into code as such:
 
 ```java
