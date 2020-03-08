@@ -16,8 +16,10 @@ class: center, middle
 # Agenda
 
 1. [Overview](#concept)
+1. [Black Box](#black-box)
 1. [Example 1](#example-1)
 1. [Example 2](#example-2)
+1. [Creating Difference](#difference)
 1. [Conclusions](#conclusions)
 
 ---
@@ -39,7 +41,7 @@ Object-Oriented Programming (OOP) is the standard programming paradigm of today.
 template: overview-1
 name: overview-1a
 
-- code is written to represent virtual **things**.
+- code is written to represent virtual *things*.
 
 ---
 
@@ -60,7 +62,7 @@ name: overview-1c
 template: overview
 name: overview-2
 
-## It's imperative
+## Understand this: it's imperative!
 Object-oriented programming is a variety of **imperative programming**.
 
 ---
@@ -72,10 +74,49 @@ name: overview-2a
 
 ---
 
-template: overview-2a
-name: overview-2b
+name: black-box
 
-- This is putting to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box ) in engineering, where provided particular inputs a machine produces a predictable output and the user of it doesn't have to know the implementation details.
+# Black Box Metaphor
+
+---
+
+template: black-box
+name: black-box-1
+
+## Smoke and mirrors
+Imperative-style programming attempts to put to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box) of engineering, where, provided particular inputs, a machine produces a predictable output and the user of it doesn't have to know the implementation details.
+
+![Black box metapahor](../images/oop-black-box-metaphor.png)
+
+---
+
+template: black-box
+name: black-box-2
+
+## Digression
+The black box approach transcends any one discipline.  For example, it was popular in the [Behaviorist school of psychology](https://en.wikipedia.org/wiki/Behaviorism), which held that human psychology could be defined by the empirically observed responses to given stimuli, regardless of the internal psychological thought patterns internal to the person.
+
+---
+
+template: black-box-2
+name: black-box-2a
+
+- It modeled humans as input-output machines.... black boxes where it was not necessary to understand the psychology of the person.
+
+---
+
+template: black-box-2a
+name: black-box-2b
+
+- A pioneer of this movement was [B.F. Skinner](https://en.wikipedia.org/wiki/B._F._Skinner), who purportedly raised his own children in literal black boxes!
+
+---
+
+template: black-box
+name: black-box-2c
+
+## Digression (continued)
+![Skinner box](../images/oop-skinner-box.jpg)
 
 ---
 
@@ -102,13 +143,48 @@ These properties represent the *internal state* of any given file.
 template: example-1
 name: example-1c
 
-## Actions
+## Actions...
 If we say a file is in control of its own destiny (a big if), we could say a file has a few actions it could take, e.g.:
 - update the data it holds
 - change its filename
 - save itself to a particular location on the hard drive
 
-These actions represent a *public interface* through which other code can interact with any given file.
+---
+
+template: example-1
+name: example-1d
+
+## ... and their consequences
+These actions represent a *public interface* through which other code can interact with any given file and instruct it what actions to take.
+
+---
+
+template: example-1d
+name: example-1e
+
+```java
+// telling the thing what to do...
+myFile.setFilename("foobar.txt");
+myFile.storeData(someData);
+```
+
+---
+
+template: example-1e
+name: example-1f
+
+Calling these methods automatically updates the internal state of the *thing*.
+
+---
+
+template: example-1f
+name: example-1g
+
+```java
+// ...causes an internal update of its state - i.e. the values in the properties
+filename = "foobar.txt";
+data = someData;
+```
 
 ---
 
@@ -116,7 +192,7 @@ template: example-1
 name: example-1d
 
 ## UML class diagram
-There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a so-called 'class' diagram:
+There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a so-called '**class**' diagram:
 
 ![UML file example](../images/oop-uml-file-example.png)
 
@@ -151,7 +227,7 @@ template: example-1
 name: example-1f
 
 ## Intention
-This **class** definition is a template from which as many file **objects** can be made as we like.
+This **class** definition is a template from which as many File **objects** can be made as we like.
 - Each specific File object has its own specific values for each of the properties the class defines.
 - Each specific file object will respond to calls to any of the methods that the File class defines.
 
@@ -182,20 +258,38 @@ Different dogs will probably have different values for each of these properties.
 template: example-2
 name: example-2c
 
-## Actions
+## Actions...
 If we say a dog is in control of its own destiny (a big if), we could say a dog has a few actions it could take, e.g.:
 - bark
 - fetch
 - sleep
 
+---
+
+template: example-2
+name: example-2d
+
+## ... and their complications
 Two dogs with different property values might implement these same actions slightly differently.
+
+---
+
+template: example-2d
+name: example-2e
+
 - For example, a young dog might generally successfully fetch an object, while an elderly dog might generally fail at this
+
+---
+
+template: example-2e
+name: example-2f
+
 - A breed known for its abilities as a guard dog might bark more often and more fiercely than others.
 
 ---
 
 template: example-2
-name: example-2d
+name: example-2g
 
 ## UML class diagram
 A UML class diagram for this dog thing:
@@ -205,7 +299,7 @@ A UML class diagram for this dog thing:
 ---
 
 template: example-2
-name: example-2e
+name: example-2h
 
 ## Class definition
 This diagram can be translated into code as such:
@@ -227,6 +321,332 @@ public class Dog {
 
 ---
 
+template: example-2
+name: example-2i
+
+## Intention
+This **class** definition is a template from which as many Dog **objects** can be made as we like.
+- Each specific Dog object has its own specific values for each of the properties the class defines.
+- Each specific Dog object will respond to calls to any of the methods that the File class defines.
+- The actions produced by these method calls may differ slightly, depending upon the internal state of each Dog object
+
+---
+
+name: difference
+
+# Difference
+
+---
+
+template: difference
+name: difference-1
+
+## Constructing different objects from the same class
+Our intention in creating a class is to be able to instantiate different objects from that class template.
+
+
+---
+
+template: difference-1
+name: difference-2
+
+- We typically want these objects to have some differences from one-another.
+
+---
+
+template: difference
+name: difference-2
+
+## No difference
+The following code, placed somewhere outside of the Dog class, would instantiate two Dog objects from our Dog class.
+
+```java
+Dog dog1 = new Dog();
+Dog dog2 = new Dog();
+```
+
+---
+
+template: difference-2
+name: difference-2a
+
+These are different *things* in memory.  [Try it](https://repl.it/repls/TatteredAstonishingDominspector)
+```java
+(dog1 == dog2) // false
+```
+
+---
+
+template: difference-2a
+name: difference-2b
+
+But they do not have any difference in terms of their *internal states*.
+
+---
+
+template: difference-2b
+name: difference-2c
+
+- `String name` -> `null` by default
+- `int age` -> `0` by default
+- `String breed` -> `null` by default
+- `int weight` -> `0` by default
+
+---
+
+template: difference
+name: difference-3
+
+## Difference!
+If we were able to set each Dog's name, breed, and age, then they could potentially hold different internal states.
+
+---
+
+template: difference-3
+name: difference-3a
+
+We would like to be able to do something like this:
+```java
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
+```
+
+---
+
+template: difference-3a
+name: difference-3b
+
+At the moment, our class definition provides no mechanism for setting a given object's internal properties.
+
+---
+
+template: difference
+name: difference-4
+
+## Constructors
+In order to be able to set each object's properties discretely, we need to modify the Dog class to have a special **constructor** function.
+
+---
+
+template: difference-4
+name: difference-4a
+
+```java
+public class Dog {
+
+    // a constructor function!
+    public Dog(String name, String breed, int age) {
+        // set this object's internal properties
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+    }
+
+    // properties
+    private String name;
+    private int age;
+    private String breed;
+    // and so on...
+...
+```
+
+---
+
+template: difference
+name: difference-5
+
+## Instantiating objects
+With constructor functions, we can instantiate as many objects as we like with whatever property values we want them to have.
+
+---
+
+template: difference-5
+name: difference-5a
+
+```java
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
+```
+
+---
+
+template: difference
+name: difference-6
+
+## Instantiating objects (continued)
+
+We could make 101 Dalmatians with random names and ages, if we wanted...
+```java
+// let's make a random mix of names and ages objects
+String[] names = "Patch,Lucky,Cadpig,Roly Poly,Penny,Freckles,Pepper".split(",");
+int[] ages = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+
+Dog[] dogs = new Dog[101]; // will hold 101 Dalmatians
+
+for (int i=0; i<dogs.length; i++) {
+    // assign each dog random property values from these arrays
+    String randomName = names[ (int) (Math.random() * names.length) ];
+    String randomAge = ages[ (int) (Math.random() * ages.length) ];
+
+    dogs[i] = new Dog( randomName, randomAge, "Dalmatian" ); // instantiate a Dog object
+
+    dogs[i].bark(); // make each dog bark
+
+}
+```
+
+---
+
+template: difference
+name: difference-7
+
+## Setters
+Constructors allow us to set an object's property values at the moment of its creation.  But what if we wanted to update those values at some later date?
+
+---
+
+template: difference-7
+name: difference-7a
+
+- For example, what if one of the 101 Dalmatians has a birthday and is now a year older... can we not update the age property?
+
+---
+
+template: difference-7a
+name: difference-7b
+
+- To do so, we need a '**setter**' function to allow us to set the value of an existing object.
+
+---
+
+template: difference-7b
+name: difference-7c
+
+```java
+public class Dog {
+    // ...etc etc
+
+    // a setter function
+    public void setAge(int age) {
+        // first validate the value, and then use it if good
+        if (age > 0) this.age = age;
+    }
+
+    // ...and so on and so forth
+// ...
+```
+
+---
+
+template: difference
+name: difference-8
+
+## Setters (continued)
+With setters, it is possible to set the values of properties on existing objects.
+
+---
+
+template: difference-8
+name: difference-8a
+
+Assuming we have created a Dog object...
+```java
+Dog dog1 = new Dog("Roly Poly", "Dalmatian", 10); // instantiate a dog
+```
+
+---
+
+template: difference-8a
+name: difference-8b
+
+...we can now update its age using the setter
+```java
+dog1.setAge(11);
+```
+
+---
+
+template: difference
+name: difference-9
+
+## Getters
+What if you wanted to know a particular Dog's age... how could you find that out programmatically?
+
+---
+
+template: difference-9
+name: difference-9a
+
+- For example, instead of hard-coding `11` in the statement `dog1.setAge(11);`, could we have programmatically determined `dog1`'s current age and simply added one to that?
+
+---
+
+template: difference-9a
+name: difference-9b
+
+- Of course we can.  But we need a '**getter**' function to do so
+
+---
+
+template: difference-9b
+name: difference-9c
+
+```java
+public class Dog {
+    // ...etc etc
+
+    // a getter function
+    public int getAge() {
+        // simply return the value of the age property
+        return this.age;
+    }
+
+    // ...and so on and so forth
+// ...
+```
+
+---
+
+template: difference
+name: difference-10
+
+## Getters (continued)
+
+With a getter function, we can read the current value of a property of an object...
+
+---
+
+template: difference-10
+name: difference-10a
+
+```java
+System.out.println ( dog1.getAge() ); // will output dog1's age
+```
+
+---
+
+template: difference-10a
+name: difference-10b
+
+... and use that information to help us understand that object's internal state
+```java
+dog1.setAge( dog1.getAge() + 1 );
+```
+
+---
+
+template: difference-10b
+name: difference-10c
+
+Knowledge of an object's internal state can help us make decisions
+```java
+if ( dog1.getBreed().equals("Dalmation") && dog1.getName().equals("Pepper") ) {
+    // use your imagination
+}
+```
+
+---
+
 name: conclusions
 
 # Conclusions
@@ -236,7 +656,7 @@ name: conclusions
 template: conclusions
 name: conclusions-1
 
-You now have a basic understanding of multidimensional arrays - especially two-dimensional arrays - in Java.
+You now have a basic understanding of object-oriented programming.
 - Thank you.  Bye.
 
 
