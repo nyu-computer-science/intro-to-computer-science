@@ -62,6 +62,71 @@ name: overview-1c
 template: overview
 name: overview-2
 
+## Concept (continued)
+With object-oriented programming, a developer writes a *description* of things of a certain type.
+
+---
+
+template: overview-2
+name: overview-2a
+
+- This acts as a fixed plan or *concept* for things of this type - a **class**.
+
+---
+
+template: overview-2a
+name: overview-2b
+
+- Things are then created that *embody* the abstract concept - **objects**.
+
+---
+
+template: overview
+name: concept-digression
+
+## Digression
+In the 5th century, B.C., the astonishingly brilliant philsopher, Plato, described what we now call the [Theory of Forms](https://philosophynow.org/issues/90/Plato_A_Theory_of_Forms).
+
+---
+
+template: concept-digression
+name: concept-digression-1
+
+- In this theory, **forms** are the non-physical essences of all things, of which **objects** in the physical world are merely imitations or stand-ins.
+
+---
+
+template: concept-digression-1
+name: concept-digression-1a
+
+- Things, transient as they are, are not as **real** or true as the eternal concepts or blueprints from whence they come.
+
+---
+
+template: concept-digression-1a
+name: concept-digression-1b
+
+- So, for example, any given **tree** is not as real as the concept of Tree.
+
+---
+
+template: concept-digression-1b
+name: concept-digression-1c
+
+- But we cannot **encounter** forms directly, only through the objects that embody them.
+
+---
+
+template: concept-digression-1c
+name: concept-digression-1d
+
+- It took us only 2.5 thousand years to get that into code form.
+
+---
+
+template: overview
+name: overview-2
+
 ## Understand this: it's imperative!
 Object-oriented programming is a variety of **imperative programming**.
 
@@ -70,7 +135,14 @@ Object-oriented programming is a variety of **imperative programming**.
 template: overview-2
 name: overview-2a
 
-- The goal of imperative programming is to design code such that one is able to instruct the code to perform a particular action, have it complete that action, and not worry about the implementation details of how that goal was achieved.
+- The goal of imperative programming is to design code such that one is able to instruct a particular thing to perform a particular action, have it complete that action, and not worry about the implementation details of how that goal was achieved.
+
+---
+
+template: overview-2a
+name: overview-2b
+
+- The internals of *how* the thing gets the job done are uninteresting and should be **hidden** from a user of the thing.
 
 ---
 
@@ -129,14 +201,26 @@ name: example-1
 template: example-1
 name: example-1a
 
-Imagine a **file** on a computer's hard drive.
+Imagine you wanted to write code that represented **files** on a computer's hard drive.
 
 ## Properties
 Every file on the hard drive might have some properties, e.g.
 - the data stored within the file
 - metadata: filename, size, date modified, etc.
 
+---
+
+template: example-1a
+name: example-1b
+
 These properties represent the *internal state* of any given file.
+
+---
+
+template: example-1b
+name: example-1c
+
+- Their values describe the state of the file at a given moment in time.
 
 ---
 
@@ -181,7 +265,7 @@ template: example-1f
 name: example-1g
 
 ```java
-// ...causes an internal update of its state - i.e. the values in the properties
+// ...causes an internal update of its state - i.e. the values of the properties
 filename = "foobar.txt";
 data = someData;
 ```
@@ -192,7 +276,7 @@ template: example-1
 name: example-1d
 
 ## UML class diagram
-There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a so-called '**class**' diagram:
+There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a UML '**class**' diagram:
 
 ![UML file example](../images/oop-uml-file-example.png)
 
@@ -227,9 +311,35 @@ template: example-1
 name: example-1f
 
 ## Intention
-This **class** definition is a template from which as many File **objects** can be made as we like.
-- Each specific File object has its own specific values for each of the properties the class defines.
-- Each specific file object will respond to calls to any of the methods that the File class defines.
+A **class** definition is a template from which as many **objects** can be made as we like.
+
+---
+
+template: example-1f
+name: example-1g
+
+- Each specific File object has its own copy of the properties and methods defined in the File class.
+
+---
+
+template: example-1g
+name: example-1h
+
+- Each specific File object can have its own specific set of values for the properties defined in the class.
+
+---
+
+template: example-1h
+name: example-1i
+
+- Each specific File object will respond to calls to it using any of the methods defined in the class.
+
+---
+
+template: example-1i
+name: example-1j
+
+- The internal state of each object is hidden by making the properties private.  Code written inside other class definitions cannot see them.
 
 ---
 
@@ -325,9 +435,27 @@ template: example-2
 name: example-2i
 
 ## Intention
-This **class** definition is a template from which as many Dog **objects** can be made as we like.
+This Dog **class** definition is a template from which as many Dog **objects** can be made as we like.
+
+---
+
+template: example-2i
+name: example-2j
+
 - Each specific Dog object has its own specific values for each of the properties the class defines.
+
+---
+
+template: example-2j
+name: example-2k
+
 - Each specific Dog object will respond to calls to any of the methods that the File class defines.
+
+---
+
+template: example-2k
+name: example-2l
+
 - The actions produced by these method calls may differ slightly, depending upon the internal state of each Dog object
 
 ---
@@ -342,7 +470,7 @@ template: difference
 name: difference-1
 
 ## Constructing different objects from the same class
-Our intention in creating a class is to be able to instantiate different objects from that class template.
+Our intention in creating a class is to be able to instantiate multiple distinct objects from that class template.
 
 
 ---
@@ -370,7 +498,7 @@ Dog dog2 = new Dog();
 template: difference-2
 name: difference-2a
 
-These are different *things* in memory.  [Try it](https://repl.it/repls/TatteredAstonishingDominspector)
+These are different *things* in memory.  [Try it!](https://repl.it/repls/QuizzicalBubblyChapter)
 ```java
 (dog1 == dog2) // false
 ```
@@ -398,7 +526,40 @@ template: difference
 name: difference-3
 
 ## Difference!
-If we were able to set each Dog's name, breed, and age, then they could potentially hold different internal states.
+
+If the internal properties of each Dog object were **public** or **protected** (which they are not), it might be possible to  give each object distinct values:
+
+---
+
+template: difference-3
+name: difference-3a
+
+```java
+Dog dog1 = new Dog();
+dog1.name = "Fido";
+dog1.breed = "Bugle";
+dog1.age = 10;
+
+Dog dog2 = new Dog();
+dog2.name = "Tobik";
+dog2.breed = "German Shepherd";
+dog2.age = 3;
+```
+
+---
+
+template: difference-3a
+name: difference-3b
+
+But this requires us to make visible the internal properties of the object, which goes against the black box metaphor and imperative-style programming.
+
+---
+
+template: difference
+name: difference-3
+
+## Difference!
+If we were able to set each Dog's name, breed, and age to different internal states, while retaining hidden internal properties for each object, then we would achieve our goal.
 
 ---
 
@@ -468,6 +629,8 @@ Dog dog1 = new Dog("Fido", "Bugle", 10);
 Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
 ```
 
+[Try it](https://repl.it/repls/AcidicOrangeredProcess)
+
 ---
 
 template: difference
@@ -486,41 +649,68 @@ Dog[] dogs = new Dog[101]; // will hold 101 Dalmatians
 for (int i=0; i<dogs.length; i++) {
     // assign each dog random property values from these arrays
     String randomName = names[ (int) (Math.random() * names.length) ];
-    String randomAge = ages[ (int) (Math.random() * ages.length) ];
+    int randomAge = ages[ (int) (Math.random() * ages.length) ];
 
-    dogs[i] = new Dog( randomName, randomAge, "Dalmatian" ); // instantiate a Dog object
+    dogs[i] = new Dog( randomName, "Dalmatian", randomAge ); // instantiate a Dog object
 
     dogs[i].bark(); // make each dog bark
 
 }
 ```
 
+[Try it!](https://repl.it/repls/ExtraneousAdolescentConnection)
 ---
 
 template: difference
 name: difference-7
 
-## Setters
-Constructors allow us to set an object's property values at the moment of its creation.  But what if we wanted to update those values at some later date?
+## Changing internal state
+Constructors allow us to set up an object's internal state at the moment of its creation.  But what if we wanted to update those values at some later date?
 
 ---
 
 template: difference-7
 name: difference-7a
 
-- For example, what if one of the 101 Dalmatians has a birthday and is now a year older... can we not update the age property?
+- For example, what if one of the 101 Dalmatians has a [happy] birthday and is now a year older... can we not update the age property?
 
 ---
 
 template: difference-7a
 name: difference-7b
 
-- To do so, we need a '**setter**' function to allow us to set the value of an existing object.
+- In other words, we would like to be able to do something like this:
+
+```java
+// instantiate an object with an initial internal statee
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+
+// do some very important significant stuff...
+
+// update the object's internal state at some later point
+dog1.age = dog1.age + 1; // happy birthday!
+
+```
 
 ---
 
 template: difference-7b
 name: difference-7c
+
+By now, you know that this is not possible.  The internal properties are **private** and cannot be accessed from 'user' code in a different class.
+
+---
+
+template: difference
+name: difference-8
+
+## Setters
+To change an object's internal state, we need a '**setter**' function to allow us to set the value of an existing object.
+
+---
+
+template: difference-8
+name: difference-8a
 
 ```java
 public class Dog {
@@ -538,16 +728,23 @@ public class Dog {
 
 ---
 
+template: difference-8a
+name: difference-8b
+
+Note that the method is *public*, so it can be called from code outside the `Dog` class.
+
+---
+
 template: difference
-name: difference-8
+name: difference-9
 
 ## Setters (continued)
 With setters, it is possible to set the values of properties on existing objects.
 
 ---
 
-template: difference-8
-name: difference-8a
+template: difference-9
+name: difference-9a
 
 Assuming we have created a Dog object...
 ```java
@@ -556,8 +753,8 @@ Dog dog1 = new Dog("Roly Poly", "Dalmatian", 10); // instantiate a dog
 
 ---
 
-template: difference-8a
-name: difference-8b
+template: difference-9a
+name: difference-9b
 
 ...we can now update its age using the setter
 ```java
@@ -569,7 +766,7 @@ dog1.setAge(11);
 template: difference
 name: difference-9
 
-## Getters
+## Accessing internal state
 What if you wanted to know a particular Dog's age... how could you find that out programmatically?
 
 ---
@@ -584,12 +781,24 @@ name: difference-9a
 template: difference-9a
 name: difference-9b
 
-- Of course we can.  But we need a '**getter**' function to do so
+- We certainly cannot do the following, since the age property is *private* and cannot be read from code outside the `Dog` class: 
+
+```java
+dog1.setAge ( dog1.age + 1 )
+```
 
 ---
 
-template: difference-9b
-name: difference-9c
+template: difference
+name: difference-10
+
+## Getters
+Of course access an object's internal state.  But we need a '**getter**' function to do so
+
+---
+
+template: difference-10
+name: difference-10a
 
 ```java
 public class Dog {
@@ -607,8 +816,15 @@ public class Dog {
 
 ---
 
+template: difference-10a
+name: difference-10b
+
+Note that the method is *public*, so it can be called from code outside the `Dog` class.
+
+---
+
 template: difference
-name: difference-10
+name: difference-11
 
 ## Getters (continued)
 
@@ -616,8 +832,8 @@ With a getter function, we can read the current value of a property of an object
 
 ---
 
-template: difference-10
-name: difference-10a
+template: difference-11
+name: difference-11a
 
 ```java
 System.out.println ( dog1.getAge() ); // will output dog1's age
@@ -625,8 +841,8 @@ System.out.println ( dog1.getAge() ); // will output dog1's age
 
 ---
 
-template: difference-10a
-name: difference-10b
+template: difference-11a
+name: difference-11b
 
 ... and use that information to help us understand that object's internal state
 ```java
@@ -635,8 +851,8 @@ dog1.setAge( dog1.getAge() + 1 );
 
 ---
 
-template: difference-10b
-name: difference-10c
+template: difference-11b
+name: difference-11c
 
 Knowledge of an object's internal state can help us make decisions
 ```java
@@ -656,7 +872,7 @@ name: conclusions
 template: conclusions
 name: conclusions-1
 
-You now have a basic understanding of object-oriented programming.
+You now have a basic understanding of object-oriented programming.  Well done.
 - Thank you.  Bye.
 
 
