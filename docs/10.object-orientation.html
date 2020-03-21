@@ -9,7 +9,7 @@ class: center, middle
 # Object-Oriented Programming
 > Object-oriented programming is an exceptionally bad idea which could only have originated in California.
 > 
-> –[Edsger Dijkstra](http://harmful.cat-v.org/software/OO_programming/)
+> –[Edsger Dijkstra](https://www.quora.com/Why-did-Dijkstra-say-that-%E2%80%9CObject-oriented-programming-is-an-exceptionally-bad-idea-which-could-only-have-originated-in-California-%E2%80%9D)
 
 ---
 
@@ -20,6 +20,9 @@ class: center, middle
 1. [Files](#example-1)
 1. [Dogs](#example-2)
 1. [Creating Difference](#difference)
+1. [Controlling Belongingness](#belongingness)
+1. [Comparing Sameness](#comparisons)
+1. [Stringification](#stringification)
 1. [Conclusions](#conclusions)
 
 ---
@@ -174,11 +177,7 @@ Every file on the hard drive might have some properties, e.g.
 
 --
 
-These properties represent the *internal state* of any given file.
-
---
-
-- Their values describe the state of the file at a given moment in time.
+The values these properties hold collectively represent the *internal state* of any given file at any given moment in time.
 
 ---
 
@@ -290,7 +289,7 @@ template: example-2
 name: example-2a
 
 ## Concept
-Imagine a **dog**.
+Imagine **dog**, the concept.
 
 ---
 
@@ -338,15 +337,15 @@ template: example-2
 name: example-2d
 
 ## ... and their complications
-Two dogs with different property values might implement these same actions slightly differently.
+Two dogs with different internal states might implement these same actions differently.
 
 --
 
-- For example, a small lap dog might have a rapid fire tinny yapping sort of bark, while a large shepherd might occasionally produce a mellow deep woof sound.
+- For example, a lightweight lap dog might have a rapid fire tinny yapping sort of bark, whereas a heavy shepherd might occasionally produce a mellow deep woof sound.
 
 --
 
-- A young dog might generally successfully fetch an object, while an elderly dog, or one with a physical handicap, might generally fail at this.
+- A young dog might generally successfully fetch an object, while an elderly dog might generally fail at this.
 
 --
 
@@ -547,6 +546,84 @@ public class Dog {
     // and so on...
 //...
 ```
+
+---
+
+template: difference
+name: difference-5
+
+## Constructors (continued)
+Note that constructor functions do not specify a return type.
+```java
+public class Dog {
+    //...
+    public Dog(String name, String breed, int age) {
+        //...
+    }
+    //...
+}
+```
+
+---
+
+template: difference
+name: this
+
+## This, not that
+The `this` keyword is used to indicate which object we are talking about it.
+
+--
+
+- Since a single class is a blueprint that can be used to create many objects, Java needs to know which object we are referring to.
+
+--
+
+- So `this` always automatically refers to the object upon whom the current method is being called.
+
+Imagine we defined the `Dog` class's bark method:
+```java
+public class Dog {
+    //...
+    public void bark() {
+        System.out.printf( "%s says, 'Woof!' ", this.name );
+    }
+    //...
+```
+
+--
+
+- Which dog's name will be output when this method is called?
+
+---
+
+template: difference
+
+## This, not that (continued)
+
+The answer is, "whichever dog the method is called upon".
+
+--
+
+If somewhere we call that method on a dog named Fido, then Fido's name will be output.
+```java
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+
+//...
+
+dog1.bark(); // outputs "Fido says, 'Woof!' "
+```
+
+--
+
+Whereas, if we were to call that method on a dog named Tobik, then Tobik's name would be output.
+```java
+Dog dog2 = new Dog("Fido", "Bugle", 10);
+
+//...
+
+dog2.bark(); // outputs "Tobik says, 'Woof!' "
+```
+
 
 ---
 
@@ -761,6 +838,248 @@ if ( dog1.getBreed().equals("Dalmation") && dog1.getName().equals("Pepper") ) {
     // use your imagination
 }
 ```
+
+---
+
+name: belongingness
+
+# Controlling Belongingness
+
+--
+
+## Non-static properties and methods
+Neither *setters* nor *getters*, nor even the methods that represent actions of the object (e.g. *bark*, *fetch*, *sleep*) were declared with the keyword `static` in their method signatures.  Neither were any of the properties (e.g. *name*, *breed*, *age*).
+
+--
+
+- The keyword, `static`, is used to indicate that a method or property *belongs to the class as a whole*, not to each particular object independently.
+
+--
+
+- Thus, properties and methods that we want to *belong to each object individually* do not use the `static` keyword.
+
+--
+
+- Each dog has its own *name*, *breed*, *age*, and each dog does its own *barking*, *fetching*, and *sleeping*.  So it makes sense that these properties and methods would not be static.
+
+--
+
+- Making such properties and methods static would indicate that all dogs share them - *one name for all*, *one breed for all*, *one age for all*, all *fetching as one*, *sleeping as one*, *eating as one*, etc.
+
+---
+
+template: belongingness
+
+## Shared concerns
+There are, of course, cases where it makes sense for a property or method to belong to the class as a whole... i.e. for it to be declared as `static`.
+
+--
+
+- For example, imagine that you wanted to keep track of how many dog objects had been instantiated from the Dog class.
+
+--
+
+- You could create a `static` property named `numDogs` that is incremented each time a Dog is instantiated.
+
+---
+
+template: belongingness
+
+## Shared concerns (continued)
+
+```java
+public class Dog {
+    //...
+    public Dog(String name, String breed, int age) {
+        //...
+        Dog.numDogs++; // increment the static property
+        //...
+    }
+    //...
+    private static int numDogs = 0;
+
+//...
+```
+
+--
+
+- Note that we refer to the property as `Dog.numDogs`, rather than `this.numDogs`.
+
+--
+
+- `this.numDogs` would suggest that the `numDogs` property belongs only to the Dog being instantiated, which is not correct - an error!
+
+--
+
+- `Dog.numDogs` clearly communicates that the `numDogs` property belongs to the `Dog` class as a whole - correct!
+
+---
+
+template: belongingness
+
+## Shared concerns (continued again)
+
+Every time we instantiate a new `Dog` object, the counter will be incremented.
+```java
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
+```
+
+--
+
+- Because the counter was declared as `private`, we cannot see how many dogs have been made from code outside the `Dog` class.
+
+--
+
+- if were to make a `public` *getter* method for the `numDogs` property defined within the `Dog` class, we would be able to call it from outside the `Dog` class to find out how many dogs had been made.
+
+--
+
+```java
+System.out.printf( "There exist %d dogs in our world.\n", Dog.getNumDogs() );
+```
+
+[Try it!](https://repl.it/repls/FirsthandUnlawfulPaint)
+
+---
+
+name: comparisons
+
+# Comparing Sameness
+
+--
+
+## Different kinds of difference
+There are a few ways we can compare two objects.
+
+--
+
+- by whether they are, in fact, the same object in memory
+
+--
+
+- by whether their internal states are the same or similar
+
+---
+
+template: comparisons
+
+## Identity comparison
+To check whether two supposedly-separate objects are, in fact, the same object, use the `==` operator.
+
+--
+
+```java
+if (dog1 == dog2) {
+    System.out.printf("%s is actually the same dog as %s!\n", dog1.getName(), dog2.getName);
+}
+```
+
+---
+
+template: comparisons
+
+## Internal state comparison
+To check whether two objects share the same internal state, we have to roll our own solution.
+
+--
+
+- Conventionally, this would be done by defining a method named `equals` that performs the comparison.
+
+--
+```java
+public class Dog {
+        //...
+
+        public boolean equals(Dog d) {
+            boolean sameName = this.name.equals( d.getName() ); // are the names the same?
+            boolean sameAge = ( this.age == d.getAge() ); // same age?
+            boolean sameBreed = ( this.breed.equals( d.getBreed() ) );
+            boolean sameWeight = ( this.weight == d.getWeight() );
+            return sameName && sameAge && sameBreed && sameWeight; // true if all the same, false otherwise
+        }
+        //...
+```
+
+---
+
+template: comparisons
+
+## Internal state comparison (continued)
+To compare two dogs, you would use one of those dogs' `equals()` method.
+
+```java
+if ( dog1.equals(dog2) ) {
+    System.out.printf("%s and %s have the same internal state!\n", dog1.getName(), dog2.getName);
+}
+```
+
+---
+
+name: stringification
+
+# Stringification
+
+--
+
+## Concept
+Converting an object to a String usually leads to unwanted text.
+
+--
+
+```java
+// instantiate a Dog object
+Dog dog1 = new Dog("Tobik", "German Shepherd", 3);
+
+// do something that requires the object to be converted to a String 
+String text = String.format("The dog as a string looks like: %s", dog1);
+
+// see what you get...
+System.out.println(text);
+```
+
+--
+
+By default, the output would show the **class** name of the object and a **[hashcode](https://coderanch.com/t/321515/java/HashCode)** - random-looking text that is not probably what you hoped for.
+[Try it!](https://repl.it/repls/MysteriousNormalLoaderprogram)
+```
+The dog as a string looks like: Dog@63961c42
+```
+
+--
+
+Wouldn't it be nice if we could instead output something descriptive, like, 
+```
+The dog as a string looks like: Tobik, a 3-year-old German Shepherd
+```
+
+---
+
+template: stringification
+
+## Fulfilling our desires
+Java allows an object to describe how it should be converted to a String with a special method named `toString()` that returns the String equivalent of the object.
+
+--
+
+```java
+public class Dog {
+    //...
+    public String toString() {
+        String myself = String.format( "%s, a %d-year-old %s", this.getName(), this.getAge(), this.getBreed() );
+        return myself;
+    }
+    //...
+}
+```
+
+--
+
+Now, converting the object to a String will result in something more descriptive, such as:
+```
+Tobik, a 3-year-old German Shepherd
+```
+[Try it!](https://repl.it/repls/UnusualDistantPostscript)
 
 ---
 
