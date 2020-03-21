@@ -36,9 +36,21 @@ name: overview-1
 ## Concept
 
 Multidimensional arrays are arrays that store other arrays nested within them.
+
+--
+
 - An array that stores arrays is called a two-dimensional array
+
+--
+
 - An array that stores arrays that themselves store arrays is called a three-dimensional array
+
+--
+
 - An array that stores arrays that themselves store arrays that in turn also store arrays is called a four-dimensional array
+
+--
+
 - and so on.
 
 ---
@@ -70,11 +82,15 @@ To output the third value in the second inner array - 3
 System.out.println( numbers[1][2] );
 ```
 
+--
+
 The syntax to modify one of the values in a two dimensional array is the same.
 ```java
 // modify the third value in the second inner array
 numbers[1][2] = 11;
 ```
+
+--
 
 The entire inner array can also be replaced with a different one.
 ```java
@@ -103,6 +119,8 @@ String[][][] words = {
 };
 ```
 
+--
+
 To output the third value in the second child array of the first inner array - 'wherefore'.
 ```java
 System.out.println( words[0][1][2] );
@@ -114,33 +132,21 @@ name: truth
 
 # Truth
 
----
-
-template: truth
-name: truth-1
+--
 
 ## It's all a lie!
 
 Multidimensional arrays do not exist in Java.
 
----
-
-template: truth-1
-name: truth-1a
+--
 
 - In a true multidimensional array, all elements within the array occupy a continuous block of memory.
 
----
-
-template: truth-1a
-name: truth-1b
+--
 
 - This is not the case in Java.
 
----
-
-template: truth-1b
-name: truth-1c
+--
 
 - Java two-dimensional arrays are arrays of pointers - references to other memory locations where the inner arrays are kept, separately from the outer array.
 
@@ -159,12 +165,10 @@ name: ragged
 
 # Ragged Arrays
 
----
+--
 
-template: ragged
-name: ragged-1
-
-## Inner arrays may have different lengths... such arrays are called **ragged** arrays.
+## Concept
+Inner arrays may have different lengths... such arrays are called **ragged** arrays.
 ```java
 int[][] numbers = {
         { 10, 9, 8, 7, 6 },
@@ -195,10 +199,7 @@ name: rows-columns
 
 # Rows & Columns
 
----
-
-template: rows-columns
-name: rows-columns-1
+--
 
 ## Concept
 It is best to think of two-dimensional arrays as rows and columns of data, like a spreadsheet or table.
@@ -311,14 +312,10 @@ name: examples
 
 # Examples
 
----
-
-template: examples
-name: examples-1
+--
 
 ## Check them out
 Examples are posted to [GitHub](https://github.com/bloombar/java-examples/tree/master/Multi-Dimensional%20Arrays/src/edu/nyu/cs/fb1258/array_examples) - fork them, then clone them to your own computer.
-
 
 ---
 
@@ -326,11 +323,11 @@ name: conclusions
 
 # Conclusions
 
----
-
-template: conclusions
-name: conclusions-1
+--
 
 You now have a basic understanding of multidimensional arrays - especially two-dimensional arrays - in Java.
+
+--
+
 - Thank you.  Bye.
 

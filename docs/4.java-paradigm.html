@@ -25,7 +25,7 @@ class: center, middle
 
 ---
 
-name: Computers
+name: computers
 
 # Computers
 
@@ -39,46 +39,27 @@ name: computers-1
 > 
 > -Some little kid from PS-272 in Brooklyn in the 1980s
 
----
+--
 
-template: computers
-name: computers-2
-
-## Definition
 A computer is any device, entity, or object that can perform computations.
 
----
-
-template: computers-2
-name: computers-3
+--
 
 - [human computers](https://en.wikipedia.org/wiki/Computer_%28job_description%29)
 
----
-
-template: computers-3
-name: computers-4
+--
 
 - [mechanical computers](https://en.wikipedia.org/wiki/Mechanical_computer)
 
----
-
-template: computers-4
-name: computers-5
+--
 
 - [electronic computers](https://en.wikipedia.org/wiki/Computer#Digital_computers)
 
----
-
-template: computers-5
-name: computers-6
+--
 
 - [biological computers](https://en.wikipedia.org/wiki/Biological_computing)
 
----
-
-template: computers-6
-name: computers-7
+--
 
 - [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing)
 
@@ -88,68 +69,43 @@ name: processor
 
 # Procesesor
 
----
-
-template: processor
-name: processor-1
+--
 
 The processor is the part of an electronic computer that does the computation.
 
+--
+
 At any given moment, a processor only does one of a few different types of things.
 
----
-
-template: processor-1
-name: processor-2
+--
 
 - jump to a particular location in memory
 
----
-
-template: processor-2
-name: processor-3
+--
 
 - read a number from RAM
 
----
-
-template: processor-3
-name: processor-4
+--
 
 - save a number to RAM
 
----
-
-template: processor-4
-name: processor-5
+--
 
 - add two numbers together
 
----
-
-template: processor-5
-name: processor-6
+--
 
 - compare two numbers to see which is larger
 
----
-
-template: processor-6
-name: processor-7
+--
 
 - send a number to a particular device (e.g. a monitor)
 
----
-
-template: processor-7
-name: processor-8
+--
 
 - receive a number from a particular device (e.g. a keyboard)
 
----
-
-template: processor
-name: processor-9
+--
 
 Ultimately, every statement in a computer program must be reduced to a sequence of these processor actions.
 
@@ -177,21 +133,15 @@ name: programming-2
 ## Levels of abstraction
 Programmers have established increasingly higher levels of abstraction in order to make programming faster and more intuitive to humans.
 
----
+--
 
-template: programming-2
-name: programming-3
-
-Low level:
+### Low level:
 - Machine languages
 - Assembly languages
 
----
+--
 
-template: programming-3
-name: programming-4
-
-High level:
+### High level:
 - High-level programming languages
 - [Visual programming](https://en.wikipedia.org/wiki/Visual_programming_language)
 
@@ -201,35 +151,23 @@ name: machine-code
 
 # Machine code
 
----
-
-template: machine-code
-name: machine-code-1
+--
 
 ## Binary instructions
 At the lowest level, a programming can directly inform a computer what it should do by sending binary instructions directly to the processor.
 
----
-
-template: machine-code-1
-name: machine-code-2
+--
 
 Example of a set of machine instructions for an x86 processor to move the number 97 to the AL memory register:
 ```
 10110000 01100001
 ```
 
----
-
-template: machine-code-2
-name: machine-code-3
+--
 
 The number `1011` is the machine instruction to do a move operation, `0000` is the address of the AL register, and `01100001` is the number `97` written in binary.
 
----
-
-template: machine-code-3
-name: machine-code-4
+--
 
 Each family of processors is designed to "understand" particular binary numbers to mean particular operations.
 
@@ -247,20 +185,14 @@ name: assembly-1
 ## Mnemonics
 It's easier for most humans to memorize words than binary numbers.  Assembly languages provide mnemonics that a programmer can write, which are converted automatically to machine language equivalents.
 
----
-
-template: assembly-1
-name: assembly-2
+--
 
 Example of a set of assembly instructions for an x86 processor to place the number 97 in the memory register called AL:
 ```
 MOV AL, 61h
 ```
 
----
-
-template: assembly-2
-name: assembly-3
+--
 
 `MOV` is a mnemonic for `1011`, `AL` is a mnemnoic for `0000`, and `61` is the number `97` written in hexadecimal notation.
 
@@ -301,10 +233,7 @@ Storing the number 97 in a memory register using the C programming language:
 register int i = 97;
 ```
 
----
-
-template: high-level-languages-2
-name: high-level-languages-3
+--
 
 Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP.  All offer higher-level capabilities, such as looping, functions, branching, etc.
 
@@ -324,45 +253,28 @@ name: compiling
 
 # Compiling
 
----
+--
 
-template: compiling
-name: compiling-1
-
+## Concept
 Code written in a high-level programming language is translated to its machine code equivalent all at once as a single bulk operation.
 
----
-
-template: compiling-1
-name: compiling-2
+--
 
 - a tool called a **compiler** reads the code, analyzes it, makes optimizations, and outputs a file with the required machine code instructions.
 
----
-
-template: compiling-2
-name: compiling-3
+--
 
 - time-consuming
 
----
-
-template: compiling-3
-name: compiling-4
+--
 
 - efficient
 
----
-
-template: compiling-4
-name: compiling-5
+--
 
 - many errors easily detected during compilation
 
----
-
-template: compiling-5
-name: compiling-6
+--
 
 - processor-specific
 
@@ -374,31 +286,19 @@ name: compiling-5
 ## C language
 The C programming language is a classic example of a compiled language.
 
----
-
-template: compiling-5
-name: compiling-6
+--
 
 - There are different compilers to translate C to machine code for each popular processor family.
 
----
-
-template: compiling-6
-name: compiling-7
+--
 
 - The high-level source code must often be tweaked to match the features of the target processor before compiled.
 
----
-
-template: compiling-7
-name: compiling-8
+--
 
 - Not very portable!
 
----
-
-template: compiling-8
-name: compiling-9
+--
 
 - But fast!
 
@@ -408,38 +308,23 @@ name: interpreting
 
 # Interpreting
 
----
-
-template: interpreting
-name: interpreting-1
+--
 
 Code written in a high-level programming language is translated to its machine code equivalent *and executed* as a series of small steps.
 
----
-
-template: interpreting-1
-name: interpreting-2
+--
 
 - a tool called an **interpreter** traditionally reads one statement of high-level code at a time, converts it to its machine code equivalent, and immediately executes that machine code.
 
----
-
-template: interpreting-2
-name: interpreting-3
+--
 
 - starts running immediately
 
----
-
-template: interpreting-3
-name: interpreting-4
+--
 
 - not necessarily efficient, since only looking at one-statement at a time
 
----
-
-template: interpreting-4
-name: interpreting-5
+--
 
 - does not traditionally identify errors in statements that have not yet been interpreted
 
@@ -449,53 +334,32 @@ name: java
 
 # Java
 
----
-
-template: java
-name: java-1
+--
 
 ## Write once, run anywhere
 Unlike C code, Java source code is highly portable, being executable on machines with almost any processor.  How is this possible?
 
----
-
-template: java-1
-name: java-2
+--
 
 - Java is both compiled and interpreted
 
----
-
-template: java-2
-name: java-3
+--
 
 - Java high-level source code is compiled to **byte code**.
 
----
-
-template: java-3
-name: java-4
+--
 
 - Java byte code is then interpreted to machine code by one of the **Java Virtual Machines** (JVM)
 
----
-
-template: java-4
-name: java-5
+--
 
 - JVMs are created for most popular processor families
 
----
-
-template: java-5
-name: java-6
+--
 
 - Thus Java byte code is highly portable
 
----
-
-template: java-6
-name: java-7
+--
 
 - This is the Java paradigm!
 
@@ -515,24 +379,15 @@ name: java-9
 ## Byte code and the JVM
 Byte code is somewhere between machine code and high-level source in abstraction - an *intermediate-level* language.
 
----
-
-template: java-9
-name: java-10
+--
 
 - The Java Virtual Machines are virtual computers (a software simulation a physical computer), which are designed to view byte code as their native machine code.
 
----
-
-template: java-10
-name: java-11
+--
 
 - These JVMs contain within them interpreters which can translate this byte code to the appropriate machine code for whichever physical processessor they are actually running on.
 
----
-
-template: java-11
-name: java-12
+--
 
 - Any programaming language that can be compiled Java byte code can run in a JVM... Groovy, Kotlin, and Scala are popular high-level languages with different syntax from Java that take advantage of this.
 
@@ -559,10 +414,10 @@ name: conclusions
 
 # Conclusions
 
----
+--
 
-template: conclusions
+You now have a basic understanding of compiling, interpreting, and how the Java paradigm fits into these schemes.
 
-You now have a basic understanding of compiling, interpreting, and the Java paradigm.
+--
 
-Thank you.  Bye.
+- Thank you.  Bye.
