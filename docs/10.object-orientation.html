@@ -107,11 +107,15 @@ Object-oriented programming is a variety of **imperative programming**.
 
 --
 
-- The goal of imperative programming is to design code such that one is able to instruct a particular thing to perform a particular action, have it complete that action, and not worry about the implementation details of how that goal was achieved.
+- With imperative programming, we instruct the computer **how** to solve the tasks.
 
 --
 
-- The internals of *how* the thing gets the job done are uninteresting and should be **hidden** from a user of the thing.
+- Programs make heavy use of memory and **control flow**: loops, conditional statements with branching, and so on, to establish the sequence of steps necessary to solve the problem.
+
+--
+
+- An alternative to imperative programming would be **declarative programming**, where a desired end goal is declared, but the implementation details of how to achieve it are not.  **SQL** is an example of a declarative language.
 
 ---
 
@@ -125,7 +129,7 @@ template: black-box
 name: black-box-1
 
 ## Smoke and mirrors
-Imperative-style programming attempts to put to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box) of engineering, where, provided particular inputs, a machine produces a predictable output and the user of it doesn't have to know the implementation details.
+Despite being a form of imperative-style programming, specifying in detail how problems are to be solved, object-orientation nevertheless attempts to put to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box) of engineering, where, provided particular inputs, a machine produces a predictable output and *the user of it doesn't have to know the implementation details*, even though they are written in the code.
 
 ![Black box metapahor](../images/oop-black-box-metaphor.png)
 
@@ -1134,10 +1138,6 @@ template: pillars
 --
 
 Abstraction is thus the *process of making something abstract* or *the state of being abstracted*.
-
---
-
-- **Imperative programming** encourages abstraction.
 
 --
 
