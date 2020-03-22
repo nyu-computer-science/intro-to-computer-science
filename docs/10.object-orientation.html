@@ -272,7 +272,7 @@ A **class** definition is a template from which as many **objects** can be made 
 
 --
 
-- Each specific File object has its own copy of the properties and methods defined in the File class.
+- Each specific File object has its own copy of the properties and methods defined in the File class - these are termed **instance properties ** and **instance methods**.
 
 --
 
@@ -764,6 +764,25 @@ Dog dog1 = new Dog("Roly Poly", "Dalmatian", 10); // instantiate a dog
 ```java
 dog1.setAge(11);
 ```
+
+---
+
+template: difference
+
+## Setters (continued again)
+If setters are present, they should **always** be used whenever an object's property values need to be changed.
+
+--
+
+- if a **constructor** sets an object's initial starting property values, it should do so by calling the object's setters.
+
+--
+
+- if **any other method** adjusts an object's property values, it should do so by calling the object's setters.
+
+--
+
+- this guarantees that any **validation** performed within the setter function is always used.
 
 ---
 
