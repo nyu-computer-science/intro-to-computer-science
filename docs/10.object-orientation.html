@@ -1003,12 +1003,54 @@ if (dog1 == dog2) {
 }
 ```
 
+--
+
+- Objects in Java are **reference types**, meaning that a variable assigned to point to an object holds the memory address of that object.
+
+--
+
+- The `==` operator, when used with a reference type, thus compares memory addresses.
+
+---
+
+template: comparisons
+
+## Objects as reference types
+
+Because objects are reference types, when they are passed as arguments to a method, the memory address is what is passed.
+
+--
+
+- For example, imagine a method that changes any dog's name to "Dog"...
+```java
+public void rename(Dog d) {
+        d.setName("Dog");
+}
+```
+
+--
+
+- ... and let's say we call that method from some other method.
+```java
+Dog dog1 = new Dog("Fido", "Bugle", 10);
+rename(dog1);
+System.out.println ( dog1.getName() )
+```
+
+--
+
+- The dog object referred to within the `rename` method as `d` is the same dog object referred to by the calling method as `dog1` - they are **aliases**.
+
+--
+
+- So the printed output will be "Dog", not "Fido".
+
 ---
 
 template: comparisons
 
 ## Internal state comparison
-To check whether two objects share the same internal state, we have to roll our own solution.
+To check whether two objects share the same internal state, even if they are different objects in memory, we have to roll our own solution.
 
 --
 
@@ -1057,10 +1099,10 @@ Converting an object to a String usually leads to unwanted text.
 
 ```java
 // instantiate a Dog object
-Dog dog1 = new Dog("Tobik", "German Shepherd", 3);
+Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
 
 // do something that requires the object to be converted to a String 
-String text = String.format("The dog as a string looks like: %s", dog1);
+String text = String.format("The dog as a string looks like: %s", dog2);
 
 // see what you get...
 System.out.println(text);
