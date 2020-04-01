@@ -17,10 +17,12 @@ class: center, middle
 
 1. [Overview](#concept)
 1. [Installation](#installation)
+1. [Run a Program](#run)
 1. [Lifecycle Methods](#lifecycle)
 1. [Animation](#animation)
+1. [Inherited Functions](#functions)
 1. [Responding to Events](#events)
-1. [Communication Among Objects](#objects)
+1. [Examples](#examples)
 1. [Conclusions](#conclusions)
 
 ---
@@ -124,7 +126,7 @@ If you are running a relatively recent version of Java, you must downgrade to Ja
 template: installation
 
 ## Set Up Eclipse
-Processing can be integrated into the popular Eclipse IDE relatively simply.
+Processing can be integrated into the popular [Eclipse IDE](https://eclipse.org) relatively simply.
 
 - Open Eclipse and go to Preferences
 
@@ -150,8 +152,6 @@ template: installation
 
 ## Set Up Eclipse (continued)
 
---
-
 - In the `JRE home` field, find the directory of your newly-installed JRE 8. On Mac it is most likely something like '/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home' on Windows, it will be similar - check the path of your existing JRE and find it near there.
 
 --
@@ -172,9 +172,162 @@ template: installation
 
 ---
 
+template: installation
+
+## Set Up Eclipse (continued again)
+Assuming Eclipse has been configured to run Java SE 8, we can easily install Processing's `core.jar` file as a dependency of any Eclipse project.
+
+--
+
+- Create a new Java Project within Eclipse.
+
+--
+
+- Drag the `core.jar` file from wherever you saved it, and drop it into the `src` directory of the Eclipse Java project.
+
+--
+
+- Right-click (or Cntrl-click) on the `core.jar` file in Eclipse and select 'Add to Build Path'.
+
+--
+
+- You are now ready to use Processing's library in your project.
+
+---
+
+template: installation
+
+## Set Up Visual Studio Code
+[Visual Studio Code](https://code.visualstudio.com) is an increasingly popular language-agnostic IDE by Microsoft.  Set up a Java Project with Processing as follows.
+
+--
+
+- **Install the Java Extension Pack** - do this by clicking the Extensions icon in the left side bar, search for `Java Extension Pack`, click on the search result, and click the 'Install' button.
+
+--
+
+- **Create a new Java Project** - do this by opening up VS Code's `View` -> `Command Palette` menu option and type `Java: Create Java Project` into the Command Palette's text field.  Select a directory where you wish to house your project, and enter a name for the project with no spaces in the name.
+
+--
+
+- **Add the core.jar file to the project** - do this by creating a directory named `lib` within your new project's main directory and drag-and-drop `core.jar` from wherever you saved it into this `lib` directory.
+
+---
+
+template: installation
+
+## Set Up Visual Studio Code (continued)
+
+- **Configure the project's settings file** - if your project does not already have a sub-directory named `.vscode`, create one and create a file therein named `settings.json`.  If your project already has this directory and file, open it up.  Enter the following code into the `.settings` file and save:
+```javascript
+{
+        "java.project.referencedLibraries": [
+            "lib/**/*.jar",
+        ]
+}
+```
+
+--
+
+- **Configure the Java classpath** - open a file named `.classpath` in your project's main directory. This is a hidden file, so you may not see it in the file listing, but find a way to open it.  Add the following to line and save:
+```xml
+<classpathentry kind="lib" path="lib/core.jar"/>
+```
+
+--
+
+- You are now ready to use Processing's library in your project.
+
+---
+
+name: run
+
+# Run a Program
+
+--
+
+## What we need to do in code
+To use Processing, you must...
+
+--
+
+- import the classes within the `processing.core` package into your own project code
+
+--
+
+- make sure your custom class inherits properties and methods from the class, `PApplet`
+
+--
+
+- pass the `PApplet.main()` method the full name of your custom class
+
+--
+
+- set up lifecycle methods named `settings()`, `setup()`, and `draw()`
+
+---
+
+template: run
+
+## Starter code (continued)
+For example, enter the following starter code within the `src/fb1258` directory in a file named MyClass.java.
+```java
+package fb1258;
+
+import processing.core.*;
+
+public class Circle extends PApplet {
+    public static void main(String[] args) {
+		PApplet.main("fb1258.Circle");
+    }
+    public void settings() {
+		this.size(600, 400); /* open a window that is 600x400 */
+    }
+    public void setup() {
+    }
+    public void draw() {
+		this.ellipse(250, 150, 100, 100);
+    }
+}
+```
+
+---
+
+template: run
+
+## Run it!
+Run this program - if it works, you are in good shape!
+
+--
+
+- If using **Eclipse**, run by clicking the green run icon at the top of the window.
+
+--
+
+- If using **VS Code**, run by either clicking the `Run` link that appears above the `main` method in the editor or clicking the `Debug` icon in VS Code's left icon bar and then click the green run icon in the Debug panel.
+
+---
+
 name: lifecycle
 
 # Lifecycle Methods
+
+--
+
+## Concept
+The three methods we added to our code are automatically called by PApplet's code at certain times in the life of the program.
+
+--
+
+- [settings()](https://processing.org/reference/settings_.html) is called once at the start of the program in order to set up the size of the application window that pops open.
+
+--
+
+- [setup()](https://processing.org/reference/setup_.html) is called once at the start of the program and can optionally be used to pre-load any images or other media that might be used later in the application.
+
+--
+
+- [draw()](https://processing.org/reference/draw_.html) is initially called directly after `setup()` and on an automatic timer every `60` seconds thereafter until the program stops animating.  The code placed within this method is used to draw the frames of the animation.
 
 ---
 
@@ -182,17 +335,209 @@ name: animation
 
 # Animation
 
+--
+
+## Concept
+In frame-based animation, objects are redrawn in rapid succession at slightly different locations on the screen in order to give the illusion of movement.
+```java
+package fb1258;
+import processing.core.*;
+public class CircleSliding extends PApplet {
+
+	private int x = 250; // starting x position of ellipse
+	private int y = 150; // starting y position of ellipse
+
+    public static void main(String[] args) {
+        PApplet.main("fb1258.CircleSliding");
+    }
+    public void settings() {
+        this.size(600, 400); /* open a window that is 600x400 */
+    }
+    public void draw() {
+		this.background(0, 0, 0); // fill screen with black (R,G,B = 0,0,0)
+		this.fill(255, 255, 255); // paint with white (R,G,B = 255,255,255)
+		this.ellipse(this.x, this.y, 100, 100); // draw ellipse with fill color
+		this.x++; // next time draw ellipse at slightly different location
+		this.y++;
+    }
+}```
+
+---
+
+name: functions
+
+# Inherited functions
+
+--
+
+## Drawing
+PApplet bestows a variety of useful functions upon our custom class, including many functions for drawing shapes to the screen.
+
+--
+
+- [ellipse(x, y, width, height)](https://processing.org/reference/ellipse_.html) - draws an ellipse
+
+--
+
+- [rect(x, y, width, height)](https://processing.org/reference/rect_.html) - draws a rectangle
+
+--
+
+- [line(x1, y1, x2, y2)](https://processing.org/reference/line_.html) - draws a line
+
+--
+
+- [loadImage(stringPathToImageFile)](https://processing.org/reference/loadImage_.html) - returns a `PImage` object that can be passed to the image() function
+
+--
+
+- [image(pImageObject, x, y)](https://processing.org/reference/image_.html) - draws any pImage object to the screen
+
+--
+
+- [textSize(intFontSize)](https://processing.org/reference/textSize_.html) - sets the size of any text to be drawn
+
+--
+
+- [text(someString, x, y)](https://processing.org/reference/text_.html) - draws text to the screen
+
+---
+
+template: functions
+
+## Colors
+There are several color-related properties that can be set using several appropriately-named functions...
+
+--
+
+- [background(r, g, b)](https://processing.org/reference/background_.html) - fills the entire screen with a solid color
+
+--
+
+- [fill(r, g, b)](https://processing.org/reference/fill_.html) - the color to use next time a shape is drawn to the screen
+
+--
+
+- [noFill()](https://processing.org/reference/noFill_.html) - don't use any fill for the next shape drawn to the screen
+
+--
+
+- [stroke(r, g, b)](https://processing.org/reference/stroke_.html) - the color to use for the outline around the next shape drawn to the screen
+
+--
+
+- [noStroke()](https://processing.org/reference/noStroke_.html) - don't use any stroke for the next shape drawn to the screen
+
+
+---
+
+template: functions
+
+## ... and much more
+These were just the easy functions to get started with.
+
+--
+
+- There are many more functions inherited by your class from PApplet - see [the full reference](https://processing.org/reference/)
+
+--
+
+- There is also a large ecosystem of 3rd-party libraries that add additional functionality not present in Processing itself - see [the official list of add-on libraries](https://processing.org/reference/libraries/)
+
 ---
 
 name: events
 
 # Responding to Events
 
+--
+
+## Mouse clicks
+Processing's code can automatically call a function in your code anytime the user clicks a mouse.
+
+--
+
+- To take advantage of this, create a function named `mouseClicked()` in your code.
+
+--
+
+- This function will be called immediately *after* the user clicks the mouse.
+
+--
+
+- Within this function, you can access the `x` and `y` coordinate at which the user clicked the mouse via the `this.mouseX` and `this.mouseY` properties of objects of your class.
+
+--
+
+```java
+public void mouseClicked() {
+        System.out.printf("clicked at %d, %d", this.mouseX, this.mouseY);
+}
+```
+
 ---
 
-name: objects
+template: events
 
-# Communication Among Objects
+## Other mousing around
+Processing will also call other functions you define for a variety of other mouse-driven events.
+
+--
+
+- a `mouseMoved()` function will be called whenever the user moves the mouse.
+
+--
+
+- a `mousePressed()` function will be called whenever the user presses the mouse.
+
+--
+
+- a `mouseReleased()` function will be called whenever the user releases the mouse button.
+
+--
+
+- a `mouseDragged()` function will be called whenever the user clicks and drags the mouse.
+
+---
+
+template: events
+
+## Keyboard events
+Processing can respond to various keyboard-driven events if you define functions to handle them.
+
+--
+
+- a `keyPressed()` function will be called whenever the user presses a key.
+
+--
+
+- a `keyReleased()` function will be called whenever the user releases a previously-pressed key.
+
+--
+
+- a property named `this.key` is always set to the most recently pressed key's numeric ASCII code.
+
+--
+
+- for keys that do not have ASCII codes, such as BACKSPACE, TAB, ENTER, RETURN, ESC, UP, DOWN, LEFT, RIGHT, and DELETE, the property `this.keyCode` contains a code for which key was pressed.
+
+--
+
+- these non-ASCII `keyCode` values can be compared to constants Processing supplies, named after the key they represent, e.g.
+```java
+if (this.keyCode == UP) { /* ... */ }
+```
+
+---
+
+name: examples
+
+# Examples
+
+--
+
+## GitHub code repository
+Check out Processing-based example programs hosted in [the course GitHub repository](https://github.com/bloombar/java-examples/tree/master/Processing).
 
 ---
 
