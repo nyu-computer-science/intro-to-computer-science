@@ -42,7 +42,7 @@ name: overview
 
 --
 
-- First Java-only, it has now been ported to other popular languages, including Python and Javascript.
+- Initially Java-only, Processing has now been *ported* to other popular languages, including [Python](https://py.processing.org/) and [Javascript](https://p5js.org/).
 
 --
 
@@ -73,7 +73,11 @@ Processing consists of a few Java Archive (JAR) files that you can import into y
 
 --
 
-- You are advised to use either [Eclipse](https://eclipse.org) or [Visual Studio Code](https://code.visualstudio.com).
+- The Processing team produces its own IDE, which is overly simple (albeit intentionally so) for our purposes - do not use it.
+
+--
+
+- You are advised to use either the [Visual Studio Code](https://code.visualstudio.com) or [Eclipse](https://eclipse.org) IDE.
 
 ---
 
@@ -119,7 +123,7 @@ If you are running a relatively recent version of Java, you must downgrade to Ja
 
 --
 
-- You will be asked to log in - feel free to create an account with your email address, but you may also be interested in using shared credentials available on [bugmenot.com](http://bugmenot.com/view/oracle.com)
+- You will be asked to log in - feel free to create an account with your real email address, but you may also be interested in using shared credentials available on [bugmenot.com](http://bugmenot.com/view/oracle.com) or using a public email address from a service like [mailinator.com](https://mailinator.com)
 
 ---
 
@@ -270,7 +274,7 @@ To use Processing, you must...
 template: run
 
 ## Starter code (continued)
-For example, enter the following starter code within the `src/fb1258` directory in a file named MyClass.java.
+For example, enter the following starter code within the `src/fb1258` directory in a file named `MyClass.java`.
 ```java
 package fb1258;
 
@@ -281,12 +285,12 @@ public class Circle extends PApplet {
 		PApplet.main("fb1258.Circle");
     }
     public void settings() {
-		this.size(600, 400); /* open a window that is 600x400 */
+		this.size(600, 400); // open a window that is 600x400, diameter=100
     }
     public void setup() {
     }
     public void draw() {
-		this.ellipse(250, 150, 100, 100);
+		this.ellipse(250, 150, 100, 100); // draw an ellipse at x=250, y=150
     }
 }
 ```
