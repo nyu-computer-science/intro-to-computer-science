@@ -560,6 +560,112 @@ if (this.keyCode == UP) { /* ... */ }
 
 ---
 
+name: multiple-classes
+
+# Multiple Classes
+
+--
+
+## One window, please
+When writing programs that use the Processing library, we must have a custom class that inherits from PApplet.  But what do we do when we have more than one custom class?
+
+--
+
+- The PApplet class includes code to open an app window when it is instantiated.  So every class we define that inherits from PApplet will also pop open a window when instantiated.  You probably don't want that.
+
+--
+
+- **Only one custom class in a given project should inherit from PApplet**.
+
+--
+
+- Do not have more than one class do so or you will have many unrelated windows pop open unexpectedly.
+
+---
+
+template: multiple-classes
+
+## Passing around PApplet
+It might be the case that you desire to use one of PApplet's functions from within a class that does not inherit from PApplet.
+
+--
+
+- To do so, simply pass an object that does inherit from PApplet to that other class.
+
+--
+
+- For example, let's say we have a program that pops open a window and draws a circle and a square that move around randomly on the screen.
+
+--
+
+- Following good object-oriented design principles of **encapsulation** and **abstraction**, we would want separate objects for the circle and the rectangle - each thing should be an object.
+
+--
+
+- Furthermore, we would want each the circle object and the rectangle object to *move and draw themselves* around the screen.
+
+--
+
+- How can they draw themselves if only one class can inherit from PApplet?
+
+---
+
+template: multiple-classes
+
+## Passing around PApplet (continued)
+Define one class that inherits from PApplet, and have it pass itself to the other objects.
+```java
+// ... insert the package and import statements here...
+public class App extends PApplet {
+
+  private Circle circle; // a custom class we will define
+  private Rectangle rectangle; // a custom class we will define
+
+  // ... insert the main method and settings method go here.
+
+  public void setup() {
+    // instantiate the two objects... notice we pass *this*
+    this.circle = new Circle(100, 100, this);
+    this.rectangle = new Rectangle(100, 100, this);
+  }
+  
+  public void draw() {
+    // have the two objects draw themselves to the screen
+    this.circle.draw();
+    this.rectangle.draw();
+  }
+}
+```
+
+---
+
+template: multiple-classes
+
+## Passing around PApplet (continued again)
+Within the `Circle` and `Rectangle` class constructors, we accept an `App` object that we caan use to draw to the screen.
+```java
+// ... insert the package statement and any imports here ...
+public class Circle {
+  private int x; // the x coordinate of this object
+  private int y; // the y coordinate of this object
+  private App app; // a property that will hold an App object, which inherits from PApplet
+
+  // notice that we accept an App object into the constructor and store it into this object
+  public Circle(int x, int y, App app) {
+    this.x = x; // ideally we would use a setter that performs some validation
+    this.y = y; // ideally we would use a setter that performs some validation
+    this.app = app; // this is the trick - store the App object!
+  }
+
+  public void draw() {
+    this.x = this.x + 2 // change the x coordinate a bit
+    this.app.ellipse(this.x, this.y, 100, 100); // using PApplet's draw method!
+  }
+
+}
+```
+---
+
 name: examples
 
 # Examples
