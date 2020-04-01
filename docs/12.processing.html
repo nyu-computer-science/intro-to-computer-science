@@ -290,10 +290,39 @@ public class Circle extends PApplet {
     public void setup() {
     }
     public void draw() {
-		this.ellipse(250, 150, 100, 100); // draw an ellipse at x=250, y=150
+		  this.ellipse(250, 150, 100, 100); // draw an ellipse at x=250, y=150
     }
 }
 ```
+
+---
+
+template: run
+
+## On syntax
+You will note in our starter code that we use the `this` keyword as a prefix when referring to instance methods and instance properties.  This is good code style.
+```java
+this.ellipse(250, 150, 100, 100);
+```
+
+--
+
+- If you review any of the official Processing documentation or example code, you will note that they do not use the `this` keyword at all.
+```java
+ellipse(250, 150, 100, 100);
+```
+
+--
+
+- This works fine, but is poor quality code style.  You may wonder why they do this.
+
+--
+
+- The answer is that Processing's original mission was to teach people to write programs without scaring them with the details of the object-oriented underpinnings of virtually all modern programming languages.
+
+--
+
+- *You* should always prefix instance properties and methods with `this` and static properties and methods with the class name.
 
 ---
 
