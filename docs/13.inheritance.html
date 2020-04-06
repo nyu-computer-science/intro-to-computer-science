@@ -19,7 +19,9 @@ class: center, middle
 1. [Basic Implementation](#implementation)
 1. [Multi-Level Inheritance](#multi-level)
 1. [Polymorphism](#polymorphism)
+1. [Similarity & Difference](#difference)
 1. [Inheritance vs. Composition](#composition)
+1. [Is Inheritance Evil?](#evils)
 1. [Conclusions](#conclusions)
 
 ---
@@ -119,6 +121,19 @@ System.out.println( bObj.getMessage() );
 template: implementation
 
 ## Abstract Example (continued again)
+We often create UML diagrams indicating class relationships, where the arrow points from parent to child.
+
+![Class inheritance UML diagram](../images/oop-inheritance-simple.png)
+
+--
+
+- In almost all cases, the child class would contain its own unique additional properties and methods that make it different in some way from the parent... we have kept class `B` blank just to focus on the inherited properties and methods.
+
+---
+
+template: implementation
+
+## Abstract Example (continued once more)
 When this program is run, two lines are output:
 ```
 A new A object is born!
@@ -154,7 +169,7 @@ public B() {
 
 template: implementation
 
-## Abstract Example (continued again once more)
+## Abstract Example (continued the final time)
 
 The second line output above, '*Hello!*', is a result of the call to the `B` object's `getMessage()` method.
 
@@ -206,6 +221,19 @@ public class C extends B {
     }
 }
 ```
+
+---
+
+template: multi-level
+
+## Concept (continued)
+A UML diagram showing multi-class inheritance.
+
+![Multi-class inheritance UML diagram](../images/oop-inheritance-multi.png)
+
+--
+
+- As with `B`, we would normally add some unique public methods to child classes like `C` that make them behave differently from their parent, but we are not doing that here just to focus on the inherited components.
 
 ---
 
@@ -325,6 +353,134 @@ super.getMessage();
 
 ---
 
+name: difference
+
+# Similarity & Difference
+
+--
+
+## Concept
+In real applications, child classes almost invariably do something different from their parent classes, whether by overriding some parent methods or implementing their own unique methods that are not present in the parent.  This difference gives the child class a reaason to exist.
+
+--
+
+- We'll take a look at the similarity and difference in two simple classes we'll call `A` and `B`.
+
+---
+
+template: difference
+
+## Example classes
+The parent class:
+```java
+public class A {
+    public void doSomething() {
+        System.out.println("An A object doing something.");
+    }
+}
+```
+
+The child class:
+```java
+public class B extends A {
+    public void doSomethingDifferent() {
+        System.out.println("A B object doing something *different*.");
+    }
+}
+```
+
+---
+
+template: difference
+
+## Similarity
+Since `B` inherits from `A`, both classes encapsulate `A`'s `doSomething()` method.
+
+--
+
+- `doSomething()` can be called on any `A` object, since it is defined within the `A` class.
+```java
+A myA = new A();
+myA.doSomething();
+```
+
+--
+
+- and it can be called on any `B` object, since `B` objects inherit it.
+```java
+B myB = new B();
+myB.doSomething();
+```
+
+---
+
+template: difference
+
+## Similarity (continued)
+Both `A` and `B` objects can be considered `A` objects, since `B` implements `A`'s public interface.  So we can take advantage of **polymorphism** to perform a batch operation on both objects.
+
+--
+
+```java
+// instantiate an A and a B object
+A myA = new A();
+B myB = new B();
+```
+
+--
+
+```java
+// put them both into an A-typed array
+A[] myObjects = { myA, myB };
+```
+
+--
+
+```java
+// loop through all objects in array
+for (A myObj : myObjects) {
+    myObj.doSomething(); // works fine, since they both have this method
+}
+```
+
+--
+
+- [Try it!](https://repl.it/repls/DarkorangeCarefreePreprocessor)
+
+---
+
+template: difference
+
+## Difference
+`B` objects, of course, have their own unique `doSomethingDifferent()` method that `A` objects do not have.
+
+--
+
+- In a polymorphic context, we can perform a batch operation on both objects using a loop, as done previously, but also have `B` objects do their own unique behavior, if desired, by using the `instanceof` operator.
+
+--
+
+```java
+// loop through all objects in array
+for (A myObj : myObjects) {
+    myObj.doSomething(); // works fine, since they both have this method from A
+
+    // have any B-type objects do their special behavior... 
+    if (myObj instanceof B) {
+        // first cast to B-type
+        B sameObjsAsBType = (B) myObj;
+        // now call B-type's unique method
+        sameObjsAsBType.doSomethingDifferent(); 
+    }
+}
+```
+
+--
+
+- [Try it](https://repl.it/repls/GuiltyIcyLeads)
+
+---
+
 name: composition
 
 # Inheritance vs. Composition
@@ -355,10 +511,15 @@ For example, when using the **Processing** animation framework, the **PApplet** 
 
 --
 
-- To use that framework, we want one of our classes to inherit those useful functions.
+- To use that framework, we want one of our classes to inherit those useful functions and thus represent the app window.
 ```java
 public class App extends PApplet { ... }
 ```
+
+--
+
+- `App` objects now will have `PApplet` behaviors, such as popping open a new animation window, drawing ellipses, detecting mouse clicks and key presses, having its `draw()` method called 60 times per second, etc.
+
 --
 
 - In our animations we may want to have donkeys floating across the screen, so we might create a `Donkey` class to encapsulate all things related to donkeys - their width, height, x position, y position, etc.
@@ -371,7 +532,7 @@ public class Donkey { ... }
 template: composition
 
 ## Example (continued)
-Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse clicks, key presses, or do the other things that the `PApplet` class can do.
+Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse clicks, key presses, or do the other things that the `PApplet` class can do.  Our `Donkey` class represents donkeys, not app windows.
 
 --
 
@@ -379,7 +540,7 @@ Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse
 
 --
 
-- This is a good candidate for composition, not inheritance - the vast majority of the code in `Donkey` is unrelated to the code in `PApplet`.
+- This is a good candidate for composition, not inheritance - the vast majority of the `PApplet` code is unrelated and undesireable to `Donkey`.
 
 --
 
@@ -411,15 +572,112 @@ public class App extends PApplet {
 
     public void setup() {
         // pass this App object as an argument to the Donkey constructor
-        myDonkey = Donkey(this); // the Donkey will now have a reference to the App object
+        this.myDonkey = new Donkey(this); // the Donkey will now have a reference to the App object
     }
 
     public void draw() {
         // the donkey can now draw itself to the screen
-        myDonkey.drawMeToScreen();
+        this.myDonkey.drawMeToScreen();
     }
 }
 ```
+
+--
+
+- We would normally use a `setter` to set the value of the `myDonkey` property, but have simplified this code in order to focus on the conceptual point.
+
+---
+
+name: evils
+
+# Criticisms of Inheritance
+
+--
+
+## Concept
+There are certainly those who criticise object-oriented progrmaming, and some specifically who disapprove of Java's inheritance model.
+
+--
+
+- The main criticism rests upon Java's inability to handle inheritance from multiple classes.
+
+--
+
+- This inability can lead to convoluted and undesireable code.
+
+---
+
+template: evils
+
+## Example scenario
+Take, for example, the ["Diamond-problem" scenario](https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53).
+
+--
+
+- Imagine an `ElectronicDevice` class that has some behaviors that all electronic devices have, such as powering on and off.
+
+--
+
+- Next, imagine a `Scanner` class - a document scanner is an electronic device, so it makes sense to inherit the code from `ElectronicDevice` class.
+
+--
+
+- Next, imagine a `Printer` class - a document printer is also an electronic device, so it makes sense also to inherit the code from `ElectronicDevice` class.
+
+---
+
+template: evils
+
+## Example scenario (continued)
+The following UML diagram shows our classes so far, with some example properties and methods.
+
+![Evil inheritance setup](../images/oop-inheritance-evil-setup.png)
+
+---
+
+template: evils
+
+## Example scenario (continued again)
+So far so good.  But what if we added a `Copier` to the mix?
+
+--
+
+- A `Copier` has behaviors of both a `Scanner` and a `Printer`.  Ideally, it would inherit the public interfaces of both.
+
+![Evil inheritance problem](../images/oop-inheritance-evil-problem.png)
+
+---
+
+template: evils
+
+## The problem
+In Java, and many other languages, inheritance from multiple classes is impossible.
+
+--
+
+- The only working solution would be to use **composition** rather than inheritance.
+
+--
+
+```java
+public class Copier {
+    private Scanner scanner;
+    private Printer printer;
+
+    public Copier(Scanner scanner, Printer printer) {
+        this.scanner = scanner;
+        this.printer = printer;
+    }
+}
+```
+
+--
+
+- Why this limitation?
+
+--
+
+- Because what if `Scanner` and `Printer` had a method by the same name, let's say `start()`.  Which version would `Copier` inherit?
 
 ---
 
