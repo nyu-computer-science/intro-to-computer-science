@@ -1,4 +1,10 @@
 # Intro to Computer Science
-A collection of examples mostly focused on object-oriented programming.
+Slides used to teach introductory computer science topics, focused mostly on object-oriented programming.
 
-Slides are auto-generated from the materials in the ```docs``` folder.
+## Publishing slides
+Slides are auto-generated from the materials in the ```docs``` folder using Git Pages.
+
+## Running locally
+- Install Jekyll globally
+- `cd` into the `docs` directory
+- run `jekyll serve`
