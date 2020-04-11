@@ -7,6 +7,7 @@ permalink: /java-paradigm/
 class: center, middle
 
 # The Java Paradigm
+
 "Write once, run anywhere"
 
 ---
@@ -19,7 +20,7 @@ class: center, middle
 4. [Assembly languages](#assembly)
 5. [High-level languages](#high-level-languages)
 6. [Compiling](#compiling)
-7. [Interpreting](#interpreting) 
+7. [Interpreting](#interpreting)
 8. [Java](#java)
 9. [Conclusions](#conclusions)
 
@@ -35,8 +36,9 @@ template: computers
 name: computers-1
 
 ## Definition
-> "[People don't have buttons and a computer does](http://www.youtube.com/watch?v=kccWna71sqk)" 
-> 
+
+> "[People don't have buttons and a computer does](http://www.youtube.com/watch?v=kccWna71sqk)"
+>
 > -Some little kid from PS-272 in Brooklyn in the 1980s
 
 --
@@ -121,8 +123,9 @@ template: programming
 name: programming-1
 
 ## Purpose
+
 > Computer programming is the process of designing and building an executable computer program for accomplishing a specific computing result.
-> 
+>
 > -[Wikipedia](https://en.wikipedia.org/wiki/Computer_programming)
 
 ---
@@ -131,17 +134,20 @@ template: programming
 name: programming-2
 
 ## Levels of abstraction
+
 Programmers have established increasingly higher levels of abstraction in order to make programming faster and more intuitive to humans.
 
 --
 
 ### Low level:
+
 - Machine languages
 - Assembly languages
 
 --
 
 ### High level:
+
 - High-level programming languages
 - [Visual programming](https://en.wikipedia.org/wiki/Visual_programming_language)
 
@@ -154,11 +160,13 @@ name: machine-code
 --
 
 ## Binary instructions
+
 At the lowest level, a programming can directly inform a computer what it should do by sending binary instructions directly to the processor.
 
 --
 
 Example of a set of machine instructions for an x86 processor to move the number 97 to the AL memory register:
+
 ```
 10110000 01100001
 ```
@@ -183,11 +191,13 @@ template: assembly
 name: assembly-1
 
 ## Mnemonics
-It's easier for most humans to memorize words than binary numbers.  Assembly languages provide mnemonics that a programmer can write, which are converted automatically to machine language equivalents.
+
+It's easier for most humans to memorize words than binary numbers. Assembly languages provide mnemonics that a programmer can write, which are converted automatically to machine language equivalents.
 
 --
 
 Example of a set of assembly instructions for an x86 processor to place the number 97 in the memory register called AL:
+
 ```
 MOV AL, 61h
 ```
@@ -202,6 +212,7 @@ template: assembly
 name: assembly-4
 
 ## Assembling
+
 Converting code written in assembly language to the equivalent machine language is known as **assembling** - it's essentially a search/replace operation where mnemonics are replaced with their machine code equialents.
 
 The program to do so is called an **assembler**.
@@ -218,6 +229,7 @@ template: high-level-languages
 name: high-level-languages-1
 
 ## Abstraction
+
 High-level languages are more intuitive for most humans to read and write.
 
 The written code is further abstracted away from the machine instructions the processor will ultimately execute.
@@ -228,14 +240,16 @@ template: high-level-languages
 name: high-level-languages-2
 
 ## Example
+
 Storing the number 97 in a memory register using the C programming language:
+
 ```c
 register int i = 97;
 ```
 
 --
 
-Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP.  All offer higher-level capabilities, such as looping, functions, branching, etc.
+Other high-level programming languages include C, C++, C#, Java, Python, Ruby, Scratch, Javascript, and PHP. All offer higher-level capabilities, such as looping, functions, branching, etc.
 
 ---
 
@@ -243,7 +257,9 @@ template: high-level-languages
 name: high-level-languages-4
 
 ## Translation to machine code
+
 Converting code written in a high-level language to the equivalent machine code is done via one of two processes:
+
 - compiling
 - interpreting
 
@@ -256,6 +272,7 @@ name: compiling
 --
 
 ## Concept
+
 Code written in a high-level programming language is translated to its machine code equivalent all at once as a single bulk operation.
 
 --
@@ -284,6 +301,7 @@ template: compiling
 name: compiling-5
 
 ## C language
+
 The C programming language is a classic example of a compiled language.
 
 --
@@ -310,7 +328,7 @@ name: interpreting
 
 --
 
-Code written in a high-level programming language is translated to its machine code equivalent *and executed* as a series of small steps.
+Code written in a high-level programming language is translated to its machine code equivalent _and executed_ as a series of small steps.
 
 --
 
@@ -337,7 +355,8 @@ name: java
 --
 
 ## Write once, run anywhere
-Unlike C code, Java source code is highly portable, being executable on machines with almost any processor.  How is this possible?
+
+Unlike C code, Java source code is highly portable, being executable on machines with almost any processor. How is this possible?
 
 --
 
@@ -369,6 +388,7 @@ template: java
 name: java-8
 
 ## Write once, run anywhere
+
 ![The Java paradigm](../images/java_paradigm.png)
 
 ---
@@ -377,7 +397,8 @@ template: java
 name: java-9
 
 ## Byte code and the JVM
-Byte code is somewhere between machine code and high-level source in abstraction - an *intermediate-level* language.
+
+Byte code is somewhere between machine code and high-level source in abstraction - an _intermediate-level_ language.
 
 --
 
@@ -397,6 +418,7 @@ template: java
 name: java-13
 
 ## Byte code and the JVM
+
 When viewed as hexadecimal, all byte code files start with the text, `cafe babe` - this is a [magic number](https://en.wikipedia.org/wiki/Magic_number_%28programming%29).
 
 ```
@@ -406,6 +428,7 @@ cafe babe 0000 0034 001f 0700 0201 0033
 6167 652f 5468 6972 6443 6c61 7373 436c
 ...
 ```
+
 One of Java's inventors, James Gosling, has [explained the origin of this](http://radio-weblogs.com/0100490/2003/01/28.html).
 
 ---
@@ -420,4 +443,4 @@ You now have a basic understanding of compiling, interpreting, and how the Java 
 
 --
 
-- Thank you.  Bye.
+- Thank you. Bye.

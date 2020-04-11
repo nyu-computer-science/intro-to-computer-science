@@ -7,8 +7,9 @@ permalink: /arrays-multidimensional/
 class: center, middle
 
 # Multidimensional Arrays
+
 > The universe is not a stagnant place where technology stands still and only the few govern its destiny. Rather, it is a multidimensional dynamic entity that interacts with all things, even the very smallest. And what part we each place in it and the effect we have on it is a matter of our own choice.
-> 
+>
 > -[R.G. Risch](https://www.goodreads.com/book/show/5618917-beyond-mars), Beyond Mars: Crimson Fleet
 
 ---
@@ -61,7 +62,9 @@ name: overview-2
 ## Two-dimensional example
 
 A two-dimensional array - an array that stores inner arrays of type `int`.
+
 - Note the **two** sets of square brackets after the data type declaration.
+
 ```java
 int[][] numbers = {
         { 10, 9, 8 },
@@ -78,6 +81,7 @@ name: overview-3
 ## Two-dimensional example (continued)
 
 To output the third value in the second inner array - 3
+
 ```java
 System.out.println( numbers[1][2] );
 ```
@@ -85,6 +89,7 @@ System.out.println( numbers[1][2] );
 --
 
 The syntax to modify one of the values in a two dimensional array is the same.
+
 ```java
 // modify the third value in the second inner array
 numbers[1][2] = 11;
@@ -93,6 +98,7 @@ numbers[1][2] = 11;
 --
 
 The entire inner array can also be replaced with a different one.
+
 ```java
 numbers[1] = { 13, 12, 11 };
 ```
@@ -105,7 +111,9 @@ name: overview-4
 ## Three-dimensional example
 
 A three-dimensional array - an array that stores inner arrays of type `String`.
+
 - Note the **three** sets of square brackets after the data type declaration.
+
 ```java
 String[][][] words = {
         {
@@ -122,6 +130,7 @@ String[][][] words = {
 --
 
 To output the third value in the second child array of the first inner array - 'wherefore'.
+
 ```java
 System.out.println( words[0][1][2] );
 ```
@@ -168,7 +177,9 @@ name: ragged
 --
 
 ## Concept
+
 Inner arrays may have different lengths... such arrays are called **ragged** arrays.
+
 ```java
 int[][] numbers = {
         { 10, 9, 8, 7, 6 },
@@ -183,7 +194,9 @@ template: ragged
 name: ragged-2
 
 ## Without syntactic sugar
+
 When not using array syntactic sugar, it is possible to leave the length of all but the first dimension blank in the allocation statement to allow for ragged arrays.
+
 ```java
 int[][] numbers = new int[3][]; // blank second dimension
 
@@ -202,7 +215,9 @@ name: rows-columns
 --
 
 ## Concept
+
 It is best to think of two-dimensional arrays as rows and columns of data, like a spreadsheet or table.
+
 - It is helpful to even write each row on a separate line and align the columns
 
 ```java
@@ -219,15 +234,17 @@ template: rows-columns
 name: rows-columns-2
 
 ## Looping through rows with syntactic sugar
+
 To loop through each row, remember that each row of a two-dimensional array is itself a one-dimensional array.
 
 Using `for` loop syntactic sugar.
+
 ```java
 // iterate through each row in the outer array
 for (String[] row : naughtsAndCrosses ) {
 
     // print out the row
-    System.out.println( Arrays.toString(row) ); 
+    System.out.println( Arrays.toString(row) );
 
 }
 ```
@@ -238,18 +255,20 @@ template: rows-columns
 name: rows-columns-3
 
 ## Looping through rows with a counter
+
 If you insist on using an accumulator-style `for` loop, that also works, of course.
 
 Using `for` loop accumulator syntax.
+
 ```java
 // iterate through each index value in the outer array
 for ( int i=0; i<naughtsAndCrosses.length; i++ ) {
 
     // get the row at this index
-    String[] row = naughtsAndCrosses[i]; 
+    String[] row = naughtsAndCrosses[i];
 
     // print out the row
-    System.out.println( Arrays.toString(row) ); 
+    System.out.println( Arrays.toString(row) );
 
 }
 ```
@@ -260,10 +279,13 @@ template: rows-columns
 name: rows-columns-4
 
 ## Looping through each column within each row
-It's easy enough to iterate through each column within each row.  
+
+It's easy enough to iterate through each column within each row.
+
 - Recall that each value in the inner array - each column - is a String.
 
 Using `for` loop syntactic sugar syntax.
+
 ```java
 // iterate through each row in the outer array
 for (String[] row : naughtsAndCrosses ) {
@@ -272,8 +294,8 @@ for (String[] row : naughtsAndCrosses ) {
     for (String col : row) {
 
         // print out the column value
-        System.out.print( col ); 
-    
+        System.out.print( col );
+
     }
 
 }
@@ -285,21 +307,23 @@ template: rows-columns
 name: rows-columns-5
 
 ## Looping through each column within each row (the hard way)
+
 The same can be done without syntactic sugar
 
 Using `for` loop accumulator syntax.
+
 ```java
 // iterate through each index value in the outer array
 for ( int i=0; i<naughtsAndCrosses.length; i++ ) {
 
     // get the row at this index
-    String[] row = naughtsAndCrosses[i]; 
+    String[] row = naughtsAndCrosses[i];
 
     // iterate through each index value of the inner array
     for (int j=0; j<row.length; j++) {
 
         // print out the column value
-        System.out.println( row[j] ); 
+        System.out.println( row[j] );
 
     }
 
@@ -315,6 +339,7 @@ name: examples
 --
 
 ## Check them out
+
 Examples are posted to [GitHub](https://github.com/bloombar/java-examples/tree/master/Multi-Dimensional%20Arrays/src/edu/nyu/cs/fb1258/array_examples) - fork them, then clone them to your own computer.
 
 ---
@@ -329,5 +354,4 @@ You now have a basic understanding of multidimensional arrays - especially two-d
 
 --
 
-- Thank you.  Bye.
-
+- Thank you. Bye.

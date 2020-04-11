@@ -7,8 +7,9 @@ permalink: /object-orientation/
 class: center, middle
 
 # Object-Oriented Programming
+
 > Object-oriented programming is an exceptionally bad idea which could only have originated in California.
-> 
+>
 > –[Edsger Dijkstra](https://www.quora.com/Why-did-Dijkstra-say-that-%E2%80%9CObject-oriented-programming-is-an-exceptionally-bad-idea-which-could-only-have-originated-in-California-%E2%80%9D)
 
 ---
@@ -39,11 +40,12 @@ template: overview
 name: overview-1
 
 ## Concept
-Object-Oriented Programming (OOP), first experimented with in the 1950's, is today the standard programming paradigm.  Nearly all major contemporary programming languages offer the ability to program with objects.
+
+Object-Oriented Programming (OOP), first experimented with in the 1950's, is today the standard programming paradigm. Nearly all major contemporary programming languages offer the ability to program with objects.
 
 --
 
-- code is written to represent virtual *things*.
+- code is written to represent virtual _things_.
 
 --
 
@@ -59,15 +61,16 @@ template: overview
 name: overview-2
 
 ## Concept (continued)
-With object-oriented programming, a developer writes a *description* of things of a certain type.
+
+With object-oriented programming, a developer writes a _description_ of things of a certain type.
 
 --
 
-- This acts as a fixed plan or *concept* for things of this type - a **class**.
+- This acts as a fixed plan or _concept_ for things of this type - a **class**.
 
 --
 
-- Things are then created that *embody* the abstract concept - **objects**.
+- Things are then created that _embody_ the abstract concept - **objects**.
 
 ---
 
@@ -75,6 +78,7 @@ template: overview
 name: concept-digression
 
 ## Digression
+
 In the 5th century, B.C., the astonishingly brilliant philsopher, Plato, described what we now call the [Theory of Forms](https://philosophynow.org/issues/90/Plato_A_Theory_of_Forms).
 
 --
@@ -103,6 +107,7 @@ template: overview
 name: overview-2
 
 ## Understand this: it's imperative!
+
 Object-oriented programming is a variety of **imperative programming**.
 
 --
@@ -115,7 +120,7 @@ Object-oriented programming is a variety of **imperative programming**.
 
 --
 
-- An alternative to imperative programming would be **declarative programming**, where a desired end goal is declared, but the implementation details of how to achieve it are not.  **SQL** is an example of a declarative language.
+- An alternative to imperative programming would be **declarative programming**, where a desired end goal is declared, but the implementation details of how to achieve it are not. **SQL** is an example of a declarative language.
 
 ---
 
@@ -129,7 +134,8 @@ template: black-box
 name: black-box-1
 
 ## Smoke and mirrors
-Despite being a form of imperative-style programming, specifying in detail how problems are to be solved, object-orientation nevertheless attempts to put to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box) of engineering, where, provided particular inputs, a machine produces a predictable output and *the user of it doesn't have to know the implementation details*, even though they are written in the code.
+
+Despite being a form of imperative-style programming, specifying in detail how problems are to be solved, object-orientation nevertheless attempts to put to practice the [black box metaphor](https://en.wikipedia.org/wiki/Black_box) of engineering, where, provided particular inputs, a machine produces a predictable output and _the user of it doesn't have to know the implementation details_, even though they are written in the code.
 
 ![Black box metapahor](../images/oop-black-box-metaphor.png)
 
@@ -139,7 +145,8 @@ template: black-box
 name: black-box-2
 
 ## Digression
-The black box approach transcends any one discipline.  For example, it was popular in the [Behaviorist school of psychology](https://en.wikipedia.org/wiki/Behaviorism), which held that human psychology could be defined by the empirically observed responses to given stimuli, regardless of the internal psychological thought patterns internal to the person.
+
+The black box approach transcends any one discipline. For example, it was popular in the [Behaviorist school of psychology](https://en.wikipedia.org/wiki/Behaviorism), which held that human psychology could be defined by the empirically observed responses to given stimuli, regardless of the internal psychological thought patterns internal to the person.
 
 --
 
@@ -172,6 +179,7 @@ template: example-1
 name: example-1a
 
 ## Concept
+
 Imagine you wanted to write code that represented **files** on a computer's hard drive.
 
 ---
@@ -180,13 +188,15 @@ template: example-1
 name: example-1b
 
 ## Properties
+
 Every file on the hard drive might have some properties, e.g.
+
 - the data stored within the file
 - metadata: filename, size, date modified, etc.
 
 --
 
-The values these properties hold collectively represent the *internal state* of any given file at any given moment in time.
+The values these properties hold collectively represent the _internal state_ of any given file at any given moment in time.
 
 ---
 
@@ -194,7 +204,9 @@ template: example-1
 name: example-1c
 
 ## Actions...
+
 If we say a file is in control of its own destiny (a big if), we could say a file has a few actions it could take, e.g.:
+
 - update the data it holds
 - change its filename
 - save itself to a particular location on the hard drive
@@ -205,7 +217,8 @@ template: example-1
 name: example-1d
 
 ## ... and their consequences
-These actions represent a *public interface* through which other code can interact with any given file and instruct it what actions to take.
+
+These actions represent a _public interface_ through which other code can interact with any given file and instruct it what actions to take.
 
 --
 
@@ -217,7 +230,7 @@ myFile.storeData(someData);
 
 --
 
-Calling these methods automatically updates the internal state of the *thing*.
+Calling these methods automatically updates the internal state of the _thing_.
 
 --
 
@@ -233,7 +246,8 @@ template: example-1
 name: example-1d
 
 ## UML class diagram
-There is a standardized way of representing such *things*, called the Unified Modeling Language (UML).  Here is an example of a UML '**class**' diagram:
+
+There is a standardized way of representing such _things_, called the Unified Modeling Language (UML). Here is an example of a UML '**class**' diagram:
 
 ![UML file example](../images/oop-uml-file-example.png)
 
@@ -243,6 +257,7 @@ template: example-1
 name: example-1e
 
 ## Class definition
+
 This diagram can be translated into code as such:
 
 ```java
@@ -268,6 +283,7 @@ template: example-1
 name: example-1f
 
 ## Intention
+
 A **class** definition is a template from which as many **objects** can be made as we like.
 
 --
@@ -284,7 +300,7 @@ A **class** definition is a template from which as many **objects** can be made 
 
 --
 
-- The internal state of each object is hidden by making the properties private.  Code written inside other class definitions cannot see them.
+- The internal state of each object is hidden by making the properties private. Code written inside other class definitions cannot see them.
 
 ---
 
@@ -298,6 +314,7 @@ template: example-2
 name: example-2a
 
 ## Concept
+
 Imagine **dog**, the concept.
 
 ---
@@ -306,7 +323,9 @@ template: example-2
 name: example-2b
 
 ## Properties
+
 Every dog might have some properties, e.g.
+
 - name
 - age
 - breed
@@ -326,6 +345,7 @@ template: example-2
 name: example-2c
 
 ## Actions...
+
 If we say a dog is in control of its own destiny (a big if), we could say a dog has a few actions it could take, e.g.:
 
 --
@@ -346,6 +366,7 @@ template: example-2
 name: example-2d
 
 ## ... and their complications
+
 Two dogs with different internal states might implement these same actions differently.
 
 --
@@ -366,6 +387,7 @@ template: example-2
 name: example-2g
 
 ## UML class diagram
+
 A UML class diagram for this dog thing:
 
 ![UML dog example](../images/oop-uml-dog-example.png)
@@ -376,6 +398,7 @@ template: example-2
 name: example-2h
 
 ## Class definition
+
 This diagram can be translated into code as such:
 
 ```java
@@ -399,6 +422,7 @@ template: example-2
 name: example-2i
 
 ## Intention
+
 This Dog **class** definition is a template from which as many Dog **objects** can be made as we like.
 
 ---
@@ -434,8 +458,8 @@ template: difference
 name: difference-1
 
 ## Constructing different objects from the same class
-Our intention in creating a class is to be able to instantiate multiple distinct objects from that class template.
 
+Our intention in creating a class is to be able to instantiate multiple distinct objects from that class template.
 
 ---
 
@@ -450,7 +474,8 @@ template: difference
 name: difference-2
 
 ## No difference
-The following code, *placed in the code of some other class definition*, would instantiate two Dog objects from our Dog class.
+
+The following code, _placed in the code of some other class definition_, would instantiate two Dog objects from our Dog class.
 
 ```java
 Dog dog1 = new Dog();
@@ -462,14 +487,15 @@ Dog dog2 = new Dog();
 template: difference-2
 name: difference-2a
 
-These are different *things* in memory.  [See for yourself.](https://repl.it/repls/QuizzicalBubblyChapter)
+These are different _things_ in memory. [See for yourself.](https://repl.it/repls/QuizzicalBubblyChapter)
+
 ```java
 (dog1 == dog2) // false... they are different references
 ```
 
 --
 
-But they do not have any difference in terms of their *internal states*.
+But they do not have any difference in terms of their _internal states_.
 
 --
 
@@ -485,7 +511,7 @@ name: difference-3
 
 ## Difference!
 
-If the internal properties of each Dog object were **public** or **protected** (which they are not), it might be possible to  give each object distinct values:
+If the internal properties of each Dog object were **public** or **protected** (which they are not), it might be possible to give each object distinct values:
 
 --
 
@@ -513,11 +539,13 @@ template: difference
 name: difference-3
 
 ## Difference! (continued)
+
 If we were able to set each Dog's name, breed, and age to different internal states, while retaining hidden internal properties for each object, then we would achieve our goal.
 
 --
 
 We would like to be able to do something like this:
+
 ```java
 Dog dog1 = new Dog("Fido", "Bugle", 10);
 Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
@@ -533,6 +561,7 @@ template: difference
 name: difference-4
 
 ## Constructors
+
 In order to be able to set each object's properties discretely, we need to modify the Dog class to have a special **constructor** function.
 
 --
@@ -562,7 +591,9 @@ template: difference
 name: difference-5
 
 ## Constructors (continued)
+
 Note that constructor functions do not specify a return type.
+
 ```java
 public class Dog {
     //...
@@ -579,6 +610,7 @@ template: difference
 name: this
 
 ## This, not that
+
 The `this` keyword is used to indicate which object we are talking about it.
 
 --
@@ -590,6 +622,7 @@ The `this` keyword is used to indicate which object we are talking about it.
 - So `this` always automatically refers to the object upon whom the current method is being called.
 
 Imagine we defined the `Dog` class's bark method:
+
 ```java
 public class Dog {
     //...
@@ -614,6 +647,7 @@ The answer is, "whichever dog the method is called upon".
 --
 
 If somewhere we call that method on a dog named Fido, then Fido's name will be output.
+
 ```java
 Dog dog1 = new Dog("Fido", "Bugle", 10);
 
@@ -625,6 +659,7 @@ dog1.bark(); // outputs "Fido says, 'Woof!' "
 --
 
 Whereas, if we were to call that method on a dog named Tobik, then Tobik's name would be output.
+
 ```java
 Dog dog2 = new Dog("Fido", "Bugle", 10);
 
@@ -633,13 +668,13 @@ Dog dog2 = new Dog("Fido", "Bugle", 10);
 dog2.bark(); // outputs "Tobik says, 'Woof!' "
 ```
 
-
 ---
 
 template: difference
 name: difference-5
 
 ## Instantiating objects
+
 With constructor functions, we can instantiate as many objects as we like with whatever property values we want them to have.
 
 --
@@ -659,6 +694,7 @@ name: difference-6
 ## Instantiating objects (continued)
 
 We could make 101 Dalmatians with random names and ages, if we wanted...
+
 ```java
 // let's make a random mix of names and ages objects
 String[] names = "Patch,Lucky,Cadpig,Roly Poly,Penny,Freckles,Pepper".split(",");
@@ -686,7 +722,8 @@ template: difference
 name: difference-7
 
 ## Changing internal state
-Constructors allow us to set up an object's internal state at the moment of its creation.  But what if we wanted to update those values at some later date?
+
+Constructors allow us to set up an object's internal state at the moment of its creation. But what if we wanted to update those values at some later date?
 
 --
 
@@ -709,7 +746,7 @@ dog1.age = dog1.age + 1; // happy birthday!
 
 --
 
-By now, you know that this is not possible.  The internal properties are **private** and cannot be accessed from 'user' code in a different class.
+By now, you know that this is not possible. The internal properties are **private** and cannot be accessed from 'user' code in a different class.
 
 ---
 
@@ -717,6 +754,7 @@ template: difference
 name: difference-8
 
 ## Setters
+
 To change an object's internal state, we need a '**setter**' function to allow us to set the value of an existing object.
 
 --
@@ -741,7 +779,7 @@ public class Dog {
 
 --
 
-- Note also that the method is *public*, so it can be called from code outside the `Dog` class.
+- Note also that the method is _public_, so it can be called from code outside the `Dog` class.
 
 ---
 
@@ -749,11 +787,13 @@ template: difference
 name: difference-9
 
 ## Setters (continued)
+
 With setters, it is possible to set the values of properties on existing objects.
 
 --
 
 Assuming we have created a Dog object...
+
 ```java
 Dog dog1 = new Dog("Roly Poly", "Dalmatian", 10); // instantiate a dog
 ```
@@ -761,6 +801,7 @@ Dog dog1 = new Dog("Roly Poly", "Dalmatian", 10); // instantiate a dog
 --
 
 ...we can now update its age using the setter
+
 ```java
 dog1.setAge(11);
 ```
@@ -770,7 +811,8 @@ dog1.setAge(11);
 template: difference
 
 ## Setters (continued again)
-If setters are present, they should *always* be used whenever an object's property values need to be changed.
+
+If setters are present, they should _always_ be used whenever an object's property values need to be changed.
 
 --
 
@@ -790,6 +832,7 @@ template: difference
 name: difference-9
 
 ## Accessing internal state
+
 What if you wanted to know a particular Dog's age... how could you find that out programmatically?
 
 --
@@ -798,7 +841,7 @@ What if you wanted to know a particular Dog's age... how could you find that out
 
 --
 
-- We certainly cannot do the following, since the age property is *private* and cannot be read from code outside the `Dog` class: 
+- We certainly cannot do the following, since the age property is _private_ and cannot be read from code outside the `Dog` class:
 
 ```java
 dog1.setAge ( dog1.age + 1 )
@@ -810,7 +853,8 @@ template: difference
 name: difference-10
 
 ## Getters
-Of course, we can allow access to an object's internal state.  But we need to create '**getter**' functions to do so.
+
+Of course, we can allow access to an object's internal state. But we need to create '**getter**' functions to do so.
 
 --
 
@@ -830,11 +874,11 @@ public class Dog {
 
 --
 
-- Note that this function simply returns the value of a private property of the object.  It may seem a bit redundant, but this is typical of getters.
+- Note that this function simply returns the value of a private property of the object. It may seem a bit redundant, but this is typical of getters.
 
 --
 
-- Note also that the method is *public*, so it can be called from code outside the `Dog` class.
+- Note also that the method is _public_, so it can be called from code outside the `Dog` class.
 
 ---
 
@@ -854,6 +898,7 @@ System.out.println ( dog1.getAge() ); // will output dog1's age
 --
 
 ... and use that information to help us understand that object's internal state
+
 ```java
 dog1.setAge( dog1.getAge() + 1 );
 ```
@@ -861,6 +906,7 @@ dog1.setAge( dog1.getAge() + 1 );
 --
 
 Knowledge of an object's internal state can help us make decisions
+
 ```java
 if ( dog1.getBreed().equals("Dalmation") && dog1.getName().equals("Pepper") ) {
     // use your imagination
@@ -876,29 +922,31 @@ name: belongingness
 --
 
 ## Non-static properties and methods
-Neither *setters* nor *getters*, nor even the methods that represent actions of the object (e.g. *bark*, *fetch*, *sleep*) were declared with the keyword `static` in their method signatures.  Neither were any of the properties (e.g. *name*, *breed*, *age*).
+
+Neither _setters_ nor _getters_, nor even the methods that represent actions of the object (e.g. _bark_, _fetch_, _sleep_) were declared with the keyword `static` in their method signatures. Neither were any of the properties (e.g. _name_, _breed_, _age_).
 
 --
 
-- The keyword, `static`, is used to indicate that a method or property *belongs to the class as a whole*, not to each particular object independently.
+- The keyword, `static`, is used to indicate that a method or property _belongs to the class as a whole_, not to each particular object independently.
 
 --
 
-- Thus, properties and methods that we want to *belong to each object individually* do not use the `static` keyword.
+- Thus, properties and methods that we want to _belong to each object individually_ do not use the `static` keyword.
 
 --
 
-- Each dog has its own *name*, *breed*, *age*, and each dog does its own *barking*, *fetching*, and *sleeping*.  So it makes sense that these properties and methods would not be static.
+- Each dog has its own _name_, _breed_, _age_, and each dog does its own _barking_, _fetching_, and _sleeping_. So it makes sense that these properties and methods would not be static.
 
 --
 
-- Making such properties and methods static would indicate that all dogs share them - *one name for all*, *one breed for all*, *one age for all*, all *fetching as one*, *sleeping as one*, *eating as one*, etc.
+- Making such properties and methods static would indicate that all dogs share them - _one name for all_, _one breed for all_, _one age for all_, all _fetching as one_, _sleeping as one_, _eating as one_, etc.
 
 ---
 
 template: belongingness
 
 ## Shared concerns
+
 There are, of course, cases where it makes sense for a property or method to belong to the class as a whole... i.e. for it to be declared as `static`.
 
 --
@@ -948,6 +996,7 @@ template: belongingness
 ## Shared concerns (continued again)
 
 Every time we instantiate a new `Dog` object, the counter will be incremented.
+
 ```java
 Dog dog1 = new Dog("Fido", "Bugle", 10);
 Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
@@ -959,7 +1008,7 @@ Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
 
 --
 
-- if were to make a `public` *getter* method for the `numDogs` property defined within the `Dog` class, we would be able to call it from outside the `Dog` class to find out how many dogs had been made.
+- if were to make a `public` _getter_ method for the `numDogs` property defined within the `Dog` class, we would be able to call it from outside the `Dog` class to find out how many dogs had been made.
 
 --
 
@@ -978,6 +1027,7 @@ name: comparisons
 --
 
 ## Different kinds of difference
+
 There are a few ways we can compare two objects.
 
 --
@@ -993,6 +1043,7 @@ There are a few ways we can compare two objects.
 template: comparisons
 
 ## Identity comparison
+
 To check whether two supposedly-separate objects are, in fact, the same object, use the `==` operator.
 
 --
@@ -1022,6 +1073,7 @@ Because objects are reference types, when they are passed as arguments to a meth
 --
 
 - For example, imagine a method that changes any dog's name to "Dog"...
+
 ```java
 public void rename(Dog d) {
         d.setName("Dog");
@@ -1031,6 +1083,7 @@ public void rename(Dog d) {
 --
 
 - ... and let's say we call that method from some other method.
+
 ```java
 Dog dog1 = new Dog("Fido", "Bugle", 10);
 rename(dog1);
@@ -1050,6 +1103,7 @@ System.out.println ( dog1.getName() )
 template: comparisons
 
 ## Internal state comparison
+
 To check whether two objects share the same internal state, even if they are different objects in memory, we have to roll our own solution.
 
 --
@@ -1057,6 +1111,7 @@ To check whether two objects share the same internal state, even if they are dif
 - Conventionally, this would be done by defining a method named `equals` that performs the comparison.
 
 --
+
 ```java
 public class Dog {
         //...
@@ -1076,6 +1131,7 @@ public class Dog {
 template: comparisons
 
 ## Internal state comparison (continued)
+
 To compare two dogs, you would use one of those dogs' `equals()` method.
 
 ```java
@@ -1093,6 +1149,7 @@ name: stringification
 --
 
 ## Concept
+
 Converting an object to a String usually leads to unwanted text.
 
 --
@@ -1101,7 +1158,7 @@ Converting an object to a String usually leads to unwanted text.
 // instantiate a Dog object
 Dog dog2 = new Dog("Tobik", "German Shepherd", 3);
 
-// do something that requires the object to be converted to a String 
+// do something that requires the object to be converted to a String
 String text = String.format("The dog as a string looks like: %s", dog2);
 
 // see what you get...
@@ -1112,13 +1169,15 @@ System.out.println(text);
 
 By default, the output would show the **class** name of the object and a **[hashcode](https://coderanch.com/t/321515/java/HashCode)** - random-looking text that is not probably what you hoped for.
 [Try it!](https://repl.it/repls/MysteriousNormalLoaderprogram)
+
 ```
 The dog as a string looks like: Dog@63961c42
 ```
 
 --
 
-Wouldn't it be nice if we could instead output something descriptive, like, 
+Wouldn't it be nice if we could instead output something descriptive, like,
+
 ```
 The dog as a string looks like: Tobik, a 3-year-old German Shepherd
 ```
@@ -1128,6 +1187,7 @@ The dog as a string looks like: Tobik, a 3-year-old German Shepherd
 template: stringification
 
 ## Fulfilling our desires
+
 Java allows an object to describe how it should be converted to a String with a special method named `toString()` that returns the String equivalent of the object.
 
 --
@@ -1146,9 +1206,11 @@ public class Dog {
 --
 
 Now, converting the object to a String will result in something more descriptive, such as:
+
 ```
 Tobik, a 3-year-old German Shepherd
 ```
+
 [Try it!](https://repl.it/repls/UnusualDistantPostscript)
 
 ---
@@ -1160,11 +1222,12 @@ name: pillars
 --
 
 ## Concept
+
 No university course would pass the censors unless it mentioned at least one set of immutable laws students must memorize despite their better judgment.
 
 --
 
-- Our course is no different.  So here they are.
+- Our course is no different. So here they are.
 
 --
 
@@ -1193,12 +1256,12 @@ template: pillars
 ## Abstraction
 
 > abstract (adjective): disassociated from any specific instance
-> 
+>
 > -[Mirriam-Webster](https://www.merriam-webster.com/dictionary/abstract)
 
 --
 
-Abstraction is thus the *process of making something abstract* or *the state of being abstracted*.
+Abstraction is thus the _process of making something abstract_ or _the state of being abstracted_.
 
 --
 
@@ -1223,12 +1286,12 @@ template: pillars
 ## Encapsulation
 
 > encapsulate (verb): to enclose in or as if in a capsule
-> 
+>
 > -[Mirriam-Webster](https://www.merriam-webster.com/dictionary/encapsulate)
 
 --
 
-Encapsulation is thus the *process of enclosing some things within other things*.
+Encapsulation is thus the _process of enclosing some things within other things_.
 
 --
 
@@ -1253,12 +1316,12 @@ template: pillars
 ## Inheritance
 
 > inherit (verb): to receive from an ancestor
-> 
+>
 > -[Mirriam-Webster](https://www.merriam-webster.com/dictionary/inherit)
 
 --
 
-Inheritance is thus *that which is inherited from an ancestor*.
+Inheritance is thus _that which is inherited from an ancestor_.
 
 --
 
@@ -1275,7 +1338,7 @@ template: pillars
 ## Polymorphism
 
 > polymorphism (noun): the quality or state of existing in or assuming different forms
-> 
+>
 > -[Mirriam-Webster](https://www.merriam-webster.com/dictionary/polymorphism)
 
 --
@@ -1297,21 +1360,23 @@ name: alternative-paradigms
 --
 
 ## Free choice
-There is currently no major threat to object-oriented programming, since it is so widespread.  However, other programming paradigms do exist:
+
+There is currently no major threat to object-oriented programming, since it is so widespread. However, other programming paradigms do exist:
 
 --
 
-- **Functional programming** is focused on *data flow* (i.e. immutable values being used in formulae to compute other values) , rather than control flow (i.e. "Do this, then do that!" and where variables are not values but rather memory locations with changing values over time).  Popular languages for functional programming are **Excel** and **Haskell**.  There is growing interest in this 70-year-old style! [Learn more!](https://www.infoq.com/presentations/Taming-Effect-Simon-Peyton-Jones/)
+- **Functional programming** is focused on _data flow_ (i.e. immutable values being used in formulae to compute other values) , rather than control flow (i.e. "Do this, then do that!" and where variables are not values but rather memory locations with changing values over time). Popular languages for functional programming are **Excel** and **Haskell**. There is growing interest in this 70-year-old style! [Learn more!](https://www.infoq.com/presentations/Taming-Effect-Simon-Peyton-Jones/)
 
 --
 
-- **Procedural programming** was the standard paradigm before object-oriented programming took over.  It is still what is taught 70 years later in many entry-level programming courses, where the instructors are perhaps afraid to talk (or think) abstractly.  The problem to be solved by a program is decomposed into sub-problems, and procedures (a.k.a. functions) to solve each problem are written and executed in sequence.
+- **Procedural programming** was the standard paradigm before object-oriented programming took over. It is still what is taught 70 years later in many entry-level programming courses, where the instructors are perhaps afraid to talk (or think) abstractly. The problem to be solved by a program is decomposed into sub-problems, and procedures (a.k.a. functions) to solve each problem are written and executed in sequence.
 
 ---
 
 template: alternative-paradigms
 
 ## The future
+
 - Many see a **multi-paradigm future**, and some see a multi-paradigm present, where paradigms are mixed and matched, and each is used for its unique strengths.
 
 ---
@@ -1322,10 +1387,8 @@ name: conclusions
 
 --
 
-You now have a basic understanding of object-oriented programming in Java.  Well done.
+You now have a basic understanding of object-oriented programming in Java. Well done.
 
 --
 
-- Thank you.  Bye.
-
-
+- Thank you. Bye.

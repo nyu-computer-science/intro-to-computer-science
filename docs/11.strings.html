@@ -7,8 +7,9 @@ permalink: /strings-as-objects/
 class: center, middle
 
 # String & Related Classes
+
 > We are all instruments endowed with feeling and memory. Our senses are so many strings that are struck by surrounding objects and that also frequently strike themselves.
-> 
+>
 > –[Denis Diderot](https://en.wikipedia.org/wiki/Denis_Diderot)
 
 ---
@@ -35,7 +36,8 @@ template: overview
 name: overview-1
 
 ## Concept
-The term 'String', used in programming to indicate a 'string of characters', first came into regular usage in the mid 1960's, as languages such as Lisp allowed textual data processing to flourish.  A more general meaning, to order a series of mathematical values, as if beads on a string, dates possibly to the 1930's. 
+
+The term 'String', used in programming to indicate a 'string of characters', first came into regular usage in the mid 1960's, as languages such as Lisp allowed textual data processing to flourish. A more general meaning, to order a series of mathematical values, as if beads on a string, dates possibly to the 1930's.
 
 --
 
@@ -50,7 +52,9 @@ name: string
 --
 
 ## Instantiation
+
 Like all objects in Java, Strings can be instantiated using the `new` operator and passing the **constructor** a `char` array.
+
 ```java
 char[] charr = { 'w','o','r','r','y',' ', 'n','o','t' };
 String myMessageToYou = new String(charr);
@@ -69,6 +73,7 @@ String myMessageToYou = "worry not";
 template: string
 
 ## Many functions return Strings
+
 Rather than directly instantiating a String object, there are many functions in the Java API that instantiate new String object's on our behalf, e.g.
 
 --
@@ -104,6 +109,7 @@ Rather than directly instantiating a String object, there are many functions in 
 template: string
 
 ## .toString( ) methods
+
 And every class can optionally declare a method named `toString()` that indicates how an object of that class should be converted to a String.
 
 --
@@ -113,10 +119,10 @@ public class Moped {
     // ...
     public String toString() {
         return String.format(
-            "A moped at %s & %s facing %s", 
-            this.getStreet(), 
-            this.getAvenue(), 
-            this.getOrientation() 
+            "A moped at %s & %s facing %s",
+            this.getStreet(),
+            this.getAvenue(),
+            this.getOrientation()
         )
     }
     // ...
@@ -135,6 +141,7 @@ System.out.println( myMoped ); // output it as a String
 template: string
 
 ## .toString( ) methods (continued)
+
 Even if you don't define a `.toString()` method in your custom classes, one exists automatically anyway.
 
 --
@@ -143,7 +150,7 @@ Even if you don't define a `.toString()` method in your custom classes, one exis
 
 --
 
-- Every object automatically *inherits* some properties and methods from the oldest ancestor class in the Java API named `Object`.
+- Every object automatically _inherits_ some properties and methods from the oldest ancestor class in the Java API named `Object`.
 
 --
 
@@ -152,6 +159,7 @@ Even if you don't define a `.toString()` method in your custom classes, one exis
 --
 
 - Here is `Object`'s implementation of its `toString()` method.
+
 ```java
 //...
 public String toString() {
@@ -159,11 +167,13 @@ public String toString() {
 }
 //...
 ```
+
 ---
 
 template: string
 
 ## What's inside a String?
+
 There are several useful functions for investigating the internals of a String.
 
 --
@@ -199,6 +209,7 @@ There are several useful functions for investigating the internals of a String.
 template: string
 
 ## Comparing two Strings
+
 Comparing two strings can be done in a few different styles.
 
 --
@@ -222,6 +233,7 @@ name: immutability
 --
 
 ## Concept
+
 String objects are immutable - once they have been instantiated, their contents cannot be changed.
 
 --
@@ -258,7 +270,8 @@ name: character
 --
 
 ## Concept
-The Character class is a *wrapper class*, used to do processing and analysis of char primitive values, e.g.
+
+The Character class is a _wrapper class_, used to do processing and analysis of char primitive values, e.g.
 
 --
 
@@ -297,7 +310,8 @@ name: string-builder
 --
 
 ## Concept
-Since Strings are immutable, concatening many Strings together or modifying the contents of a String tends to require a lot of code and more memory than it should.  Enter StringBuilder.
+
+Since Strings are immutable, concatening many Strings together or modifying the contents of a String tends to require a lot of code and more memory than it should. Enter StringBuilder.
 
 --
 
@@ -314,8 +328,8 @@ Since Strings are immutable, concatening many Strings together or modifying the 
 --
 
 - `myBuilder.append(" to class!");` // it's mutable!
-welcome to this wonderful class
---
+  welcome to this wonderful class
+  --
 
 - `myBuilder.insert( 11, "this wonderful " );` // it's easy to insert
 
@@ -326,11 +340,13 @@ welcome to this wonderful class
 --
 
 - `myBuilder.reverse();` // because we can
+
 ---
 
 template: string-builder
 
 ## Extracting the String from StringBuilder
+
 Converting the contents of a StringBuilder to a regular String is a facile matter.
 
 --
@@ -350,6 +366,7 @@ name: examples
 --
 
 ## Code
+
 Check out [String & related class examples](https://github.com/bloombar/java-examples/tree/master/Strings/src/edu/nyu/cs/fb1258/string_examples) hosted on GitHub.
 
 ---
@@ -364,6 +381,4 @@ You now have increased your knowledge of the String and related classes as examp
 
 --
 
-- Thank you.  Bye.
-
-
+- Thank you. Bye.

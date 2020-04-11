@@ -7,6 +7,7 @@ permalink: /methods/
 class: center, middle
 
 # Methods
+
 > "Take a method and try it. If it fails, admit it frankly, and try another. But by all means, try something."
 >
 > -[Franklin D. Roosevelt](https://en.wikipedia.org/wiki/Franklin_D._Roosevelt)
@@ -31,6 +32,7 @@ name: overview
 --
 
 ## Concept
+
 Methods are modular reusable blocks of code.
 
 --
@@ -58,9 +60,11 @@ name: simple
 --
 
 ## Super simple
+
 At their simplest, methods can have no parameters and no return value.
 
 For example, a method named 'doSomething1':
+
 ```java
 public static void doSomething1() {
     System.out.println("Running  doSomething1");
@@ -81,6 +85,7 @@ name: simple-2
 Of course, methods can call other methods, as our `doSomething1` already displayed - it called the `System.out.println` method several times.
 
 Note the order in which the print statements are executed.
+
 ```java
 public static void doSomething1() {
     System.out.println("Begin doSomething1");
@@ -103,6 +108,7 @@ template: simple
 name: simple-3
 
 ## Call stack
+
 The order is determined by the control flow of the program.
 
 --
@@ -121,7 +127,6 @@ The order is determined by the control flow of the program.
 
 - Once a method that has been invoked completes, its stack frame is popped (deleted) from the call stack and its memory is wiped clean.
 
-
 --
 
 [Try it!](https://repl.it/repls/PalatableConsiderateBlogs)
@@ -136,7 +141,7 @@ name: parameters
 
 ## Concept
 
-Methods can accept 'arguments' - values sent into the method.  
+Methods can accept 'arguments' - values sent into the method.
 
 --
 
@@ -145,7 +150,6 @@ Methods can accept 'arguments' - values sent into the method.
 --
 
 - Once the method invocation completes, any local variables, including parameters, are wiped out of memory.
-
 
 --
 
@@ -170,6 +174,7 @@ name: return
 --
 
 ## Concept
+
 Methods can return a single value in Java.
 
 --
@@ -183,7 +188,6 @@ Methods can return a single value in Java.
 --
 
 - Think of it as if the method invocation is replaced by that method's return value.
-
 
 --
 
@@ -209,12 +213,12 @@ name: overloading
 --
 
 ## Concept
-Java allows multiple methods with the same name but different parameter sets.  These are called overloaded methods.
+
+Java allows multiple methods with the same name but different parameter sets. These are called overloaded methods.
 
 --
 
 - Which version of the method is invoked depends upon the arguments in the method call.
-
 
 --
 
@@ -248,5 +252,4 @@ You now have a basic understanding of methods in Java.
 
 --
 
-- Thank you.  Bye.
-
+- Thank you. Bye.

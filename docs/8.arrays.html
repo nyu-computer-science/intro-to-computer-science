@@ -7,8 +7,9 @@ permalink: /arrays/
 class: center, middle
 
 # Arrays
+
 > Days of absence, sad and dreary, clothed in sorrow's dark array. Days of absence, I am weary; she, I love, is far away.
-> 
+>
 > -[Jean-Jacques Rousseau](https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau), Days of Absence
 
 ---
@@ -30,6 +31,7 @@ name: overview
 # Overview
 
 Arrays are a grouping data structure.
+
 - Multiple values or references can be stored within an array.
 - Arrays can store any other data type or data structure, including arrays.
 
@@ -42,7 +44,9 @@ name: creation
 --
 
 ## The old-fashioned way
+
 Arrays can be created using the `new` keyword.
+
 - The `new` keyword causes Java to allocate a certain amount of memory for this array, even before it has been populated.
 
 ```java
@@ -60,7 +64,9 @@ template: creation
 name: creation-2
 
 ## Using syntactic sugar
+
 Arrays can be created using `syntactic sugar`, or shorthand syntax that is converted to the longer-form automatically by Java upon compilation.
+
 - This can be useful if you know the values you want to put into the array up-front.
 
 ```java
@@ -73,6 +79,7 @@ template: creation
 name: creation-3
 
 ## Using String's split function
+
 Arrays can easily be made from text that contains a particular separator.
 
 ```java
@@ -90,6 +97,7 @@ name: length
 --
 
 ## Counting elements in an array
+
 The `length` property of any array counts its members.
 
 ```java
@@ -113,7 +121,9 @@ name: arrays-class
 --
 
 ## Useful array-related functions
+
 The Arrays utility class is part of the Java API
+
 - provides useful methods for manipulating arrays
 - `import java.util.Arrays`
 
@@ -127,7 +137,9 @@ template: arrays-class
 name: arrays-class-2
 
 ## Convert array contents to String
-Prints out the contents of the array *inelegantly*.
+
+Prints out the contents of the array _inelegantly_.
+
 - Good for debugging.
 
 ```java
@@ -144,6 +156,7 @@ template: arrays-class
 name: arrays-class-3
 
 ## Comparing values in two arrays
+
 Do two arrays have the same set of values?
 
 ```java
@@ -160,6 +173,7 @@ template: arrays-class
 name: arrays-class-4
 
 ## Sorting the values in an array
+
 Put them in order.
 
 ```java
@@ -178,6 +192,7 @@ template: arrays-class
 name: arrays-class-5
 
 ## Searching for a value in an array
+
 One of the popular search algorithms called `binary search` comes with the Arrays class.
 
 ```java
@@ -191,6 +206,7 @@ template: arrays-class
 name: arrays-class-6
 
 ## Copying an array
+
 Make a clone.
 
 ```java
@@ -210,6 +226,7 @@ template: arrays-class
 name: arrays-class-7
 
 ## Filling an array
+
 Place default values into an array.
 
 ```java
@@ -226,7 +243,8 @@ name: pass-by-value
 --
 
 ## The word on the street
-Some textbooks and online discussions say, "Java is a 'pass by value' language!"  What does this mean? 
+
+Some textbooks and online discussions say, "Java is a 'pass by value' language!" What does this mean?
 
 This refers to what exactly is passed to a function when it is invoked with arguments.
 
@@ -236,8 +254,10 @@ template: pass-by-value
 name: pass-by-value-2
 
 ## Primitives are value types
-When a *primitive value* is passed as an argument to a function, the situation is straightforward.
-- The argument's *value* is passed to the function!
+
+When a _primitive value_ is passed as an argument to a function, the situation is straightforward.
+
+- The argument's _value_ is passed to the function!
 - Primitive values are called '**value types**' for this reason.
 
 ---
@@ -248,6 +268,7 @@ name: pass-by-value-3
 ## Primitives are value types (continued)
 
 Take the following example:
+
 ```java
 public static void doSomething(int x) {
     x = 10;
@@ -267,8 +288,10 @@ template: pass-by-value
 name: pass-by-value-4
 
 ## Arrays and objects are reference types
-When an *array* or an *object* is passed as an argument to a function, the situation is a bit less straightforward.
-- The argument's *reference* - the memory address at which the array is stored - is passed to the function!
+
+When an _array_ or an _object_ is passed as an argument to a function, the situation is a bit less straightforward.
+
+- The argument's _reference_ - the memory address at which the array is stored - is passed to the function!
 - Arrays and objects are called '**reference types**' for this reason.
 
 ---
@@ -279,6 +302,7 @@ name: pass-by-value-5
 ## Arrays and objects are reference types (continued)
 
 Let's consider the following example:
+
 ```java
 public static void doSomething(int[] x) {
     x = {25, 30, 35}; // the local variable is re-assigned to point to a different memory address
@@ -300,6 +324,7 @@ name: pass-by-value-6
 ## Arrays and objects are reference types (continued again)
 
 But consider the following example:
+
 ```java
 public static void doSomething(int[] x) {
     x[2] = 555; // the third spot within the array is re-assigned to refer to a different integer
@@ -321,6 +346,7 @@ name: pass-by-value-6
 ## Doesn't this mean Java is both a 'pass by value' and 'pass by reference' language?
 
 The phrase, "Java is a 'pass by value' language is thus a bit confusing.
+
 - Arguments that are value types (i.e. primitives) are passed as values
 - Arguments that are reference types (i.e. arrays and objects) are passed as references.
 
@@ -335,6 +361,7 @@ name: examples
 --
 
 ## GitHub account
+
 View array and other example programs on [GitHub](https://github.com/bloombar/java-examples/tree/master/).
 
 ---
@@ -349,5 +376,4 @@ You now have a basic understanding of arrays in Java.
 
 --
 
-- Thank you.  Bye.
-
+- Thank you. Bye.

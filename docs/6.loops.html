@@ -7,6 +7,7 @@ permalink: /loops/
 class: center, middle
 
 # Loops
+
 > "History doesn’t repeat itself but it often rhymes"
 >
 > -Attributed mistakenly to [Mark Twain](https://en.wikipedia.org/wiki/Mark_Twain)
@@ -33,7 +34,8 @@ template: concept
 name: concept-1
 
 ## Concept
-It is often useful to repeat a block of code more than once.  
+
+It is often useful to repeat a block of code more than once.
 
 --
 
@@ -48,6 +50,7 @@ name: while
 --
 
 ## Concept
+
 While loops give us ultimate flexibility in controlling repetition.
 
 --
@@ -64,6 +67,7 @@ template: while
 name: while-2
 
 ## Accumulator-based loop
+
 One of the classic patterns, where a counter stops the loop after a certain number of iterations.
 
 ```java
@@ -82,6 +86,7 @@ template: while
 name: while-2
 
 ## Flag-based loop
+
 Another of the classic patterns, where the value of a boolean variable causes the loop to stop iterating at some point.
 
 ```java
@@ -105,6 +110,7 @@ template: while
 name: while-3
 
 ## Infinite loop
+
 Usually undesireable, but while loops can iterate infinitely.
 
 ```java
@@ -124,6 +130,7 @@ name: for
 --
 
 ## Concept
+
 For loops allow us to simplify the syntax for writing an 'accumulator'- or 'counter'-based loop.
 
 --
@@ -144,7 +151,9 @@ template: for
 name: for-2
 
 ## Accumulator-based loop
+
 One of the classic patterns, where a counter stops the loop after a certain number of iterations.
+
 - this is what `for` loops were designed to do!
 
 ```java
@@ -160,7 +169,9 @@ template: for
 name: for-2
 
 ## Flag-based loop
+
 Another of the classic patterns, where the value of a boolean variable causes the loop to stop iterating at some point.
+
 - `for` loops are almost never used for this... but here we go!
 
 ```java
@@ -184,6 +195,7 @@ template: for
 name: for-3
 
 ## Infinite loop
+
 Usually undesireable, but for loops can iterate infinitely.
 
 ```java
@@ -236,13 +248,13 @@ while (keepGoing) {
     // get user input
     System.out.print("Please enter an integer between 1 and 10: ");
     int num = scn.nextInt();
-    
+
     // validate the user's input
     if (num >= 1 && num <= 10) {
         keepGoing = false; // change the value of the flag to cause the loop to terminate
         System.out.println("Thanks for the good input!... quitting loop");
     }
-    
+
     // if the user's input is invalid, x is still true, so no need to set it to that!
 }
 scn.close(); // close the scanner resource to be nice to the processor
@@ -255,7 +267,8 @@ name: common-3
 
 ## Iterating through the characters in a string
 
-In Java, strings contain arrays of `char` values.  Note that the length of a string is obtained using the `length()` function, not the `length` property used with arrays. 
+In Java, strings contain arrays of `char` values. Note that the length of a string is obtained using the `length()` function, not the `length` property used with arrays.
+
 ```java
 String s = "asparagus";
 for (int i = 0; i < s.length(); i++) {
@@ -308,4 +321,4 @@ You now have a basic understanding of for loops, while loops, and a few common t
 
 --
 
-- Thank you.  Bye.
+- Thank you. Bye.

@@ -7,8 +7,9 @@ permalink: /processing/
 class: center, middle
 
 # The Processing Framework
+
 > You’ve baked a really lovely cake, but then you’ve used dog shit for frosting.
-> 
+>
 > ―Steve Jobs, critiquing a designer's work
 
 ---
@@ -34,7 +35,8 @@ name: overview
 --
 
 ## Concept
-[Processing](https://processing.org) is a code framework for animation.  It is also the name of a non-profit foundation that attempts to teach programming and spread software literacy.
+
+[Processing](https://processing.org) is a code framework for animation. It is also the name of a non-profit foundation that attempts to teach programming and spread software literacy.
 
 --
 
@@ -42,7 +44,7 @@ name: overview
 
 --
 
-- Initially Java-only, Processing has now been *ported* to other popular languages, including [Python](https://py.processing.org/) and [Javascript](https://p5js.org/).
+- Initially Java-only, Processing has now been _ported_ to other popular languages, including [Python](https://py.processing.org/) and [Javascript](https://p5js.org/).
 
 --
 
@@ -57,6 +59,7 @@ name: installation
 --
 
 ## Concept
+
 Processing consists of a few Java Archive (JAR) files that you can import into your code.
 
 --
@@ -84,6 +87,7 @@ Processing consists of a few Java Archive (JAR) files that you can import into y
 template: installation
 
 ## Download Processing
+
 Go to the [Processing web site](https://processing.org) and download the appropriate version for your system.
 
 --
@@ -96,7 +100,7 @@ Go to the [Processing web site](https://processing.org) and download the appropr
 
 --
 
-- To locate `core.jar` on Mac, Cntrl-click on the application in Finder and click `Show Package Contents`.  Then find the file within at `Contents/Java/core.jar`
+- To locate `core.jar` on Mac, Cntrl-click on the application in Finder and click `Show Package Contents`. Then find the file within at `Contents/Java/core.jar`
 
 --
 
@@ -111,6 +115,7 @@ Go to the [Processing web site](https://processing.org) and download the appropr
 template: installation
 
 ## Downgrade to Java SE 8
+
 If you are running a relatively recent version of Java, you must downgrade to Java SE version 8.
 
 --
@@ -119,7 +124,7 @@ If you are running a relatively recent version of Java, you must downgrade to Ja
 
 --
 
-- Download and run the installer for the version appropriate for your system. 
+- Download and run the installer for the version appropriate for your system.
 
 --
 
@@ -130,6 +135,7 @@ If you are running a relatively recent version of Java, you must downgrade to Ja
 template: installation
 
 ## Set Up Eclipse
+
 Processing can be integrated into the popular [Eclipse IDE](https://eclipse.org) relatively simply.
 
 - Open Eclipse and go to Preferences
@@ -179,6 +185,7 @@ template: installation
 template: installation
 
 ## Set Up Eclipse (continued again)
+
 Assuming Eclipse has been configured to run Java SE 8, we can easily install Processing's `core.jar` file as a dependency of any Eclipse project.
 
 --
@@ -202,7 +209,8 @@ Assuming Eclipse has been configured to run Java SE 8, we can easily install Pro
 template: installation
 
 ## Set Up Visual Studio Code
-[Visual Studio Code](https://code.visualstudio.com) is an increasingly popular language-agnostic IDE by Microsoft.  Set up a Java Project with Processing as follows.
+
+[Visual Studio Code](https://code.visualstudio.com) is an increasingly popular language-agnostic IDE by Microsoft. Set up a Java Project with Processing as follows.
 
 --
 
@@ -210,7 +218,7 @@ template: installation
 
 --
 
-- **Create a new Java Project** - do this by opening up VS Code's `View` -> `Command Palette` menu option and type `Java: Create Java Project` into the Command Palette's text field.  Select a directory where you wish to house your project, and enter a name for the project with no spaces in the name.
+- **Create a new Java Project** - do this by opening up VS Code's `View` -> `Command Palette` menu option and type `Java: Create Java Project` into the Command Palette's text field. Select a directory where you wish to house your project, and enter a name for the project with no spaces in the name.
 
 --
 
@@ -222,7 +230,8 @@ template: installation
 
 ## Set Up Visual Studio Code (continued)
 
-- **Configure the project's settings file** - if your project does not already have a sub-directory named `.vscode`, create one and create a file therein named `settings.json`.  If your project already has this directory and file, open it up.  Enter the following code into the `.settings` file and save:
+- **Configure the project's settings file** - if your project does not already have a sub-directory named `.vscode`, create one and create a file therein named `settings.json`. If your project already has this directory and file, open it up. Enter the following code into the `.settings` file and save:
+
 ```javascript
 {
         "java.project.referencedLibraries": [
@@ -233,7 +242,8 @@ template: installation
 
 --
 
-- **Configure the Java classpath** - open a file named `.classpath` in your project's main directory. This is a hidden file, so you may not see it in the file listing, but find a way to open it.  Add the following to line and save:
+- **Configure the Java classpath** - open a file named `.classpath` in your project's main directory. This is a hidden file, so you may not see it in the file listing, but find a way to open it. Add the following to line and save:
+
 ```xml
 <classpathentry kind="lib" path="lib/core.jar"/>
 ```
@@ -251,6 +261,7 @@ name: run
 --
 
 ## What we need to do in code
+
 To use Processing, you must...
 
 --
@@ -274,7 +285,9 @@ To use Processing, you must...
 template: run
 
 ## Starter code
+
 For example, enter the following starter code within the `src/fb1258` directory in a file named `MyClass.java`.
+
 ```java
 package fb1258;
 
@@ -300,7 +313,9 @@ public class Circle extends PApplet {
 template: run
 
 ## On syntax
-You will note in our starter code that we use the `this` keyword as a prefix when referring to instance methods and instance properties.  This is good code style.
+
+You will note in our starter code that we use the `this` keyword as a prefix when referring to instance methods and instance properties. This is good code style.
+
 ```java
 this.ellipse(250, 150, 100, 100);
 ```
@@ -319,13 +334,14 @@ ellipse(250, 150, 100, 100);
 
 --
 
-- *You* should always prefix instance properties and methods with `this` and static properties and methods with the class name.
+- _You_ should always prefix instance properties and methods with `this` and static properties and methods with the class name.
 
 ---
 
 template: run
 
 ## Run it!
+
 Run this program - if it works, you are in good shape!
 
 --
@@ -345,6 +361,7 @@ name: lifecycle
 --
 
 ## Concept
+
 The three methods we added to our code are automatically called by PApplet's code at certain times in the life of the program.
 
 --
@@ -357,7 +374,7 @@ The three methods we added to our code are automatically called by PApplet's cod
 
 --
 
-- [draw()](https://processing.org/reference/draw_.html) is initially called directly after `setup()` and on an automatic timer every `60` seconds thereafter until the program stops animating.  The code placed within this method is used to draw the frames of the animation.
+- [draw()](https://processing.org/reference/draw_.html) is initially called directly after `setup()` and on an automatic timer every `60` seconds thereafter until the program stops animating. The code placed within this method is used to draw the frames of the animation.
 
 ---
 
@@ -368,8 +385,10 @@ name: animation
 --
 
 ## Concept
+
 In frame-based animation, objects are redrawn in rapid succession at slightly different locations on the screen in order to give the illusion of movement.
-```java
+
+````java
 package fb1258;
 import processing.core.*;
 public class CircleSliding extends PApplet {
@@ -503,13 +522,14 @@ Processing's code can automatically call a function in your code anytime the use
 public void mouseClicked() {
         System.out.printf("clicked at %d, %d", this.mouseX, this.mouseY);
 }
-```
+````
 
 ---
 
 template: events
 
 ## Other mousing around
+
 Processing will also call other functions you define for a variety of other mouse-driven events.
 
 --
@@ -533,6 +553,7 @@ Processing will also call other functions you define for a variety of other mous
 template: events
 
 ## Keyboard events
+
 Processing can respond to various keyboard-driven events if you define functions to handle them.
 
 --
@@ -554,6 +575,7 @@ Processing can respond to various keyboard-driven events if you define functions
 --
 
 - these non-ASCII `keyCode` values can be compared to constants Processing supplies, named after the key they represent, e.g.
+
 ```java
 if (this.keyCode == UP) { /* ... */ }
 ```
@@ -567,11 +589,12 @@ name: multiple-classes
 --
 
 ## One window, please
-When writing programs that use the Processing library, we must have a custom class that inherits from PApplet.  But what do we do when we have more than one custom class?
+
+When writing programs that use the Processing library, we must have a custom class that inherits from PApplet. But what do we do when we have more than one custom class?
 
 --
 
-- The PApplet class includes code to open an app window when it is instantiated.  So every class we define that inherits from PApplet will also pop open a window when instantiated.  You probably don't want that.
+- The PApplet class includes code to open an app window when it is instantiated. So every class we define that inherits from PApplet will also pop open a window when instantiated. You probably don't want that.
 
 --
 
@@ -586,6 +609,7 @@ When writing programs that use the Processing library, we must have a custom cla
 template: multiple-classes
 
 ## Passing around PApplet
+
 It might be the case that you desire to use one of PApplet's functions from within a class that does not inherit from PApplet.
 
 --
@@ -602,7 +626,7 @@ It might be the case that you desire to use one of PApplet's functions from with
 
 --
 
-- Furthermore, we would want each the circle object and the rectangle object to *move and draw themselves* around the screen.
+- Furthermore, we would want each the circle object and the rectangle object to _move and draw themselves_ around the screen.
 
 --
 
@@ -613,7 +637,9 @@ It might be the case that you desire to use one of PApplet's functions from with
 template: multiple-classes
 
 ## Passing around PApplet (continued)
+
 Define one class that inherits from PApplet, and have it pass itself to the other objects.
+
 ```java
 // ... insert the package and import statements here...
 public class App extends PApplet {
@@ -628,7 +654,7 @@ public class App extends PApplet {
     this.circle = new Circle(100, 100, this);
     this.rectangle = new Rectangle(100, 100, this);
   }
-  
+
   public void draw() {
     // have the two objects draw themselves to the screen
     this.circle.draw();
@@ -642,7 +668,9 @@ public class App extends PApplet {
 template: multiple-classes
 
 ## Passing around PApplet (continued again)
+
 Within the `Circle` and `Rectangle` class constructors, we accept an `App` object that we caan use to draw to the screen.
+
 ```java
 // ... insert the package statement and any imports here ...
 public class Circle {
@@ -664,6 +692,7 @@ public class Circle {
 
 }
 ```
+
 ---
 
 name: examples
@@ -673,6 +702,7 @@ name: examples
 --
 
 ## GitHub code repository
+
 Check out Processing-based example programs hosted in [the course GitHub repository](https://github.com/bloombar/java-examples/tree/master/Processing).
 
 ---
@@ -687,5 +717,4 @@ Hopefully this has been a pleasant foray into creating frame-based animations in
 
 --
 
-- Thank you.  Bye.
-
+- Thank you. Bye.

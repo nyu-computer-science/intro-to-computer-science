@@ -7,8 +7,9 @@ permalink: /inheritance/
 class: center, middle
 
 # Inheritance & Polymorphism
+
 > The problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle.
-> 
+>
 > –[Joe Armstrong](https://en.wikipedia.org/wiki/Joe_Armstrong_%28programmer%29), creator of Erlang, a functional programming language
 
 ---
@@ -33,6 +34,7 @@ name: overview
 --
 
 ## Concept
+
 **Inheritance** is a mechanism for basing one object or a class on another object or class when the two objects or classes include similar implementations of their behaviors.
 
 --
@@ -44,7 +46,9 @@ name: overview
 template: overview
 
 ## Historical tangent
+
 Inheritance was first implemented in Norway in 1969 for [Simula](https://en.wikipedia.org/wiki/Simula), considered the first fully object-oriented programming language. Simula included now-standard, pedestrian, object-oriented features such as:
+
 - Objects
 - Classes
 - Constructors
@@ -60,6 +64,7 @@ Inheritance was first implemented in Norway in 1969 for [Simula](https://en.wiki
 template: overview
 
 ## Benefits
+
 The touted benefits of inheritance include:
 
 --
@@ -87,6 +92,7 @@ name: implementation
 --
 
 ## Abstract Example
+
 Imagine we had the following class, `A` with just a single property, `message`, and its `getter` and `setter` methods.
 
 ```java
@@ -115,6 +121,7 @@ public class A {
 template: implementation
 
 ## Abstract Example (continued)
+
 Another class, `B`, could inherit the properties and methods of `A` by using the `extends` keyword.
 
 ```java
@@ -137,6 +144,7 @@ System.out.println( bObj.getMessage() );
 template: implementation
 
 ## Abstract Example (continued again)
+
 We often create UML diagrams indicating class relationships, where the arrow points from parent to child.
 
 ![Class inheritance UML diagram](../images/oop-inheritance-simple.png)
@@ -150,7 +158,9 @@ We often create UML diagrams indicating class relationships, where the arrow poi
 template: implementation
 
 ## Abstract Example (continued once more)
+
 When this program is run, two lines are output:
+
 ```
 A new A object is born!
 Hello!
@@ -158,7 +168,7 @@ Hello!
 
 --
 
-- The first line above, '*A new A object is born!*' is output by the `A` class's constructor function, which our code does not explicitly call.
+- The first line above, '_A new A object is born!_' is output by the `A` class's constructor function, which our code does not explicitly call.
 
 --
 
@@ -171,6 +181,7 @@ Hello!
 --
 
 - If we were to write this constructor for `B` ourselves, it would look like:
+
 ```java
 public B() {
         super();
@@ -187,7 +198,7 @@ template: implementation
 
 ## Abstract Example (continued the final time)
 
-The second line output above, '*Hello!*', is a result of the call to the `B` object's `getMessage()` method.
+The second line output above, '_Hello!_', is a result of the call to the `B` object's `getMessage()` method.
 
 --
 
@@ -202,7 +213,8 @@ The second line output above, '*Hello!*', is a result of the call to the `B` obj
 template: implementation
 
 ## Visibility
-By definition, the *private* property, `message`, of the `A` class is not visible from the `B` class.
+
+By definition, the _private_ property, `message`, of the `A` class is not visible from the `B` class.
 
 --
 
@@ -217,6 +229,7 @@ name: multi-level
 --
 
 ## Concept
+
 We can continue our example by giving `B` its own child, `C`.
 
 --
@@ -243,6 +256,7 @@ public class C extends B {
 template: multi-level
 
 ## Concept (continued)
+
 A UML diagram showing multi-class inheritance.
 
 ![Multi-class inheritance UML diagram](../images/oop-inheritance-multi.png)
@@ -256,6 +270,7 @@ A UML diagram showing multi-class inheritance.
 template: multi-level
 
 ## Analysis
+
 `C` is now a child of `B`, which itself is a child of `A`.
 
 --
@@ -273,6 +288,7 @@ template: multi-level
 --
 
 - What would the following code output?
+
 ```java
 C cObj = new C( "Welcome!!" );
 System.out.println( cObj.getMessage() );
@@ -291,7 +307,8 @@ name: polymorphism
 --
 
 ## Concept
-An object or class can assume more than one 'shape'.  
+
+An object or class can assume more than one 'shape'.
 
 --
 
@@ -299,7 +316,7 @@ An object or class can assume more than one 'shape'.
 
 --
 
-- We could say that our `C` object *is* a `C` object, as well as a `B` object, and an `A` object.
+- We could say that our `C` object _is_ a `C` object, as well as a `B` object, and an `A` object.
 
 --
 
@@ -316,6 +333,7 @@ if (cObj instanceof C && cObj instanceof B && cObj instanceof A) {
 template: polymorphism
 
 ## Application
+
 Polymorphism can be useful when we want to store a bunch of related objects of different-but-related types into an array or other grouping data structure in order to perform some kind of batch operation on them.
 
 --
@@ -342,6 +360,7 @@ for (A myObj : myObjs) {
 template: polymorphism
 
 ## Overriding
+
 It is often desireable to have child classes implement the instance methods defined in the parent class somewhat differently.
 
 --
@@ -359,6 +378,7 @@ It is often desireable to have child classes implement the instance methods defi
 --
 
 - A child class can call any public method as-defined in its parent class's code by using the keyword **super**, e.g.
+
 ```java
 super.getMessage();
 ```
@@ -376,7 +396,8 @@ name: difference
 --
 
 ## Concept
-In real applications, child classes almost invariably do something different from their parent classes, whether by overriding some parent methods or implementing their own unique methods that are not present in the parent.  This difference gives the child class a reaason to exist.
+
+In real applications, child classes almost invariably do something different from their parent classes, whether by overriding some parent methods or implementing their own unique methods that are not present in the parent. This difference gives the child class a reaason to exist.
 
 --
 
@@ -387,7 +408,9 @@ In real applications, child classes almost invariably do something different fro
 template: difference
 
 ## Example classes
+
 The parent class:
+
 ```java
 public class A {
     public void doSomething() {
@@ -397,6 +420,7 @@ public class A {
 ```
 
 The child class:
+
 ```java
 public class B extends A {
     public void doSomethingDifferent() {
@@ -410,11 +434,13 @@ public class B extends A {
 template: difference
 
 ## Similarity
+
 Since `B` inherits from `A`, both classes encapsulate `A`'s `doSomething()` method.
 
 --
 
 - `doSomething()` can be called on any `A` object, since it is defined within the `A` class.
+
 ```java
 A myA = new A();
 myA.doSomething();
@@ -423,6 +449,7 @@ myA.doSomething();
 --
 
 - and it can be called on any `B` object, since `B` objects inherit it.
+
 ```java
 B myB = new B();
 myB.doSomething();
@@ -433,7 +460,8 @@ myB.doSomething();
 template: difference
 
 ## Similarity (continued)
-Both `A` and `B` objects can be considered `A` objects, since `B` implements `A`'s public interface.  So we can take advantage of **polymorphism** to perform a batch operation on both objects.
+
+Both `A` and `B` objects can be considered `A` objects, since `B` implements `A`'s public interface. So we can take advantage of **polymorphism** to perform a batch operation on both objects.
 
 --
 
@@ -468,6 +496,7 @@ for (A myObj : myObjects) {
 template: difference
 
 ## Difference
+
 `B` objects, of course, have their own unique `doSomethingDifferent()` method that `A` objects do not have.
 
 --
@@ -481,12 +510,12 @@ template: difference
 for (A myObj : myObjects) {
     myObj.doSomething(); // works fine, since they both have this method from A
 
-    // have any B-type objects do their special behavior... 
+    // have any B-type objects do their special behavior...
     if (myObj instanceof B) {
         // first cast to B-type
         B sameObjsAsBType = (B) myObj;
         // now call B-type's unique method
-        sameObjsAsBType.doSomethingDifferent(); 
+        sameObjsAsBType.doSomethingDifferent();
     }
 }
 ```
@@ -504,6 +533,7 @@ name: composition
 --
 
 ## In context
+
 The goals of inheritance are to reuse code, reduce redundancy, and provide conceptual clarity in code.
 
 --
@@ -523,11 +553,13 @@ The goals of inheritance are to reuse code, reduce redundancy, and provide conce
 template: composition
 
 ## Example
+
 For example, when using the **Processing** animation framework, the **PApplet** class contains lots of useful animation-related public properties and methods.
 
 --
 
 - To use that framework, we want one of our classes to inherit those useful functions and thus represent the app window.
+
 ```java
 public class App extends PApplet { ... }
 ```
@@ -539,6 +571,7 @@ public class App extends PApplet { ... }
 --
 
 - In our animations we may want to have donkeys floating across the screen, so we might create a `Donkey` class to encapsulate all things related to donkeys - their width, height, x position, y position, etc.
+
 ```java
 public class Donkey { ... }
 ```
@@ -548,7 +581,8 @@ public class Donkey { ... }
 template: composition
 
 ## Example (continued)
-Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse clicks, key presses, or do the other things that the `PApplet` class can do.  Our `Donkey` class represents donkeys, not app windows.
+
+Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse clicks, key presses, or do the other things that the `PApplet` class can do. Our `Donkey` class represents donkeys, not app windows.
 
 --
 
@@ -562,7 +596,7 @@ Our `Donkey` objects don't need to pop open windows, draw ellipses, detect mouse
 
 ```java
 public class Donkey {
-    private App app; // will hold an App object, which is our child class of PApplet 
+    private App app; // will hold an App object, which is our child class of PApplet
 
     public Donkey(App app) {
         this.app = app; //store the App object composed within this Donkey
@@ -580,7 +614,9 @@ public class Donkey {
 template: composition
 
 ## Example (continued again)
+
 The App class can instantiate a Donkey object and pass itself to its constructor for the Donkey to hold a reference to.
+
 ```java
 public class App extends PApplet {
 
@@ -611,6 +647,7 @@ name: evils
 --
 
 ## Concept
+
 There are certainly those who criticise object-oriented progrmaming, and some specifically who disapprove of Java's inheritance model.
 
 --
@@ -626,6 +663,7 @@ There are certainly those who criticise object-oriented progrmaming, and some sp
 template: evils
 
 ## Example scenario
+
 Take, for example, the ["Diamond-problem" scenario](https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53).
 
 --
@@ -645,6 +683,7 @@ Take, for example, the ["Diamond-problem" scenario](https://medium.com/@cscalfan
 template: evils
 
 ## Example scenario (continued)
+
 The following UML diagram shows our classes so far, with some example properties and methods.
 
 ![Evil inheritance setup](../images/oop-inheritance-evil-setup.png)
@@ -654,11 +693,12 @@ The following UML diagram shows our classes so far, with some example properties
 template: evils
 
 ## Example scenario (continued again)
-So far so good.  But what if we added a `Copier` to the mix?
+
+So far so good. But what if we added a `Copier` to the mix?
 
 --
 
-- A `Copier` has behaviors of both a `Scanner` and a `Printer`.  Ideally, it would inherit the public interfaces of both.
+- A `Copier` has behaviors of both a `Scanner` and a `Printer`. Ideally, it would inherit the public interfaces of both.
 
 ![Evil inheritance problem](../images/oop-inheritance-evil-problem.png)
 
@@ -667,6 +707,7 @@ So far so good.  But what if we added a `Copier` to the mix?
 template: evils
 
 ## The problem
+
 In Java, and many other languages, inheritance from multiple classes is impossible.
 
 --
@@ -693,7 +734,7 @@ public class Copier {
 
 --
 
-- Because what if `Scanner` and `Printer` had a method by the same name, let's say `start()`.  Which version would `Copier` inherit?
+- Because what if `Scanner` and `Printer` had a method by the same name, let's say `start()`. Which version would `Copier` inherit?
 
 ---
 
@@ -707,6 +748,4 @@ You have now extended your understanding of object-oriented programming to inclu
 
 --
 
-- Thank you.  Bye.
-
-
+- Thank you. Bye.
