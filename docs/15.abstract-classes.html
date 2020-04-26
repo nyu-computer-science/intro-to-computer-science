@@ -19,6 +19,7 @@ class: center, middle
 1. [Overview](#concept)
 1. [Cannot Instantiate](#no-instantiate)
 1. [Pick Your Abstraction](#picking)
+1. [Mixing Abstractions](#mixing)
 1. [Conclusions](#conclusions)
 
 ---
@@ -203,7 +204,7 @@ Given both abstract classes and interfaces have the ability to encapsulate abstr
 
 --
 
-- Interfaces are used to enforce a common set of behavioral capabilities on otherwise very disaparate classes.
+- Interfaces are used to enforce a common set of behavioral capabilities on otherwise-disparate classes with very little code in common.
 
 --
 
@@ -213,9 +214,9 @@ Given both abstract classes and interfaces have the ability to encapsulate abstr
 
 template: picking
 
-## Deciding between abstract classes and a concrete class
+## Deciding between abstract and concrete classes
 
-Given that abstract classes can share all the same code as a concrete class, and more, _how do you pick between the two_?
+Given that abstract classes can share all the same sorts of code as a concrete class, and more, _how do you pick between the two_?
 
 --
 
@@ -223,7 +224,7 @@ Given that abstract classes can share all the same code as a concrete class, and
 
 --
 
-- Use an abstract class if it makes no conceptual sense for the class to be instantiated.
+- Use an abstract class if it makes no conceptual sense for the class to ever be instantiated.
 
 --
 
@@ -231,11 +232,43 @@ Given that abstract classes can share all the same code as a concrete class, and
 
 --
 
-- For example, dogs and cats share a lot of physiology in common - they are both being mammals. Imagine writing code representing them each.
+- For example, dogs and cats share a lot of internals in common - they are both mammals. Imagine writing code representing them... you might create a Mammal class that encapsulates what Dog and Cat have in common and have Mammal be inherited by each.
 
 --
 
 - Would it make sense to be able to instantiate a Mammal object? Or might it be better to create an abstract Mammal class that contains a lot of code shared in common by two concrete child classes, Dog and Cat.
+
+---
+
+name: mixing
+
+# Mixing Abstractions
+
+--
+
+## Choices
+
+When dealing with inheritance, polymorphism, interfaces, and abstract classes, we often study them in isolation. However, in reality, a single class might take advantage of all of these.
+
+--
+
+Imagine, for example, the following scenarios:
+
+--
+
+- a single class can use class-based inheritance (whether from an abstract class or a concrete class) as well as implement an interface
+
+--
+
+- a single class might implement multiple interfaces
+
+--
+
+- a single class might implement an interface that inherits from another interface
+
+--
+
+- a single class might inherit from an abstract class that implements multiple interfaces
 
 ---
 
@@ -245,7 +278,7 @@ name: conclusions
 
 --
 
-Abstract methods can be useful, when implemented tactfully. You now have an understanding of the various ways in which this might be the case.
+Abstract classes can be useful, when implemented with tact. You now have an understanding of the various ways in which this might be the case.
 
 --
 
