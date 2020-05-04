@@ -115,7 +115,7 @@ In conclusion, the Java people recommend the following:
 
 --
 
-- we must master the code used to create them, detect when they have occurred, and handle them so our programs do not crash.
+- we must master the code used to create them, detect when they have occurred, and handle them so our programs do not unnecessarily crash.
 
 ---
 
@@ -167,7 +167,7 @@ public void doSomething() {
 
 --
 
-- But the `doSomething()` method does not have any code to handle the situation in which the file being opened does not exist.
+- Yet the `doSomething()` method does not have any code to handle the situation in which the file being opened does not exist.
 
 ---
 
@@ -237,6 +237,8 @@ template: handling
 ## Example - the throws solution (continued)
 
 Let's imagine another method that calls our `doSomething` method.
+
+--
 
 ```java
 public void anotherMethod() {
