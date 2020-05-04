@@ -151,23 +151,22 @@ For example, take a method that opens a file... this might cause a checked excep
 
 ```java
 public void doSomething() {
-  String myFile = "foo.csv";
-  Scanner scn = new Scanner( new File(myFile) );
+  Scanner scn = new Scanner( new File( "foo.csv" ) );
   // .. imagine we do something useful with this file here ...
 }
 ```
 
 --
 
-- This code will not compile.
+- This code will not compile. [See for yourself!](https://repl.it/repls/FittingSnoopyOpenlook)
 
 --
 
-- The `Scanner` class's constructor declares that it may cause a checked exception when the file is not found.
+- The `Scanner` class's constructor declares that it may cause a checked exception when the file is not found. It declares this using the `throws` declaration which we'll return to a bit later.
 
 --
 
-- Yet the `doSomething()` method does not have any code to handle the situation in which the file being opened does not exist.
+- Yet the `doSomething()` method does not have any code to handle the situation in which this exception occurs.
 
 ---
 
@@ -183,11 +182,10 @@ name: example-try-catch
 
 ```java
 public void doSomething() {
-  String myFile = "foo.csv";
 
   try {
     // attempt to open the file... this may or may not fail
-    Scanner scn = new Scanner( new File(myFile) );
+    Scanner scn = new Scanner( new File( "foo.csv" ) );
     // .. imagine we do something useful with this file here ...
   }
   catch (FileNotFoundException e) {
@@ -197,6 +195,10 @@ public void doSomething() {
   }
 }
 ```
+
+--
+
+- [Try it!](https://repl.it/repls/CrispExtrasmallOutsourcing)
 
 ---
 
@@ -212,8 +214,7 @@ name: example-throws
 
 ```java
 public void doSomething() throws FileNotFoundException {
-  String myFile = "foo.csv";
-  Scanner scn = new Scanner( new File(myFile) );
+  Scanner scn = new Scanner( new File( "foo.csv" ) );
   // .. imagine we do something useful with this file here ...
 }
 ```
@@ -224,7 +225,7 @@ public void doSomething() throws FileNotFoundException {
 
 --
 
-- it is now the responsibility of the method that called this method to handle any exception that might occur.
+- the `doSomething()` method has abdicated responsibility for the exception that may occur, and it is now the responsibility of any method that calls this method to handle the exception.
 
 --
 
@@ -282,7 +283,7 @@ public void anotherMethod() {
 ```
 
 --
-... or ...
+[Try it!](https://repl.it/repls/AshamedBurdensomeEquation)... - or - [try this](https://repl.it/repls/SerpentineSecondhandObjectdatabase):...
 
 ```java
 // the throws way
@@ -349,11 +350,13 @@ public class Person {
     if ( c.getTemperature("Farenheit") > 113 ) {
       throw new BurnedMouthException();
     }
-
   }
-
 }
 ```
+
+--
+
+- [Try it!](https://repl.it/repls/MixedRepentantLocations)
 
 --
 
@@ -404,21 +407,21 @@ As we have already learned, any other method that calls this `sip()` method must
 --
 
 ```java
-public void passTheTime(Person person, Coffee coffee) {
-
-  try {
-    // let's imagine that we have Person object person and Coffee object coffee
-    person.sip(coffee);
-  }
-  catch (BurnedMouthException e) {
-    // do something in response to this exception being thrown
-  }
-  catch (OutOfCoffeeException e) {
-    // do something in response to this exeption being thrown
-  }
-
+try {
+  // let's imagine that we have Person object person and Coffee object coffee
+  person.sip(coffee);
+}
+catch (BurnedMouthException e) {
+  // do something in response to this exception being thrown
+}
+catch (OutOfCoffeeException e) {
+  // do something in response to this exeption being thrown
 }
 ```
+
+--
+
+- [Try it!](https://repl.it/repls/WatchfulSqueakyProduct)
 
 --
 
@@ -435,13 +438,27 @@ Alternatively, of course, this method could have declared that it `throws` the t
 --
 
 ```java
-public void passTheTime(Person person, Coffee coffee) throws BurnedMouthException, OutOfCoffeeException {
+public static void main(String[] args) throws BurnedMouthException, OutOfCoffeeException {
 
-    // let's imagine that we have Person object person and Coffee object coffee
+    // imagine that we have Person object person and Coffee object coffee already instantiated
+
+    // have the person take a sip
     person.sip(coffee);
 
 }
 ```
+
+--
+
+- [Try it!](https://repl.it/repls/MagentaSameLanguage)
+
+--
+
+- Notice that this code compiles, even though we never fully handle the exceptions with a `try`/`catch` block.
+
+--
+
+- The compiler ignores any exceptions thrown by the `main` method.... but the program crashes during runtime.
 
 ---
 
